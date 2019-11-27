@@ -1,0 +1,85 @@
+   Pesticide Root Zone Model Five (PRZM5)
+       PRZM5 Version: 5.04
+ 
+     For technical support contact:
+            Dirk F. Young 
+       Office of Pesticide Programs 
+ United States Environmental Protection Agency
+       Washington, DC 20460-0001
+       E-mail: young.dirk@epa.gov
+ 
+ Record A1
+ weather file: E:\Research\NewWeatherFiles\20737_grid.wea
+ Record A2:  PRZM Output Time Series File
+ Time Series:C:\git\sinnathamby_pwc\input\pwcinput.zts
+ Record A3:  PRZM Options
+ Record 1
+ Record 2
+ Record 3
+ Record 4
+ Record 5
+ Record 6
+ number of crop cycles =                     54
+ Record 7
+ Record 8 Flags
+ Record 18
+ Record 19  Soil Parameters
+ Record 19  Soil Parameters
+ Record 19  Soil Parameters
+ Record 19  Soil Parameters
+ Record 19  Soil Parameters
+ Record 20  PRZM5 runoff extraction parameters
+ Record 21  PRZM5 erosion extraction parameters
+ Record C1
+ Record C2
+ Record C3
+ Record C4
+ Record C6
+ Record C7  Kf
+ Record C7  Kf
+ Record C7  Kf
+ Record C7  Kf
+ Record C7  Kf
+ Record C7A  Freundlich N
+ Record C7A  Freundlich N
+ Record C7A  Freundlich N
+ Record C7A  Freundlich N
+ Record C7A  Freundlich N
+ Record C7B  Region 2 Freundlich Coefficients
+ Record C7B  Region 2 Freundlich Coefficients
+ Record C7B  Region 2 Freundlich Coefficients
+ Record C7B  Region 2 Freundlich Coefficients
+ Record C7B  Region 2 Freundlich Coefficients
+ Record C7C  Region 2 Freundlich Exponents
+   1.00000000000000     
+ Record C7C  Region 2 Freundlich Exponents
+   1.00000000000000     
+ Record C7C  Region 2 Freundlich Exponents
+   1.00000000000000     
+ Record C7C  Region 2 Freundlich Exponents
+   1.00000000000000     
+ Record C7C  Region 2 Freundlich Exponents
+   1.00000000000000     
+ Record C7D  Concentration below which isotherm is linear(mg/L)
+ Record C7E Mass Transfer Coefficient, K2
+ Mass Transfer Coefficient =    1.00000000000000     
+ Record C8 Degradation Rates
+ Record C8 Degradation Rates
+ Record C8 Degradation Rates
+ Record C8 Degradation Rates
+ Record C8 Degradation Rates
+ Record C9
+ Record C9
+ Record C9
+ Record C9
+ Record C9
+ Record U1
+ Record U2
+ Record U2
+ Record U2
+ Record U2
+ Record U2
+ Record U2
+ End of record reading
+ Total days =                  19723
+ PRZM5 program normal completion.
