@@ -320,7 +320,7 @@ for(Ite in 1:Nsims){
  bd2=round(input_list[Ite,"bd2"],2)
  bd3=round(input_list[Ite,"bd3"],2)
  bd4=round(input_list[Ite,"bd4"],2)
- #bd5=round(input_list[Ite,"bd5"],2)
+ bd5=round(input_list[Ite,"bd5"],2)
 
  # BD6=runif(Nsims, min=1, max=2)
 
@@ -347,9 +347,9 @@ for(Ite in 1:Nsims){
  a[72]=paste(bd4_list,"",collapse=",")
  #a[72]=paste(substr(a[72],1,14), sprintf("%.02f",bd4), substr(a[72],19,55),sep=",")
  
- #bd5_list <- c(unlist(strsplit(a[73],",")),"")
- #bd5_list[5]<-bd5
- #a[73]=paste(bd5_list,"",collapse=",")
+ bd5_list <- c(unlist(strsplit(a[73],",")),"")#5 soil layers
+ bd5_list[5]<-bd5
+ a[73]=paste(bd5_list,"",collapse=",")
  ##a[73]=paste(substr(a[73],1,14), sprintf("%.02f",bd5), substr(a[73],19,55),sep=",")
  
  
@@ -357,7 +357,7 @@ for(Ite in 1:Nsims){
  # -------------------------------- fc ----------------------------------------
  
  # number of horizons (soil layer)
- Num_s=4 #should this be 5?
+ Num_s=5 #should this be 5?Yes, we have 5 soillayers. If you want to just change only for 4 layers, you can still keep as 4
  
  # round each fc to 2 decimals
  fc=round(input_list[Ite,"fc"],2)
@@ -375,7 +375,7 @@ for(Ite in 1:Nsims){
  # -------------------------------- wp ----------------------------------------
  
  # number of horizons (soil layer)
- Num_s=4 #should this be 5?
+ Num_s=5 #should this be 5?
  
  # round each WP to 2 decimals
  WP=round(input_list[Ite,"WP"],2)
@@ -393,7 +393,7 @@ for(Ite in 1:Nsims){
  
  # -------------------------------- oc ----------------------------------------
  # number of horizons (soil layer)
- Num_s=4 #should this be 5?
+ Num_s=5 #should this be 5?
  
  # round each OC to 2 decimals
  OC=round(input_list[Ite,"OC"],2)
@@ -443,7 +443,7 @@ for(Ite in 1:Nsims){
  dep=round(input_list[Ite,"dep"],2)
  
  # for each dep in input file, update input file's Record C2 for dep
- row_0=81
+ row_0=82
  for (i in 1:Num){
    row_t=row_0+(i-1)
    dep_list <- unlist(strsplit(a[row_t],","))
@@ -461,7 +461,7 @@ for(Ite in 1:Nsims){
  app_rate=round(input_list[Ite,"app_rate"],2)
  
  # for each rate in input file, update input file's Record C2 for rate
- row_0=81
+ row_0=82
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_rate_list <- unlist(strsplit(a[row_t],","))
@@ -480,7 +480,7 @@ for(Ite in 1:Nsims){
  app_eff=round(input_list[Ite,"app_eff"],2)
  
  # for each eff in input file, update input file's Record C2 for eff
- row_0=81
+ row_0=82
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_eff_list <- unlist(strsplit(a[row_t],","))
@@ -501,19 +501,19 @@ for(Ite in 1:Nsims){
  PLDKRT=round(input_list[Ite,"PLDKRT"],2)
  
  # update input file's Record C4
- PLDKRT_list <- unlist(strsplit(a[100],","))
+ PLDKRT_list <- unlist(strsplit(a[101],","))
  PLDKRT_list[2]<-PLDKRT
- a[100]=paste(PLDKRT_list,collapse=",")
+ a[101]=paste(PLDKRT_list,collapse=",")
  
  
  # -------------------- DWRATE -----------------------------------------------
  
  # number of soil layer
- Numhz=4 
+ Numhz=5 
  
  # for each dwrate, update input file's (Record C8 ?)
  DWRATE=input_list[Ite,"DWRATE"]
- row_hz=128
+ row_hz=133
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DWRATE_list <- unlist(strsplit(a[row_t],","))
@@ -523,11 +523,11 @@ for(Ite in 1:Nsims){
  # -------------------- DSRATE ------------------------------------------------
  
  # number of soil layer
- Numhz=4
+ Numhz=5
  
- # for each dsrate, update input file's (Record C8 ?)
+ # for each dsrate, update input file's (Record C8)
  #DSRATE=input_list[Ite,"DSRATE"]
- row_hz=128
+ row_hz=133
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))

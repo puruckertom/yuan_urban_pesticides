@@ -48,6 +48,13 @@ if(Sys.info()[4]=="LZ2626UTPURUCKE"){
   pwc_filename <- "RLF_Forest_Chloropyrifos.PWC"
   przm_filename <- "PRZM5.inp"
 }
+#Sumathy
+if(Sys.info()[4]=="LZ2032ESSINNATH"){
+  pwcdir <- "C:/Users/SSINNATH/Documents/git/yuan_urban_pesticides/"
+  # pwc,przm (without directory, the file needs to be in vpdir_exe above)
+  pwc_filename <- "RLF_Forest_Chloropyrifos.PWC"
+  przm_filename <- "PRZM5.inp"
+}
 # Emma
 if(Sys.info()[4]=="LZ2626UECHELSVI"){
   pwcdir <- "C:/Users/echelsvi/git/yuan_urban_pesticides/"
