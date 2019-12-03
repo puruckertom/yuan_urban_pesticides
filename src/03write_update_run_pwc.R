@@ -55,7 +55,7 @@ dim(con_fac)
 
 
 set.seed(42)
-
+Ite <- 8
 # we will run the PWC PRZM 5000 times (5000 = our # of simulations)
 # to run each of the 5000 PWC simulations, we will update the PWC PRZM input file with the corresponding Latin Hypercube parameter quanitities
 for(Ite in 1:Nsims){
@@ -580,17 +580,17 @@ for(Ite in 1:Nsims){
   close(con_przm)
   # source(paste(pwcdir,"src/02write_przm_input.R",sep = ""))
   
-  #run###PRZM.exe#
+  # #run###PRZM.exe#
   system2(przmdir_executable)
   
   # #run###vvwm.exe#
   system2(vvwmdir_executable, "vvwmTransfer.txt")
 
 # ---------------------------------------------------------------------------
-# write input into csv
+# read in outputs, fill for each simulation
 # ---------------------------------------------------------------------------
   
-  # ---------------------------- PRZM ---------------------------------------
+  # ---------------------------- PRZM Output --------------------------------
   df <- read.table(paste(newdir,"/","output",".zts", sep=""), header= FALSE, sep= "",
                    skip = 3, stringsAsFactors = FALSE, row.names=NULL)
   #print(df)
@@ -610,9 +610,7 @@ for(Ite in 1:Nsims){
 
   
   # ------------------- Reading Conversion Factor from Output ---------------
-  #con_fac <- scan((paste(newdir,"/","output_CAalmond_WirrigSTD_Custom_Parent",".txt", sep="")),skip=15,nlines=1,what="int")
   con_almond <- file(paste(newdir,"/","output_CAalmond_WirrigSTD_Custom_Parent",".txt", sep=""))
-  #print(con)
   
   open(con_almond)
   con_fac_line <- read.table(con_almond,skip=15,nrow=1) #16-th line
@@ -625,13 +623,9 @@ for(Ite in 1:Nsims){
   setwd(cwd)
 }
 
-# ----------------------- final output -------------------------------------
-output <- data.frame(con_fac)
-save(output, file = paste(pwcdir,"io/output.RData",sep = ""))
-class(output)
+
 
 
 # ----------------------------------------------------------------------------
 # the end
 # ----------------------------------------------------------------------------
-

@@ -10,9 +10,11 @@
  
  Record A1
  weather file: 
- c:/git/yuan_urban_pesticides/input/przm/input2/20737_grid_ncdc.wea
+ C:/Users/echelsvi/git/yuan_urban_pesticides/input/przm/input2/20737_grid_ncdc.w
+ ea
  Record A2:  PRZM Output Time Series File
- Time Series:c:/git/yuan_urban_pesticides/input/przm/input2/output.zts
+ Time Series:C:/Users/echelsvi/git/yuan_urban_pesticides/input/przm/input2/outpu
+ t.zts
  Record A3:  PRZM Options
  Record 1
  Record 2
@@ -64,10 +66,25 @@
    1.00000000000000     
  Record C7D  Concentration below which isotherm is linear(mg/L)
  Record C7E Mass Transfer Coefficient, K2
- Mass Transfer Coefficient =   0.186000000000000     
+ Mass Transfer Coefficient =    1.00000000000000     
  Record C8 Degradation Rates
  Record C8 Degradation Rates
  Record C8 Degradation Rates
  Record C8 Degradation Rates
  Record C8 Degradation Rates
  Record C9
+ Record C9
+ Record C9
+ Record C9
+ Record C9
+ Record U1
+ Record U2
+ Record U2
+ Record U2
+ Record U2
+ Record U2
+ Record U2
+ End of record reading
+ Total days =                   5844
+ Water capacity exceeds saturation.
+ PRZM5 program normal completion.
