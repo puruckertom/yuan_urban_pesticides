@@ -9,7 +9,7 @@
 
 # check to make sure required packages are installed
 list.of.packages <- c("plyr", "dplyr", "reshape2", "ggplot2", "grid", "gridExtra", "sensitivity", "abind", 
-                      "ppcor")
+                      "ppcor", "scales", "MASS")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)>0) {install.packages(new.packages)}
 
@@ -30,9 +30,7 @@ library(ppcor)
 library("dplyr")
 library(MASS)
 library(dplyr)
-
-attach(sens)
-
+library (scales)
 
 # echo environment
 Sys.info()

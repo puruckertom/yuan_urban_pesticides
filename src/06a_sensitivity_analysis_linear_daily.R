@@ -58,11 +58,12 @@ tarray_pwc_pcc_out_daily<- array(data=NA, c(ndays,nvars))
 dim(tarray_pwc_pcc_out_daily) #days*variables
 
 
+i = 3309
 # partial correlation coefficients
 for (i in 1:ndays){  #break
   out_sim<- pwc_h2_output[i,1:Nsims]
-  
-  temp_pcc<- pcc(inputs_lhs[1:Nsims,], out_sim, rank = F)
+  in_sims <- inputs_lhs[1:Nsims,]
+  temp_pcc<- pcc(in_sims, out_sim, rank = F)
   
   print(paste(i,"out of",ndays)) 
   tarray_pwc_pcc_out_daily[i,] <- temp_pcc$PCC[[1]]
