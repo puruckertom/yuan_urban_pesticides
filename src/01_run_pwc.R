@@ -13,7 +13,7 @@ source(paste(pwcdir,"src/03_write_update_run_pwc.R",sep = ""))
 
 # run VVWM and produce VVWMtransfer.txt ------------------------------------   
 # this file gets run in 03_write_update_run_pwc.R
-#source(paste(pwcdir, "src/02_write_update_vvwm.R",sep =""))
+#source(paste(pwcdir, "src/04_write_update_vvwm.R",sep =""))
 
 
 # QAQC check ---------------------------------------------------------------   ????????
@@ -32,12 +32,12 @@ source(paste(pwcdir,"src/06a_sensitivity_analysis_linear_daily.R",sep = ""))
 source(paste(pwcdir,"src/06b_sensitivity_analysis_linear_max.R",sep = ""))
 
 
-# sensitivity graphics -----------------------------------------------------
-source(paste(pwcdir,"src/07sensitivity_analyses_graphics.R",sep = ""))
+# sensitivity graphics for daily--------------------------------------------
+source(paste(pwcdir,"src/07a_sensitivity_analyses_graphics_daily.R",sep = ""))
 
 
-# maximum sensitivity graphics ---------------------------------------------   ????????
-#source(paste(pwcdir, "src/07a_max_sensitivity_analysis_graphics.R", sep="") 
+# sensitivity graphics for max ---------------------------------------------   ????????
+#source(paste(pwcdir, "src/07b_sensitivity_analysis_graphics_max.R", sep="") 
 
 
 # sensitivity parameter distribution graphs --------------------------------

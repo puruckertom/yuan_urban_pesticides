@@ -40,6 +40,8 @@ ndays <- length(timearray)
 # check pwc output
 dim(pwcoutdf)
 pwcoutdf[1:10,,1]
+pwcoutdf[3890:3900,,1]
+pwcoutdf[5834:5844,,1]
 
 # subset Ave.Conc.H2O for PCC
 pwc_h2_output <- pwcoutdf[,2,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
@@ -48,12 +50,12 @@ dim(pwc_h2_output) #days*simulations
 
 # check LHS 
 dim(inputs_lhs) #simulations*variables
-nvars <- length(inputs_lhs)#number of input variables
+nvars <- length(inputs_lhs) #number of input variables
 
 
 # create BLANK partial correlation coefficients array for input
-tarray_pwcpccout<- array(data=NA, c(ndays,nvars))
-dim(tarray_pwcpccout)
+tarray_pwc_pcc_out_daily<- array(data=NA, c(ndays,nvars))
+dim(tarray_pwc_pcc_out_daily) #days*variables
 
 
 # partial correlation coefficients
@@ -63,14 +65,14 @@ for (i in 1:ndays){  #break
   temp_pcc<- pcc(inputs_lhs[1:Nsims,], out_sim, rank = F)
   
   print(paste(i,"out of",ndays)) 
-  tarray_pwcpccout[i,] <- temp_pcc$PCC[[1]]
+  tarray_pwc_pcc_out_daily[i,] <- temp_pcc$PCC[[1]]
 }
 
 # write out pcc results
-dim(tarray_pwcpccout)
+dim(tarray_pwc_pcc_out_daily)
 
-save(tarray_pwcpccout,file = paste(pwcdir,"io/tarray_pwcpccout.RData", sep = ""))
-write.csv(tarray_pwcpccout, file = paste(pwcdir, "io/tarray_pccout.csv", sep = ""))
+save(tarray_pwc_pcc_out_daily,file = paste(pwcdir,"io/tarray_pwc_pcc_out_daily.RData", sep = ""))
+write.csv(tarray_pwc_pcc_out_daily, file = paste(pwcdir, "io/tarray_pwc_pcc_out_daily.csv", sep = ""))
 
 # plot
 plot(temp_pcc)

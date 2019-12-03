@@ -28,6 +28,11 @@ library(abind)
 library(tools)
 library(ppcor)
 library("dplyr")
+library(MASS)
+library(dplyr)
+
+attach(sens)
+
 
 # echo environment
 Sys.info()
