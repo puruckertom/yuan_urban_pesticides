@@ -237,14 +237,14 @@ for(Ite in 1:Nsims){
  
  # ------------------------ root depth ------------------------------------------
  
- # number of crop periods that follow (Record 6, total = 16)
- Numd=16
+ # number of crop periods that follow (Record 11, total = 6)
+ Numd=6
  
  # round each depth to 0 decimals
  depth=round(input_list[Ite,"depth"],0)
  
  # for each depth in the input file, update the input file's Record 7 for depth
- row_0=45
+ row_0=34
  for (i in 1:Numd){
    row_t=row_0+(i-1)
    depth_list <- unlist(strsplit(a[row_t],","))
@@ -255,14 +255,14 @@ for(Ite in 1:Nsims){
  
  # ------------------------ covmax ---------------------------------------------
  
- # number of crop periods that follow (Record 6, total = 16)
- Numd=16
+ # number of crop periods that follow (Record 11, total = 6)
+ Numd=6
  
  # round each COVMAX to 3 decimals
  COVMAX=round(input_list[Ite,"COVMAX"],3)
  
  # for each cover in the input file, update the input file's Record 7 for cover
- row_0=45
+ row_0=34
  for (i in 1:Numd){
    row_t=row_0+(i-1)
    COVMAX_list <- unlist(strsplit(a[row_t],","))
@@ -273,14 +273,14 @@ for(Ite in 1:Nsims){
  
  # ------------------------ htmax ---------------------------------------------
  
- # number of crop periods that follow (Record 6, total = 16)
- Numd=16
+ # number of crop periods that follow (Record 11, total = 6)
+ Numd=6
  
  # round each HTMAX to 0 decimals
  HTMAX=round(input_list[Ite,"HTMAX"],0)
  
  # for each height in the input file, update the input file's Record 7 for height
- row_0=45
+ row_0=34
  for (i in 1:Numd){
    row_t=row_0+(i-1)
    HTMAX_list <- unlist(strsplit(a[row_t],","))
@@ -290,14 +290,14 @@ for(Ite in 1:Nsims){
  
  # ------------------------  holdup ---------------------------------------------
  
- # number of crop periods that follow (Record 6, total = 16)
- Numd=16
+ # number of crop periods that follow (Record 11, total = 6)
+ Numd=6
  
  # round each holdup to 2 decimals
  holdup=round(input_list[Ite,"holdup"],2)
  
  # for each holdup in the input file, update the input file's Record 7 for holdup
- row_0=45
+ row_0=34
  for (i in 1:Numd){
    row_t=row_0+(i-1)
    holdup_list <- unlist(strsplit(a[row_t],","))
@@ -308,62 +308,33 @@ for(Ite in 1:Nsims){
  
  # ------------------------ max rate irrigation ---------------------------------
  # RATEAP=input_list[Ite,"RATEAP"]
- # RATEAP_list <- unlist(strsplit(a[64],","))
+ # RATEAP_list <- unlist(strsplit(a[43],","))
  # RATEAP_list[4]<-RATEAP
- # a[64]=paste(RATEAP_list,collapse=",")
+ # a[43]=paste(RATEAP_list,collapse=",")
  
  
  # ------------------------ bulk density ----------------------------------------
 
- # round each bd to 2 decimals
- bd1=round(input_list[Ite,"bd1"],2)
- bd2=round(input_list[Ite,"bd2"],2)
- bd3=round(input_list[Ite,"bd3"],2)
- bd4=round(input_list[Ite,"bd4"],2)
- bd5=round(input_list[Ite,"bd5"],2)
+ # round bd to 2 decimals
+ bd1=round(input_list[Ite,"bd1"],2)  #only bd1 because 1 horizon
 
- # BD6=runif(Nsims, min=1, max=2)
-
- # for each bd in input file, update input file's Record 15 for bd
- 
- bd1_list <- c(unlist(strsplit(a[69],",")),"")#adding extra empty value at end
+ # update input file's Record 19 for bd
+ bd1_list <- c(unlist(strsplit(a[48],",")),"")#adding extra empty value at end
  bd1_list[5]<-bd1
- a[69]=paste(bd1_list,"",collapse=",")
- #a[69]=paste(substr(a[69],1,15), sprintf("%.02f",bd1), substr(a[69],20,55),sep=",")
- 
- bd2_list <- c(unlist(strsplit(a[70],",")),"")#adding extra empty value at end
- bd2_list[5]<-bd2
- a[70]=paste(bd2_list,"",collapse=",")
- #a[70]=paste(substr(a[70],1,13), sprintf("%.02f",bd2), substr(a[70],19,55),sep=",")
- 
- bd3_list <- c(unlist(strsplit(a[71],",")),"")#adding extra empty value at end
- bd3_list[5]<-bd3
- a[71]=paste(bd3_list,"",collapse=",")
- #a[71]=paste(substr(a[71],1,14), sprintf("%.02f",bd3), substr(a[71],19,55),sep=",")
- 
- 
- bd4_list <-c(unlist(strsplit(a[72],",")),"")#adding extra empty value at end
- bd4_list[5]<-bd4
- a[72]=paste(bd4_list,"",collapse=",")
- #a[72]=paste(substr(a[72],1,14), sprintf("%.02f",bd4), substr(a[72],19,55),sep=",")
- 
- bd5_list <- c(unlist(strsplit(a[73],",")),"")#5 soil layers
- bd5_list[5]<-bd5
- a[73]=paste(bd5_list,"",collapse=",")
- ##a[73]=paste(substr(a[73],1,14), sprintf("%.02f",bd5), substr(a[73],19,55),sep=",")
- 
+ a[48]=paste(bd1_list,"",collapse=",")
+ #a[48]=paste(substr(a[48],1,15), sprintf("%.02f",bd1), substr(a[48],20,55),sep=",")
  
  
  # -------------------------------- fc ----------------------------------------
  
- # number of horizons (soil layer)
- Num_s=5 
+ # number of horizons (soil layer) (Record 18)
+ Num_s=1 
  
  # round each fc to 2 decimals
  fc=round(input_list[Ite,"fc"],2)
  
- # for each FC in input file, update input file's Record 15 for FC
- row_s=69
+ # for each FC in input file, update input file's Record 19 for FC
+ row_s=48
  for (i in 1:Num_s){
    row_t=row_s+(i-1)
    fc_list <- unlist(strsplit(a[row_t],","))
@@ -374,14 +345,14 @@ for(Ite in 1:Nsims){
  
  # -------------------------------- wp ----------------------------------------
  
- # number of horizons (soil layer)
- Num_s=5 
+ # number of horizons (soil layer) (Record 18)
+ Num_s=1  
  
  # round each WP to 2 decimals
  WP=round(input_list[Ite,"WP"],2)
  
- # for each WP in input file, update input file's Record 15 for WP
- row_s=69
+ # for each WP in input file, update input file's Record 19 for WP
+ row_s=48
  for (i in 1:Num_s){
    row_t=row_s+(i-1)
    WP_list <- unlist(strsplit(a[row_t],","))
@@ -392,14 +363,14 @@ for(Ite in 1:Nsims){
  
  
  # -------------------------------- oc ----------------------------------------
- # number of horizons (soil layer)
- Num_s=5 #should this be 5?
+ # number of horizons (soil layer) (Record 18)
+ Num_s=1 
  
  # round each OC to 2 decimals
  OC=round(input_list[Ite,"OC"],2)
  
- # for each oc in input file, update input file's Record 15 for oc
- row_s=69
+ # for each oc in input file, update input file's Record 19 for oc
+ row_s=48
  for (i in 1:Num_s){
    row_t=row_s+(i-1)
    OC_list <- unlist(strsplit(a[row_t],","))
@@ -410,9 +381,9 @@ for(Ite in 1:Nsims){
  
  
  ## -------------------------- app tm -----------------------------------------
- # Num=16#Number of Applications
+ # Num=50#Number of Applications
  # app_tm=round(input_list[Ite,"app_tm"],0)
- # row_0=82
+ # row_0=57
  # for (i in 1:Num){
  #   row_t=row_0+(i-1)
  #   app_tm_list <- unlist(strsplit(a[row_t],","))
@@ -422,9 +393,9 @@ for(Ite in 1:Nsims){
  # }
  #
  ## -------------------------- app tm -----------------------------------------
- # Num=16#Number of Applications
+ # Num=50#Number of Applications
  # app_m=round(input_list[Ite,"app_tm"],0)
- # row_0=82
+ # row_0=57
  # for (i in 1:Num){
  #   row_t=row_0+(i-1)
  #   app_m_list <- unlist(strsplit(a[row_t],","))
@@ -436,14 +407,14 @@ for(Ite in 1:Nsims){
  
  # -------------- depth of pesticide application ------------------------------
 
- # number of applications (Record C1, total = 16)
- Num=16 
+ # number of applications (Record C1, total = 50)
+ Num=50 
  
  # round each dep to 2 decimals
  dep=round(input_list[Ite,"dep"],2)
  
  # for each dep in input file, update input file's Record C2 for dep
- row_0=82
+ row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    dep_list <- unlist(strsplit(a[row_t],","))
@@ -454,14 +425,14 @@ for(Ite in 1:Nsims){
  
  # -------------------- application rate  -------------------------------------
  
- # number of applications (Record C1, total = 16)
- Num=16
+ # number of applications (Record C1, total = 50)
+ Num=50 
  
  # round each app_rate to 2 decimals
  app_rate=round(input_list[Ite,"app_rate"],2)
  
  # for each rate in input file, update input file's Record C2 for rate
- row_0=82
+ row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_rate_list <- unlist(strsplit(a[row_t],","))
@@ -473,14 +444,14 @@ for(Ite in 1:Nsims){
  
  # -------------------- application eff  -------------------------------------
  
- # number of applications (Record C1, total = 16)
- Num=16
+ # number of applications (Record C1, total = 50)
+ Num=50 
  
  # round each app_eff to 2 decimals
  app_eff=round(input_list[Ite,"app_eff"],2)
  
  # for each eff in input file, update input file's Record C2 for eff
- row_0=82
+ row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_eff_list <- unlist(strsplit(a[row_t],","))
@@ -509,11 +480,11 @@ for(Ite in 1:Nsims){
  # -------------------- DWRATE -----------------------------------------------
  
  # number of soil layer
- Numhz=5 
+ Numhz=1 
  
  # for each dwrate, update input file's (Record C8 ?)
  DWRATE=input_list[Ite,"DWRATE"]
- row_hz=133
+ row_hz=124
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DWRATE_list <- unlist(strsplit(a[row_t],","))
@@ -523,11 +494,11 @@ for(Ite in 1:Nsims){
  # -------------------- DSRATE ------------------------------------------------
  
  # number of soil layer
- Numhz=5
+ Numhz=1
  
  # for each dsrate, update input file's (Record C8)
  #DSRATE=input_list[Ite,"DSRATE"]
- row_hz=133
+ row_hz=124
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))
