@@ -7,7 +7,7 @@ Nsims <- 8
 
 # weather file
 #can be .dvf or .wea
-pwc_weather_used <- "20737_grid_ncdc.wea"
+pwc_weather_used <- "Camino-Cimis13_NEW_08-13.dvf"
 pwc_weather <- paste(pwcdir_weather, pwc_weather_used, sep="")
 
 # state the simulation start and end
@@ -22,7 +22,7 @@ input_parameters <- c("PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c",
                       "benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
 # import paramter range csv table
-param_ranges <- read.csv(paste(pwcdir,"input/lhs_param_ranges.csv",sep=""),header= TRUE, sep= ",", stringsAsFactors = FALSE, row.names=NULL)
+param_ranges <- read.csv(paste(pwcdir,"input/lhs/lhs_param_ranges.csv",sep=""),header= TRUE, sep= ",", stringsAsFactors = FALSE, row.names=NULL)
 
 
 

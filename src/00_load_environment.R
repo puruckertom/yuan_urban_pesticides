@@ -48,14 +48,12 @@ if(Sys.info()[4]=="stp-air"){
 if(Sys.info()[4]=="LZ2626UTPURUCKE"){
   pwcdir <- "c:/git/yuan_urban_pesticides/"
   # pwc,przm (without directory, the file needs to be in vpdir_exe above)
-  pwc_filename <- "RLF_Forest_Chloropyrifos.PWC"
   przm_filename <- "PRZM5.inp"
 }
 #Sumathy
 if(Sys.info()[4]=="LZ2032ESSINNATH"){
   pwcdir <- "C:/Users/SSINNATH/Documents/git/yuan_urban_pesticides/"
   # pwc,przm (without directory, the file needs to be in vpdir_exe above)
-  pwc_filename <- "RLF_Forest_Chloropyrifos.PWC"
   przm_filename <- "PRZM5.inp"
 }
 # Emma
@@ -83,9 +81,14 @@ pwcdir_sobol <- paste(pwcdir, "sobol/", sep = "")
 
 # pwc executable version
 #pwc 1.59
-pwc_binary<- "pwc159.exe"
+pwc_binary<- "PesticideWaterCalculator.exe"
 pwcdir_executable <- paste(pwcdir_exe, pwc_binary, sep="")
 przm_binary<- "PRZM5.exe"
 przmdir_executable <- paste(przmdir_exe, przm_binary, sep="")
 vvwm_binary<- "VVWM.exe"
 vvwmdir_executable <- paste(vvwmdir_exe, vvwm_binary, sep="")
+
+
+# -----------------------------------------------------------------------
+# the end
+# -----------------------------------------------------------------------

@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------
 
 # read in PRZM output - simulated pesticide transport through soil, for each time date
-df_przm <- read.table(paste(pwcdir,"output/output",".zts", sep=""), header= FALSE, sep= "",
+df_przm <- read.table(paste(pwcdir,"output/PRZM_output",".zts", sep=""), header= FALSE, sep= "",
                 skip = 3, stringsAsFactors = FALSE, row.names=NULL)
 
 # obtain structural dimensions
@@ -27,7 +27,7 @@ dim(outputdf)
 # ---------------------------------------------------------------
 
 # read in VVWM output - simulated water body processes, for each time date
-pwcdf_o <- read.csv(paste(pwcdir,"output/output_CAalmond_WirrigSTD_Custom_Parent_daily.csv", sep=""), header= FALSE, sep= ",",
+pwcdf_o <- read.csv(paste(pwcdir,"output/December-2016-FOL002_11_Custom_Parent_daily.csv", sep=""), header= FALSE, sep= ",",
                   skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 
 # obtain structural dimensions
@@ -66,9 +66,9 @@ for(Ite in 1:Nsims){
   close(con_przm5)
 
   # -------------- update the files (weather file, PRZM output file) ----------
-  a[4]= paste(pwcdir_output,"20737_grid.wea")
+  a[4]= paste(pwcdir_output,"Camino-Cimis13_NEW_08-13.dvf")
  
-  a[6]= paste(pwcdir_output,"output.zts")
+  a[6]= paste(pwcdir_output,"PRZM_output.zts")
  
   # --------------------------- Pan factor ------------------------------------
   # recall: input_list is a uniformly distr. latin hypercube (5000*50 = nsim*nparam)
@@ -357,7 +357,7 @@ for(Ite in 1:Nsims){
  # -------------------------------- fc ----------------------------------------
  
  # number of horizons (soil layer)
- Num_s=5 #should this be 5?Yes, we have 5 soillayers. If you want to just change only for 4 layers, you can still keep as 4
+ Num_s=5 
  
  # round each fc to 2 decimals
  fc=round(input_list[Ite,"fc"],2)
@@ -375,7 +375,7 @@ for(Ite in 1:Nsims){
  # -------------------------------- wp ----------------------------------------
  
  # number of horizons (soil layer)
- Num_s=5 #should this be 5?
+ Num_s=5 
  
  # round each WP to 2 decimals
  WP=round(input_list[Ite,"WP"],2)
@@ -555,7 +555,7 @@ for(Ite in 1:Nsims){
   
   # update weather and output under each input folder
   a[4]=paste(file_path_as_absolute(newdir),"/",pwc_weather_used, sep="")
-  a[6]=paste(file_path_as_absolute(newdir),"/","output.zts", sep="")
+  a[6]=paste(file_path_as_absolute(newdir),"/","PRZM_output.zts", sep="")
   
   # copy PRZM.exe
   print(paste(file.exists(przmdir_executable), ": executable file at", przmdir_executable))
@@ -591,7 +591,7 @@ for(Ite in 1:Nsims){
 # ---------------------------------------------------------------------------
   
   # ---------------------------- PRZM Output --------------------------------
-  df <- read.table(paste(newdir,"/","output",".zts", sep=""), header= FALSE, sep= "",
+  df <- read.table(paste(newdir,"/","PRZM_output",".zts", sep=""), header= FALSE, sep= "",
                    skip = 3, stringsAsFactors = FALSE, row.names=NULL)
   #print(df)
   #print(dim(df))
@@ -601,7 +601,7 @@ for(Ite in 1:Nsims){
   #print(dim(outputdf))
   
   # ---------------------------- PWC Output ---------------------------------
-  pwcdf <- read.csv(paste(newdir,"/","output_CAalmond_WirrigSTD_Custom_Parent_daily",".csv", sep=""), header= FALSE, sep= ",",
+  pwcdf <- read.csv(paste(newdir,"/","December-2016-FOL002_11_Custom_Parent_daily",".csv", sep=""), header= FALSE, sep= ",",
                     skip = 5, stringsAsFactors = FALSE, row.names=NULL)
   
 
@@ -610,7 +610,7 @@ for(Ite in 1:Nsims){
 
   
   # ------------------- Reading Conversion Factor from Output ---------------
-  con_almond <- file(paste(newdir,"/","output_CAalmond_WirrigSTD_Custom_Parent",".txt", sep=""))
+  con_almond <- file(paste(newdir,"/","December-2016-FOL002_11_Custom_Parent",".txt", sep=""))
   
   open(con_almond)
   con_fac_line <- read.table(con_almond,skip=15,nrow=1) #16-th line

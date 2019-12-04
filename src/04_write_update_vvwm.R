@@ -6,7 +6,7 @@
 # ---------------------------------------------------------------------
 # read in the VVWM output dummy file
 # ---------------------------------------------------------------------
-con <- file(paste(pwcdir, "input/przm/vvwmTransfer",".txt",sep=""))
+con <- file(paste(pwcdir, "input/vvwm/vvwmTransfer",".txt",sep=""))
 l_old=readLines(con)
 l=readLines(con)
 close(con)

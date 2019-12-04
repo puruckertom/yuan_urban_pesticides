@@ -1,0 +1,16 @@
+# ----------------------------------------------------
+# metadata for Camino_Cimis13_NEW_08-13.dvf
+# ----------------------------------------------------
+
+# weather data obtained from Camino weather station, California Irrigation Management Information System
+# 01/01/2008 - 12/31/2013
+
+
+# column 1	month (1 - 12)	
+# column 2	day of month (1 - 31)
+# column 3	year (8 - 13)
+# column 4	?
+# column 5	?
+# column 6	?
+# column 7	?
+# column 8	?
