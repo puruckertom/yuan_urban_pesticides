@@ -16,7 +16,7 @@ close(con)
 # ---------------------------------------------------------------------
 
 
-# ---------------------- koc ------------------------------------------
+# ---------------------- kd -------------------------------------------
 
 # round each koc to 1 decimals
 koc=round(input_list[Ite,"koc"],1)
@@ -70,7 +70,7 @@ temp_ref_anae_list[1]<-temp_ref_anae
 l[9]=paste(temp_ref_anae_list,collapse=",")
 
 
-# ---------------------- photo ----------------------------------------
+# ---------------------- photolysis -----------------------------------
 
 # round each to 2 decimals
 photo=round(input_list[Ite,"photo"],2)
@@ -81,7 +81,7 @@ photo_list[1]<-photo
 l[10]=paste(photo_list,collapse=",")
 
 
-# ----------------------- rflat ---------------------------------------
+# ----------------------- reference latitude --------------------------
 
 # round to 0 decimals
 RFLAT=round(input_list[Ite,"RFLAT"],0)
@@ -92,7 +92,7 @@ RFLAT_list[1]<-RFLAT
 l[11]=paste(RFLAT_list,collapse=",")
 
 
-# ------------------------ hydro --------------------------------------
+# ------------------------ hydrolysis ---------------------------------
 
 # round to 1 decimal
 hydro=round(input_list[Ite,"hydro"],1)
@@ -103,7 +103,7 @@ hydro_list[1]<-hydro
 l[12]=paste(hydro_list,collapse=",")
 
 
-# ------------------------- sol ---------------------------------------
+# ------------------------- solubility mg/L ---------------------------
 
 # round to 2 decimals
 SOL=round(input_list[Ite,"SOL"],2)
@@ -123,7 +123,7 @@ benthic_depth=round(input_list[Ite,"benthic_depth"],2)
 l[41]=paste(benthic_depth)
 
 
-# ----------------------- porosity ------------------------------------
+# ----------------------- benthic porosity ----------------------------
 
 # round to 2 decimals
 porosity=round(input_list[Ite,"porosity"],2)
@@ -141,7 +141,7 @@ bulk_density=round(input_list[Ite,"bulk_density"],2)
 l[43]=paste(bulk_density)
 
 
-# ---------------------- frroc2 ---------------------------------------
+# ---------------------- froc2 (benthic foc) --------------------------
 
 # round to 2
 FROC2=round(input_list[Ite,"FROC2"],2)
@@ -151,7 +151,7 @@ FROC2_a<-FROC2
 l[44]=paste(FROC2_a)
 
 
-# ------------------------ doc2 ---------------------------------------
+# ------------------------ doc2 (benthic doc) -------------------------
 
 # round to 2
 DOC2=round(input_list[Ite,"DOC2"],2)
@@ -161,7 +161,7 @@ DOC2_a<-DOC2
 l[45]=paste(DOC2_a)
 
 
-# ------------------------ bnmas ---------------------------------------
+# ------------------------ bnmas (benthic biomass) ---------------------
 
 # round to 3
 BNMAS=round(input_list[Ite,"BNMAS"],3)
@@ -171,7 +171,7 @@ BNMAS_a<-BNMAS
 l[46]=paste(BNMAS_a)
 
 
-# -------------------------- sused -------------------------------------
+# --------------------- sused (water columnSS mg/l) --------------------
 
 # round to 3
 SUSED=round(input_list[Ite,"SUSED"],3)
@@ -181,7 +181,7 @@ SUSED_a<-SUSED
 l[48]=paste(SUSED_a)
 
 
-# ------------------------- chl ----------------------------------------
+# ------------------------- chl (chlorophyll) --------------------------
 
 # round to 3
 CHL=round(input_list[Ite,"CHL"],3)
@@ -191,7 +191,7 @@ CHL_a<-CHL
 l[49]=paste(CHL_a)
 
 
-# ------------------------- froc1 --------------------------------------
+# -------------------- froc1 (water column foc) ------------------------
 
 # round to 2
 FROC1=round(input_list[Ite,"FROC1"],2)
@@ -201,7 +201,7 @@ FROC1_a<-FROC1
 l[50]=paste(FROC1_a)
 
 
-# --------------------------- doc1 -------------------------------------
+# --------------- doc1 (water column doc mg/l) --------------------------
 
 # round to 1
 DOC1=round(input_list[Ite,"DOC1"],1)
@@ -211,7 +211,7 @@ DOC1_a<-DOC1
 l[51]=paste(DOC1_a)
 
 
-# ------------------------ plmas ---------------------------------------
+# ---------------- plmas (water column biomass mg/l) --------------------
 
 # round to 3
 PLMAS=round(input_list[Ite,"PLMAS"],3)
