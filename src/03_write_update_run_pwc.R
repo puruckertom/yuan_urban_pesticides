@@ -186,7 +186,7 @@ for(Ite in 1:Nsims){
  # ------------------------ Manning's n ------------------------------------------
  
  # number of hydro-event changes that follow (Record 4, total = 24)
- Num_r5=24
+ Num_r5=1
  
  # round each MNGN to 3 decimals
  MNGN=round(input_list[Ite,"MNGN"],3)
@@ -414,12 +414,12 @@ for(Ite in 1:Nsims){
  Numhz=1
  
  # for each dsrate, update input file's (Record C8)
- #DSRATE=input_list[Ite,"DSRATE"]
+ DSRATE=input_list[Ite,"DSRATE"]
  row_hz=124
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))
-   DSRATE_list[2]<-DWRATE
+   DSRATE_list[2]<-DSRATE
    a[row_t]=paste(DSRATE_list,collapse=",")
  }
 

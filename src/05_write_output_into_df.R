@@ -9,7 +9,7 @@
 # -----------------------------------------------------------------------------
 
 # create a sequence of the time dates from start to end
-timearray <-seq(as.Date("1999-01-01"), as.Date("2014-12-31"), by="days")#1961-01-01
+timearray <-seq(as.Date("2009-01-01"), as.Date("2014-12-31"), by="days")#format 1961-01-01
 
 # change the date format
 timearray <- as.Date(timearray,"%m/%d/%Y")

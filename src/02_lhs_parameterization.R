@@ -12,7 +12,7 @@ pwc_weather <- paste(pwcdir_weather, pwc_weather_used, sep="")
 
 # state the simulation start and end
 #must have mm/dd/yyyy format
-simstart <- "01/01/1999"
+simstart <- "01/01/2009"
 simend <- "12/31/2014"
 
 # list input paramters

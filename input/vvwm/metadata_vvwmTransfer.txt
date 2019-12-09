@@ -1,0 +1,31 @@
+# -------------------------------------------------------------
+# metadata for /input/vvwm/vvwmTransfer.txt
+# -------------------------------------------------------------
+
+# Note: this information, along with location/descprition of all lines, can be found in /exe/VVWM_RevA.pdf
+
+
+# Identify line locations of input variables
+# Description of input variables
+
+kd		Line 5, item 1		sorption coefficient (mL/g)	
+aer_aq		Line 6, item 1		water column degradation half-life (days)
+temp_ref_aer	Line 7, item 1		reference temperature for water column degradation
+anae_aq		Line 8, item 1		benthic degradation half-life (days)
+temp_ref_anae	Line 9, item 1		reference temperature for benthic degradation
+photo		Line 10, item 1		photolysis half-life (days)
+RFLAT		Line 11, item 1		reference latitude for photolysis
+hydro		Line 12, item 1		hydrolysis half-life (days)
+SOL		Line 18, item 1		solubility (mg/L)
+benthic_depth	Line 41			depth of benthic region (m)
+porosity	Line 42			porosity of benthic region 
+bulk_density	Line 43			bulk density of benthic region (g/mL); mass of solids per total volume
+FROC2		Line 44			fraction of organic carbon on sediment in benthic region
+DOC2		Line 45			concentration of dissolved organic carbon in benthic region (mg/L)
+BNMAS		Line 46			areal concentration of biosolids in benthic regoin (g/m2)
+SUSED		Line 48			suspended solids concentration in water column (mg/L)
+CHL		Line 49			chlorophyll concentration in water column (mg/L)
+FROC1		Line 50			fraction of organic carbon on suspended sediment in water column
+DOC1		Line 51			concentration of dissolved organic carbon in water column (mg/L)
+PLMAS		Line 52			concentration of biosolids in water column (mg/L)
+bf		Line 65			baseflow - provides additional constant flow through the waterbody (m3/s)

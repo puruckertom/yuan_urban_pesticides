@@ -1,0 +1,35 @@
+# -----------------------------------------------------------
+# metadata for /input/PRZM5.inp
+# -----------------------------------------------------------
+
+# Note: this information can also be found in /exe/PRZM5_RevA.pdf
+
+# Identify line locations of input variables
+# Describe input variables
+
+Weather File		Line 4
+PRZM output File	Line 6
+PFAC			Line 10, item 1		pan factor used to estimate daily evapotranspiration
+ANETD			Line 10, item 3		min depth fro which evaporation is extracted year-round (cm)
+USLEK			Line 14, item 1		Universal Soil Loss Equation (K) of soil erodibility
+USLELS			Line 14, item 2		Universal Soil Loss Equation (LS) topographic factor
+USLEP			Line 14, item 3		Universal Soil Loss Equation (P) practice factor
+slope			Line 14, item 6		land slope (%)
+hydraul length		Line 14, item 7		hydraulic length (m)
+root depth		Line 18, item 3		root depth
+COVMAX			Line 18, item 4		max areal coveragte of the canopy (percent)
+HTMAX			Line 18, item 6		max canopy height at maturity date (cm)
+canopyHoldup		Line 18, item 2		holdup
+USLEC			Line 26			soil loss cover management factors (C value)
+MNGN			Line 28			Manning's roughness coefficient N		
+CN (_c)			Line 30			runoff curve number of antecedent moisture condition
+bulk density		Line 48, item 5		bulk density
+fc			Line 48, item 7		max water content potentially held during the time step in the horizon (cm3/cm3)
+wp			Line 48, item 8		lowest water content in the horizon (cm3/cm3)
+oc 			Line 48, item 9		organic carbon in the horizon (%)
+number of app		Line 55, item 1		number of applications
+pesticide app depth	Line 57, item 5		depth of the pesticide application (cm)
+app rate		Line 57, item 6		target application rate of pesticide (kg ha-1)
+app eff			Line 57, item 7		application efficiency (fraction); reduces app rate by this fraction
+dwrate			Line 124, item 1	dissolved phase pesticide decay rate for each chemical
+dsrate			Line 124, item 2	absorbed phase pesticide decay rate for each chemical
