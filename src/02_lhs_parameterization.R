@@ -16,9 +16,9 @@ simstart <- "01/01/2009"
 simend <- "12/31/2014"
 
 # list input paramters
-input_parameters <- c("PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","CN_f","uslec_c","uslec_f","MNGN","depth",
-                      "COVMAX","HTMAX","holdup","bd1","bd2","bd3","bd4","bd5","fc","WP","OC","dep","app_rate","app_eff","PLDKRT",
-                      "DWRATE","DSRATE","koc","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro","SOL",
+input_parameters <- c("PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN","depth",
+                      "COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                      "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro","SOL",
                       "benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
 # import paramter range csv table
