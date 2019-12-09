@@ -56,6 +56,9 @@ dim(con_fac)
 
 set.seed(42)
 Ite <- 8
+
+i = 1
+
 # we will run the PWC PRZM 5000 times (5000 = our # of simulations)
 # to run each of the 5000 PWC simulations, we will update the PWC PRZM input file with the corresponding Latin Hypercube parameter quanitities
 for(Ite in 1:Nsims){
@@ -247,22 +250,22 @@ for(Ite in 1:Nsims){
  
   # ------------------------ bulk density ----------------------------------------
 
- # round bd to 2 decimals
- bd1=round(input_list[Ite,"bd1"],2)  #only bd1 because 1 horizon
+  # round bd to 2 decimals
+  bd1=round(input_list[Ite,"bd1"],2)  #only bd1 because 1 horizon
 
- # update input file's Record 19 for bd
- bd1_list <- c(unlist(strsplit(a[48],",")),"")#adding extra empty value at end
- bd1_list[5]<-bd1
- a[48]=paste(bd1_list,"",collapse=",")
- #a[48]=paste(substr(a[48],1,15), sprintf("%.02f",bd1), substr(a[48],20,55),sep=",")
+  # update input file's Record 19 for bd
+  bd1_list <- c(unlist(strsplit(a[48],",")),"")#adding extra empty value at end
+  bd1_list[5]<-bd1
+  a[48]=paste(bd1_list,"",collapse=",")
+  #a[48]=paste(substr(a[48],1,15), sprintf("%.02f",bd1), substr(a[48],20,55),sep=",")
  
  
  # -------------------------------- fc ----------------------------------------
  
- # round each fc to 2 decimals
+  # round each fc to 2 decimals
   fc=round(input_list[Ite,"fc"],2)
  
- # for each FC in input file, update input file's Record 19 for FC
+  # for each FC in input file, update input file's Record 19 for FC
   fc_list <- unlist(strsplit(a[48],","))
   fc_list[7]<-fc
   a[48]=paste(fc_list,collapse=",")
@@ -273,28 +276,28 @@ for(Ite in 1:Nsims){
   # round each WP to 2 decimals
   WP=round(input_list[Ite,"WP"],2)
  
- # for each WP in input file, update input file's Record 19 for WP
+  # for each WP in input file, update input file's Record 19 for WP
   WP_list <- unlist(strsplit(a[48],","))
   WP_list[8]<-WP
   a[48]=paste(WP_list,collapse=",")
    
 
  # -------------------------------- oc ----------------------------------------
- # number of horizons (soil layer) (Record 18)
- Num_s=1 
+  # number of horizons (soil layer) (Record 18)
+  Num_s=1 
  
- # round each OC to 2 decimals
- OC=round(input_list[Ite,"OC"],2)
+  # round each OC to 2 decimals
+  OC=round(input_list[Ite,"OC"],2)
  
- # for each oc in input file, update input file's Record 19 for oc
- row_s=48
- for (i in 1:Num_s){
+  # for each oc in input file, update input file's Record 19 for oc
+  row_s=48
+  for (i in 1:Num_s){
    row_t=row_s+(i-1)
    OC_list <- unlist(strsplit(a[row_t],","))
    OC_list[9]<-OC
    a[row_t]=paste(OC_list,collapse=",")
    
- }
+  }
  
  
  ## -------------------------- app tm -----------------------------------------

@@ -33,8 +33,8 @@ param_ranges <- read.csv(paste(pwcdir,"input/lhs/lhs_param_ranges.csv",sep=""),h
 # conduct Latin Hypercube Sampling for each input parameter
 quantile_list <- randomLHS(Nsims, length(input_parameters)) #(number of simulations, number of var)
 
-dimnames(quantile_list ) <- list(NULL, input_parameters) 
-head(quantile_list )
+dimnames(quantile_list) <- list(NULL, input_parameters) 
+head(quantile_list)
 
 # set-up a dataframe to store the randomly sampled parameter values
 input_list <- data.frame(matrix(NA,nrow=dim(quantile_list)[1],ncol=dim(quantile_list)[2])) 
@@ -49,6 +49,7 @@ for(i in 1:ncol(quantile_list)){
 # input_list is now a uniformly distributed Latin hypercube 
 input_list
 colnames(input_list) <- c(input_parameters) 
+head(input_list)
 
 # show the parameters are sampled from a uniform distribution - histogram, plot examples
 hist(input_list$PFAC,main="Histogram", xlab="PFAC", border="darkblue", col="gray")

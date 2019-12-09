@@ -18,13 +18,13 @@ close(con)
 
 # ---------------------- kd -------------------------------------------
 
-# round each koc to 1 decimals
-koc=round(input_list[Ite,"koc"],1)
+# round each kd to 1 decimals
+kd=round(input_list[Ite,"kd"],1)
 
 # update the dummy file's koc value with this rounded value
-koc_list <- unlist(strsplit(l[5],","))
-koc_list[1]<-koc
-l[5]=paste(koc_list,collapse=",")
+kd_list <- unlist(strsplit(l[5],","))
+kd_list[1]<-kd
+l[5]=paste(kd_list,collapse=",")
 
 # -------------------- aer_aq -----------------------------------------
 
