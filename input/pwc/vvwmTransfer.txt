@@ -1,6 +1,6 @@
 C:\Users\echelsvi\git\yuan_urban_pesticides\input\pwc\December-2016-FOL002
 Bifenthrin
-3
+1
 False
 48,30,89,
 323.6,56,12,

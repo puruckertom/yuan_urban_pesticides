@@ -1,7 +1,7 @@
  Variable Volume Water Model, Version    1.02000000000000     
  
  *******************************************
-Performed on:  1/24/2017  at 11:21
+Performed on: 12/10/2019  at  8:20
 * Insufficient years to calculate 1-in-10.0 . Only maximums are reported here.
 Peak 1-in-10.0     =  0.238     ppb
 Chronic 1-in-10.0  =  0.387E-01 ppb

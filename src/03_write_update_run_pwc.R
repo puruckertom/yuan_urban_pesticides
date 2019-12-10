@@ -55,9 +55,7 @@ dim(con_fac)
 
 
 set.seed(42)
-Ite <- 8
-
-i = 1
+Ite <- 1
 
 # we will run the PWC PRZM 5000 times (5000 = our # of simulations)
 # to run each of the 5000 PWC simulations, we will update the PWC PRZM input file with the corresponding Latin Hypercube parameter quanitities
