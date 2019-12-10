@@ -1,0 +1,22 @@
+# ----------------------------------------------------------
+# metadata for /output/ folder
+# ----------------------------------------------------------
+
+This folder contains all files from the initial PWC simulation (using
+this study's initial variables of interest and their respective
+values). As a result, these files are all used as the base for the R 
+scripts...the R scripts read these files and edit them by replacing 
+the input variables with the randomly sampled LHS amounts for each input
+variable.
+
+
+Below is a brief description of each file.
+
+PRZM_output.zts					PWC/PRZM output file
+fort.78						PWC file
+KECHO.PRN					PWC file (information on successful completion)
+vvwmTransfer.txt				VVWM file
+PRZM5.inp					PRZM input file
+December-2016-FOL002.SWI			PWC input file
+...all other "December.." files			PWC output files for each waterbody scenario and chemical (parent/degradate)
+
