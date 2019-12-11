@@ -1,9 +1,9 @@
-***  12/10/2019 3:05:27 PM
+***  12/11/2019 12:46:26 PM
 ***  PRZM5 Input File Generator
 ***Record A1: Weather File
 C:\Users\echelsvi\git\yuan_urban_pesticides\weather\Camino-Cimis13_NEW_08-13.dvf
 ***Record A2: PRZM5 Time Series Output File
-C:\Users\echelsvi\git\yuan_urban_pesticides\input\pwc\December-2016-FOL002.zts
+C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only.zts
 ***Record A3: PRZM5 Advanced Options
 False,True,False,False,False,1
 ***Record 1: pfac, sfac, anetd 
@@ -51,7 +51,7 @@ False,True,False,False,False,1
 0.5,0,0.7
 ************ START OF CHEMICAL INPUTS ***************************
 ***Record C1  Number of Applications, Number of Chemicals
-      50       3
+      50       1
 ***Record C2  dd,mm,yy, cam, dep, rate, eff, tband, 1cam, 1dep, 1rate, 1eff, 0, 2cam, 2dep, 2rate, 2eff, 0  
 1,1,09,6,2,0.001117063,0.99,0, 1, 4.0, 0, 0, 0, 1, 4.0, 0, 0, 0
 1,2,09,6,2,0.000631243,0.99,0, 1, 4.0, 0, 0, 0, 1, 4.0, 0, 0, 0
@@ -107,37 +107,29 @@ False,True,False,False,False,1
 0,1,0,1,0,1,0
 ***Record C6: volatilization
 0,0.0072,0,
-0,5.47E-05,0,
-0,0,0,
 *** Record C7: Kf1, Kf2, Kf3 for each horizon
-48,30,89
+48,
 *** Record C7A: N1, N2, N3 Freundlich Exponents for each horizon
-1.0,1.0,1.0
+1.0,
 *** Record C7B: Region 2 Freundlich Coefficient for each horizon
-1,1,1,
+1,
 *** Record C7C: Region 2 Freundlich Exponents for each horizon
-1,1,1,
+1,
 *** Record C7D: Lowest Concentration (mg/L) for Freundlich Exponent
 1.0e-12,
 *** Record C7E: Sorbed-Phase-Referenced Mass-Transfer Coefficient
-1,1,1,
+1,
 *** Record C8: Degradation Rates Aqueous, Sorbed, Gas
-0.004283931,0.004283931,0,0.007145773,0.007145773,0,0.03300667,0.03300667,0,
+0.004283931,0.004283931,0,
 *** Record C9: Molar Conversions 1 to 2, 1 to 3, 2 to 3
-0,0,1,0,0,1
+0,0,0,0,0,0
 ********** OUTPUT SPECIFICATIONS ***********************
 *** Record U1
-12
+6
 *** Record U2
 RUNF,0,TSER,   0,   0,    1.0
 ESLS,0,TSER,   0,   0,    1.0
 RFLX,1,TSER,   0,   0,    1
 EFLX,1,TSER,   0,   0,    1
-RFLX,2,TSER,   0,   0,    0.2884843
-EFLX,2,TSER,   0,   0,    0.2884843
-RFLX,3,TSER,   0,   0,    0.2128163
-EFLX,3,TSER,   0,   0,    0.2128163
 DCON,1,TAVE,   2,  100,    1000
-DCON,2,TAVE,   2,  100,    288.4843
-DCON,3,TAVE,   2,  100,    212.8163
 INFL,0,TCUM,   100,   100,    1.0

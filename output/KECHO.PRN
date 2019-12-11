@@ -13,8 +13,8 @@
  C:\Users\echelsvi\git\yuan_urban_pesticides\weather\Camino-Cimis13_NEW_08-13.dv
  f
  Record A2:  PRZM Output Time Series File
- Time Series:C:\Users\echelsvi\git\yuan_urban_pesticides\input\pwc\December-2016
- -FOL002.zts
+ Time Series:C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FO
+ L002_parent_only.zts
  Record A3:  PRZM Options
  Record 1
  Record 2
@@ -40,20 +40,13 @@
  Record C7A  Freundlich N
  Record C7B  Region 2 Freundlich Coefficients
  Record C7C  Region 2 Freundlich Exponents
-   1.00000000000000        1.00000000000000        1.00000000000000     
+   1.00000000000000     
  Record C7D  Concentration below which isotherm is linear(mg/L)
  Record C7E Mass Transfer Coefficient, K2
- Mass Transfer Coefficient =    1.00000000000000        1.00000000000000     
-   1.00000000000000     
+ Mass Transfer Coefficient =    1.00000000000000     
  Record C8 Degradation Rates
  Record C9
  Record U1
- Record U2
- Record U2
- Record U2
- Record U2
- Record U2
- Record U2
  Record U2
  Record U2
  Record U2
