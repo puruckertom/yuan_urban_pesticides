@@ -79,8 +79,8 @@ pwcdir_out_vvwm <- paste(pwcdir_output, "vvwm/", sep = "")
 pwcdir_weather <- paste(pwcdir, "weather/", sep = "")
 pwcdir_sobol <- paste(pwcdir, "sobol/", sep = "")
 
-# pwc executable version
-#pwc 1.59
+# pwc executable version -- pwc 1.59
+#in order for scripts to work, must be using PWC version 1.59 (2018)
 pwc_binary<- "PesticideWaterCalculator.exe"
 pwcdir_executable <- paste(pwcdir_exe, pwc_binary, sep="")
 przm_binary<- "PRZM5.exe"

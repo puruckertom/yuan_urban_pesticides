@@ -11,6 +11,7 @@ the input variables with the randomly sampled LHS amounts for each
 input variable.
 
 Note: these files are copies from those in /output/
+Note: these files were created with PWC version 1.59
 
 
 Below is a brief description of each file.

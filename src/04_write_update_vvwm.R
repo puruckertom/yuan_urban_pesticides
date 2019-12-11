@@ -3,6 +3,24 @@
 # ---------------------------------------------------------------------
 
 
+# Note: must be using PWC version 1.59 (2018) for scripts to work.
+#       Version 1.59 output/input files have a specific format, 
+#       and these scripts are intended to read this format. 
+#       Version 1.52 or 1.53 file formats will not work with these
+#       scripts.
+#
+#       Version 1.59 produces a fort.78 file with PRZM, and this
+#       file is used in VVWM.  (Previous versions (1.52/1.53), 
+#       typically produce fort.13. This is not compatible with 
+#       these scripts because they are built off of Version 1.59 
+#       files.)
+#
+#       The executables located in the /exe/ folder and the
+#       executables downloaded on your PC must both be Version
+#       1.59 (2018). 
+
+
+
 # ---------------------------------------------------------------------
 # read in the VVWM output dummy file
 # ---------------------------------------------------------------------
@@ -21,7 +39,7 @@ close(con)
 # round each kd to 1 decimals
 kd=round(input_list[Ite,"kd"],1)
 
-# update the dummy file's koc value with this rounded value
+# update the dummy file's kd value with this rounded value
 kd_list <- unlist(strsplit(l[5],","))
 kd_list[1]<-kd
 l[5]=paste(kd_list,collapse=",")

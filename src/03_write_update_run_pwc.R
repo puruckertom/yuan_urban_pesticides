@@ -2,6 +2,24 @@
 # create empty dataframe for outputs
 # ---------------------------------------------------------------
 
+# Note: must be using PWC version 1.59 (2018) for scripts to work.
+#       Version 1.59 output/input files have a specific format, 
+#       and these scripts are intended to read this format. 
+#       Version 1.52 or 1.53 file formats will not work with these
+#       scripts.
+#
+#       Version 1.59 produces a fort.78 file with PRZM, and this
+#       file is used in VVWM.  (Previous versions (1.52/1.53), 
+#       typically produce fort.13. This is not compatible with 
+#       these scripts because they are built off of Version 1.59 
+#       files.)
+#
+#       The executables located in the /exe/ folder and the
+#       executables downloaded on your PC must both be Version
+#       1.59 (2018). 
+
+
+
 
 # ---------------------------------------------------------------
 # PRZM5 Output File (Time Series)
@@ -146,19 +164,19 @@ for(Ite in 1:Nsims){
   
   # ------------------------------ CN ------------------------------------------
   
-  # number of hydro-event changes that follow (Record 4, total = 24)
-  Num=1
+  # number of hydro-event changes that follow (Record 4, total = 12)
+  Num=12
   
   # round each CN_c to 0 decimals
   CN_c=round(input_list[Ite,"CN_c"],0)
   
   # for each of the CN vals (8:24) in the input file, update the input file's Record 5 for CN
-  row_0=30
+  row_0=18
   for (i in 1:Num){
     row_t=row_0+(i-1)
     cn_list <- unlist(strsplit(a[row_t],","))
     #cn_list[6]<-(as.numeric(CNPer[Ite]))*(as.numeric(cn_list[6]))
-    cn_list[1]<-CN_c
+    cn_list[6]<-CN_c
     a[row_t]=paste(cn_list,collapse=",")
   }
 
@@ -166,18 +184,18 @@ for(Ite in 1:Nsims){
   
  # ------------------------------ USLEC ----------------------------------------
  
- # number of hydro-event changes that follow (Record 4, total = 24)
- Num=1
+ # number of hydro-event changes that follow (Record 4, total = 12)
+ Num=12
  
  # round each uslec_c to 3 decimals
  uslec_c=round(input_list[Ite,"uslec_c"],3)
  
  # for each of the C vals (8:24) in the input file, update the input file's Record 5 for C
- row_0=26
+ row_0=18
  for (i in 1:Num){
    row_t=row_0+(i-1)
    uslec_list <- unlist(strsplit(a[row_t],","))
-   uslec_list[1]<-uslec_c
+   uslec_list[4]<-uslec_c
    a[row_t]=paste(uslec_list,collapse=",")
    #a[row_t]=paste(substr(a[row_t],1,71), sprintf("%.02f",uslec), substr(a[row_t],76,92),sep="")
  }
@@ -186,14 +204,14 @@ for(Ite in 1:Nsims){
  
  # ------------------------ Manning's n ------------------------------------------
  
- # number of hydro-event changes that follow (Record 4, total = 24)
- Num_r5=1
+ # number of hydro-event changes that follow (Record 4, total = 12)
+ Num_r5=12
  
  # round each MNGN to 3 decimals
  MNGN=round(input_list[Ite,"MNGN"],3)
  
  # for each n in the input file, update the input file's Record 5 for n 
- row_r5=28
+ row_r5=18
  for (i in 1:Num_r5){
    row_t=row_r5+(i-1)
    MNGN_list <- unlist(strsplit(a[row_t],","))
@@ -204,58 +222,86 @@ for(Ite in 1:Nsims){
  
  # ------------------------ root depth ------------------------------------------
  
+  # number of crop periods that follow (Record 6, total = 6)
+  Numd=6
+  
   # round each depth to 0 decimals
   depth=round(input_list[Ite,"depth"],0)
- 
+  
   # for each depth in the input file, update the input file's Record 7 for depth
-  depth_list <- unlist(strsplit(a[18],","))
-  depth_list[3]<-depth
-  a[18]=paste(depth_list,collapse=",")
+  row_0=33
+  for (i in 1:Numd){
+    row_t=row_0+(i-1)
+    depth_list <- unlist(strsplit(a[row_t],","))
+    depth_list[10]<-depth
+    a[row_t]=paste(depth_list,collapse=",")
+  }
  
 
  # ------------------------ covmax ---------------------------------------------
  
+  # number of crop periods that follow (Record 6, total = 6)
+  Numd=6
+  
   # round each COVMAX to 3 decimals
   COVMAX=round(input_list[Ite,"COVMAX"],3)
- 
+  
   # for each cover in the input file, update the input file's Record 7 for cover
-  COVMAX_list <- unlist(strsplit(a[18],","))
-  COVMAX_list[4]<-COVMAX
-  a[18]=paste(COVMAX_list,collapse=",")
+  row_0=33
+  for (i in 1:Numd){
+    row_t=row_0+(i-1)
+    COVMAX_list <- unlist(strsplit(a[row_t],","))
+    COVMAX_list[11]<-COVMAX
+    a[row_t]=paste(COVMAX_list,collapse=",")
+  }
  
  
  
  # ------------------------ htmax ---------------------------------------------
  
+  # number of crop periods that follow (Record 6, total = 6)
+  Numd=6
+  
   # round each HTMAX to 0 decimals
   HTMAX=round(input_list[Ite,"HTMAX"],0)
- 
+  
   # for each height in the input file, update the input file's Record 7 for height
-  HTMAX_list <- unlist(strsplit(a[18],","))
-  HTMAX_list[6]<-HTMAX
-  a[18]=paste(HTMAX_list,collapse=",")
+  row_0=33
+  for (i in 1:Numd){
+    row_t=row_0+(i-1)
+    HTMAX_list <- unlist(strsplit(a[row_t],","))
+    HTMAX_list[12]<-HTMAX
+    a[row_t]=paste(HTMAX_list,collapse=",")
+  }
  
  # ------------------------  holdup ---------------------------------------------
  
+  # number of crop periods that follow (Record 6, total = 6)
+  Numd=6
+  
   # round each holdup to 2 decimals
   holdup=round(input_list[Ite,"holdup"],2)
- 
+  
   # for each holdup in the input file, update the input file's Record 7 for holdup
-  holdup_list <- unlist(strsplit(a[18],","))
-  holdup_list[2]<-holdup
-  a[18]=paste(holdup_list,collapse=",")
+  row_0=33
+  for (i in 1:Numd){
+    row_t=row_0+(i-1)
+    holdup_list <- unlist(strsplit(a[row_t],","))
+    holdup_list[13]<-holdup
+    a[row_t]=paste(holdup_list,collapse=",")
+  }
 
  
   # ------------------------ bulk density ----------------------------------------
 
   # round bd to 2 decimals
-  bd1=round(input_list[Ite,"bd1"],2)  #only bd1 because 1 horizon
+  bd1=round(input_list[Ite,"bd1"],2)  #only bd1 because 1 horizon (Record 14, horizons = 1)
 
-  # update input file's Record 19 for bd
-  bd1_list <- c(unlist(strsplit(a[48],",")),"")#adding extra empty value at end
+  # update input file's Record 15 for bd
+  bd1_list <- c(unlist(strsplit(a[47],",")),"")#adding extra empty value at end
   bd1_list[5]<-bd1
-  a[48]=paste(bd1_list,"",collapse=",")
-  #a[48]=paste(substr(a[48],1,15), sprintf("%.02f",bd1), substr(a[48],20,55),sep=",")
+  a[47]=paste(bd1_list,"",collapse=",")
+  #a[47]=paste(substr(a[47],1,15), sprintf("%.02f",bd1), substr(a[47],20,55),sep=",")
  
  
  # -------------------------------- fc ----------------------------------------
@@ -263,10 +309,10 @@ for(Ite in 1:Nsims){
   # round each fc to 2 decimals
   fc=round(input_list[Ite,"fc"],2)
  
-  # for each FC in input file, update input file's Record 19 for FC
-  fc_list <- unlist(strsplit(a[48],","))
+  # for each FC in input file, update input file's Record 15 for FC
+  fc_list <- unlist(strsplit(a[47],","))
   fc_list[7]<-fc
-  a[48]=paste(fc_list,collapse=",")
+  a[47]=paste(fc_list,collapse=",")
 
  
  # -------------------------------- wp ----------------------------------------
@@ -274,21 +320,21 @@ for(Ite in 1:Nsims){
   # round each WP to 2 decimals
   WP=round(input_list[Ite,"WP"],2)
  
-  # for each WP in input file, update input file's Record 19 for WP
-  WP_list <- unlist(strsplit(a[48],","))
+  # for each WP in input file, update input file's Record 15 for WP
+  WP_list <- unlist(strsplit(a[47],","))
   WP_list[8]<-WP
-  a[48]=paste(WP_list,collapse=",")
+  a[47]=paste(WP_list,collapse=",")
    
 
  # -------------------------------- oc ----------------------------------------
-  # number of horizons (soil layer) (Record 18)
+  # number of horizons (soil layer) (Record 14)
   Num_s=1 
  
   # round each OC to 2 decimals
   OC=round(input_list[Ite,"OC"],2)
  
-  # for each oc in input file, update input file's Record 19 for oc
-  row_s=48
+  # for each oc in input file, update input file's Record 15 for oc
+  row_s=47
   for (i in 1:Num_s){
    row_t=row_s+(i-1)
    OC_list <- unlist(strsplit(a[row_t],","))
@@ -332,7 +378,7 @@ for(Ite in 1:Nsims){
  dep=round(input_list[Ite,"dep"],2)
  
  # for each dep in input file, update input file's Record C2 for dep
- row_0=57
+ row_0=56
  for (i in 1:Num){
    row_t=row_0+(i-1)
    dep_list <- unlist(strsplit(a[row_t],","))
@@ -350,7 +396,7 @@ for(Ite in 1:Nsims){
  app_rate=round(input_list[Ite,"app_rate"],2)
  
  # for each rate in input file, update input file's Record C2 for rate
- row_0=57
+ row_0=56
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_rate_list <- unlist(strsplit(a[row_t],","))
@@ -369,7 +415,7 @@ for(Ite in 1:Nsims){
  app_eff=round(input_list[Ite,"app_eff"],2)
  
  # for each eff in input file, update input file's Record C2 for eff
- row_0=57
+ row_0=56
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_eff_list <- unlist(strsplit(a[row_t],","))
@@ -402,7 +448,7 @@ for(Ite in 1:Nsims){
  
  # for each dwrate, update input file's (Record C8 ?)
  DWRATE=input_list[Ite,"DWRATE"]
- row_hz=124
+ row_hz=125
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DWRATE_list <- unlist(strsplit(a[row_t],","))
@@ -416,7 +462,7 @@ for(Ite in 1:Nsims){
  
  # for each dsrate, update input file's (Record C8)
  DSRATE=input_list[Ite,"DSRATE"]
- row_hz=124
+ row_hz=125
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))
@@ -452,7 +498,8 @@ for(Ite in 1:Nsims){
             copy.mode = TRUE)
   
   # update vvwm -- change to function
-  source(paste(pwcdir,"src/04_write_update_vvwm.R",sep = ""))
+  source(paste(pwcdir,"src/04_write_update_vvwm.R",sep = "")) 
+    #if warning: "incomplete final line found on vvwmTransfer.txt" --> open file, press <enter> on last line and save file. 
 
   # copy VVWM.exe
   print(paste(file.exists(vvwmdir_executable), ": executable file at", vvwmdir_executable))

@@ -9,6 +9,9 @@ scripts...the R scripts read these files and edit them by replacing
 the input variables with the randomly sampled LHS amounts for each input
 variable.
 
+Note: copies of these files are also in /input/przm/ and /input/vvwm/
+Note: these files were created with PWC version 1.59
+
 
 Below is a brief description of each file.
 
