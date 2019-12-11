@@ -1,4 +1,6 @@
 /input/przm/input/*
+/input/przm/input*/*
+io/inputlist_przm_vvwm.csv
 
 # History files
 .Rhistory
