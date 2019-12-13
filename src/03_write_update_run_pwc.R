@@ -45,7 +45,7 @@ dim(outputdf)
 # ---------------------------------------------------------------
 
 # read in VVWM output - simulated water body processes, for each time date
-pwcdf_o <- read.csv(paste(pwcdir,"output/December-2016-FOL002_11_Custom_Parent_daily.csv", sep=""), header= FALSE, sep= ",",
+pwcdf_o <- read.csv(paste(pwcdir,"output/December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_daily.csv", sep=""), header= FALSE, sep= ",",
                   skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 
 # obtain structural dimensions
@@ -490,7 +490,7 @@ for(Ite in 1:Nsims){
   
   # update weather and output under each input folder
   a[4]=paste(file_path_as_absolute(newdir),"/",pwc_weather_used, sep="")
-  a[6]=paste(file_path_as_absolute(newdir),"/","PRZM_output.zts", sep="")
+  a[6]=paste(file_path_as_absolute(newdir),"/","output.zts", sep="")
   
   # copy PRZM.exe
   print(paste(file.exists(przmdir_executable), ": executable file at", przmdir_executable))
@@ -527,7 +527,7 @@ for(Ite in 1:Nsims){
 # ---------------------------------------------------------------------------
   
   # ---------------------------- PRZM Output --------------------------------
-  df <- read.table(paste(newdir,"/","PRZM_output",".zts", sep=""), header= FALSE, sep= "",
+  df <- read.table(paste(newdir,"/","output",".zts", sep=""), header= FALSE, sep= "",
                    skip = 3, stringsAsFactors = FALSE, row.names=NULL)
   #print(df)
   #print(dim(df))
@@ -537,7 +537,7 @@ for(Ite in 1:Nsims){
   #print(dim(outputdf))
   
   # ---------------------------- PWC Output ---------------------------------
-  pwcdf <- read.csv(paste(newdir,"/","December-2016-FOL002_11_Custom_Parent_daily",".csv", sep=""), header= FALSE, sep= ",",
+  pwcdf <- read.csv(paste(newdir,"/","output_11_parent_only_Custom_Parent_daily",".csv", sep=""), header= FALSE, sep= ",",
                     skip = 5, stringsAsFactors = FALSE, row.names=NULL)
   
 
@@ -546,7 +546,7 @@ for(Ite in 1:Nsims){
 
   
   # ------------------- Reading Conversion Factor from Output ---------------
-  con_almond <- file(paste(newdir,"/","December-2016-FOL002_11_Custom_Parent",".txt", sep=""))
+  con_almond <- file(paste(newdir,"/","output_11_parent_only_Custom_Parent",".txt", sep=""))
   
   open(con_almond)
   con_fac_line <- read.table(con_almond,skip=15,nrow=1) #16-th line

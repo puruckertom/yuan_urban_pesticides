@@ -267,21 +267,21 @@ l[65]=paste(bf)
 # ----------------------- file names ------------------------------------
 l[1]=paste(file_path_as_absolute(newdir),"/","output", sep="")
 l[30]=paste(file_path_as_absolute(newdir),"/",pwc_weather_used, sep="")
-l[69]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Parent_daily.csv","\"", sep="")#
-l[70]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate1_daily.csv","\"", sep="")#
-l[71]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate2_daily.csv","\"", sep="")#
-l[72]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Parent.txt","\"", sep="")#
-l[73]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate1.txt","\"", sep="")#
-l[74]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate2.txt","\"", sep="")#
-l[75]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Parent_DEEM.rdf","\"", sep="")#
-l[76]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate1_DEEM.rdf","\"", sep="")#
-l[77]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate2_DEEM.rdf","\"", sep="")#
-l[78]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Parent_Calendex.rdf","\"", sep="")#
-l[79]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate1_Calendex.rdf","\"", sep="")#
-l[80]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_Degradate2_Calendex.rdf","\"", sep="")#
-l[81]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_15_Parent.txt","\"", sep="")#
-l[82]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_15_Degradate1.txt","\"", sep="")#
-l[83]=paste("\"",file_path_as_absolute(newdir),"/","December-2016-FOL002_11_Custom_15_Degradate2.txt","\"", sep="")#
+l[69]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Parent_daily.csv","\"", sep="")#
+l[70]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate1_daily.csv","\"", sep="")#
+l[71]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate2_daily.csv","\"", sep="")#
+l[72]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Parent.txt","\"", sep="")#
+l[73]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate1.txt","\"", sep="")#
+l[74]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate2.txt","\"", sep="")#
+l[75]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Parent_DEEM.rdf","\"", sep="")#
+l[76]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate1_DEEM.rdf","\"", sep="")#
+l[77]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate2_DEEM.rdf","\"", sep="")#
+l[78]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Parent_Calendex.rdf","\"", sep="")#
+l[79]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate1_Calendex.rdf","\"", sep="")#
+l[80]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_Degradate2_Calendex.rdf","\"", sep="")#
+l[81]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_15_Parent.txt","\"", sep="")#
+l[82]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_15_Degradate1.txt","\"", sep="")#
+l[83]=paste("\"",file_path_as_absolute(newdir),"/","output_11_parent_only_Custom_15_Degradate2.txt","\"", sep="")#
 
 
 # -----------------------------------------------------------------------
