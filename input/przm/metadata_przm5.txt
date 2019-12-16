@@ -1,0 +1,31 @@
+# ---------------------------------------------------------
+# metadata for PRZM5.inp
+# ---------------------------------------------------------
+
+PRZM Input Variables and their Description
+
+
+Variable	Line Location	Description
+
+PFAC		10		Potential evapotranspiration adjustment factor used to estimate daily evapotranspiration
+ANETD		10		Minimum depth from which evapotranspiration is extracted
+uslek		14		Universal Soil Loss Equation (K) of soil erodibility
+uslels		14		Universal Soil Loss Equation topographic factor
+uslep		14		Universal Soil Loss Equation practice factor
+slp		14		Land slope (%)
+CN		18-25		Runoff curve number of antecedent moisture condition 2 for cropping period
+uslec_c		18-25		Soil loss cover management factors
+MNGN		18-25		Manning’s roughness coefficient N
+depth		33-38		Maximum rooting depth of the crop (cm)
+COVMAX		33-38		Maximum areal coverage of the canopy (%)
+HTMAX		33-38		Maximum canopy height at maturity date (cm)
+holdup		33-38		Canopy water storage
+bd		47		Bulk density of first soil horizon (g/cm3)
+fc		47		Field capacity in the horizon
+WP		47		Wilting point in the horizon
+OC		47		Organic carbon in the horizon
+dep		56-105		
+app_rate	56-105		Application rate
+app_eff		56-105		Application efficiency
+dwrate		123		Dissolved phase pesticide decay rate for each NCHEM (day-1)
+dsrate		123		Absorbed phase pesticide decay rate for each NCHEM (day-1)

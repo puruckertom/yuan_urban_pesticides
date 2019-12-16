@@ -43,7 +43,7 @@ pwcoutdf[1:10,,1]
 pwcoutdf[3890:3900,,1]
 pwcoutdf[5834:5844,,1]
 
-# subset Ave.Conc.H2O for PCC
+# subset Ave.Conc.H2O (model output) for PCC
 pwc_h2_output <- pwcoutdf[,2,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 plot(pwc_h2_output)
 dim(pwc_h2_output) #days*simulations

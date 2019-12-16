@@ -41,7 +41,7 @@ for(i in 1:ncol(inputs_lhs)){
 
 
 
-# all pcc
+# pcc -- for all model outputs
 przm_max_h2_pcc <- pcc(inputs_lhs, przm_max_h2, rank = F)
 pwc_max_peak_pcc <- pcc(inputs_lhs, pwc_max_peak, rank = F)
 pwc_max_h2_pcc <- pcc(inputs_lhs, pwc_max_h2, rank = F)

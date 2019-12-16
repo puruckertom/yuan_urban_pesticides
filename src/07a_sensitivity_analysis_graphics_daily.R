@@ -36,14 +36,14 @@ source(paste(pwcdir, "src/function_multiplot.R", sep=""))
 # ------------------------------------
 
 pcc_day <- as.data.frame(cbind(date, tarray_pwc_pcc_out_daily[34:ndays,1:dim(tarray_pwc_pcc_out_daily)[2]]))
-colnames(pcc_day) <- c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","CN_f","uslec_c","uslec_f","MNGN",
-                       "depth","COVMAX","HTMAX","holdup","bd1","bd2","bd3","bd4","bd5","fc","WP","OC","dep","app_rate","app_eff",
-                       "DWRATE","DSRATE","koc","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
+colnames(pcc_day) <- c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
+                       "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                       "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                        "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
-cont<- pcc_day%>% dplyr::select(one_of(c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","CN_f","uslec_c","uslec_f","MNGN",
-                                         "depth","COVMAX","HTMAX","holdup","bd1","bd2","bd3","bd4","bd5","fc","WP","OC","dep","app_rate","app_eff",
-                                         "DWRATE","DSRATE","koc","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
+cont<- pcc_day%>% dplyr::select(one_of(c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
+                                         "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                                         "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                                          "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")))
 
 melted_pwc = melt(cont, id.vars="date")
