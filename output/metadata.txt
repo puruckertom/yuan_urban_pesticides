@@ -21,6 +21,7 @@ KECHO.PRN					PRZM output file
 fort.78						PRZM output file
 December-2016-FOL002.SWI			PWC input file (.SWI)
 December-2016-FOL002.PWC			PWC input file (.PWC)
+Camino-Cimis13_NEW_08-13.wea			Weather file
 ... .txt/.csv files				VVWM output files
 
 

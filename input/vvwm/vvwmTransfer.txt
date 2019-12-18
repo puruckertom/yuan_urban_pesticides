@@ -1,4 +1,4 @@
-C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only
+C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only
 Bifenthrin
 1
 False
@@ -27,7 +27,7 @@ False
 0.0,,,
 2
 11_parent_only
-C:\Users\echelsvi\git\yuan_urban_pesticides\weather\Camino-Cimis13_NEW_08-13.dvf
+C:\Users\echelsvi\git\yuan_urban_pesticides\weather\Camino-Cimis13_NEW_08-13.wea
 40
 True,True,True,False,False,False,False
 False,30,0,
@@ -54,7 +54,7 @@ True
 1.0,1
 
 50
-36892,36923,36951,36982,37012,37043,37073,37104,37135,37165,37196,37226,37257,37288,37316,37347,37377,37408,37438,37469,37500,37530,37561,37591,37622,37653,37681,37712,37742,37773,37803,37834,37865,37895,37926,37956,37987,38018,38047,38078,38108,38139,38169,38200,38231,38261,38292,38322,38353,38687,
+367,398,426,457,487,518,548,579,610,640,671,701,732,763,791,822,852,883,913,944,975,1005,1036,1066,1097,1128,1156,1187,1217,1248,1278,1309,1340,1370,1401,1431,1462,1493,1522,1553,1583,1614,1644,1675,1706,1736,1767,1797,1828,2162,
 1
 556200
 35000
@@ -66,18 +66,18 @@ True
 1
 False
 False,15
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_daily.csv"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1_daily.csv"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2_daily.csv"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent.txt"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1.txt"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2.txt"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_DEEM.rdf"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1_DEEM.rdf"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2_DEEM.rdf"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_Calendex.rdf"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1_Calendex.rdf"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2_Calendex.rdf"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_15_Parent.txt"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_15_Degradate1.txt"
-"C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only_11_parent_only_Custom_15_Degradate2.txt"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_daily.csv"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1_daily.csv"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2_daily.csv"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent.txt"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1.txt"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2.txt"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_DEEM.rdf"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1_DEEM.rdf"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2_DEEM.rdf"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Parent_Calendex.rdf"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate1_Calendex.rdf"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_Degradate2_Calendex.rdf"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_15_Parent.txt"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_15_Degradate1.txt"
+"C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only_11_parent_only_Custom_15_Degradate2.txt"

@@ -1,9 +1,9 @@
-***  12/12/2019 11:53:52 AM
+***  12/18/2019 2:21:44 PM
 ***  PRZM5 Input File Generator
 ***Record A1: Weather File
-C:\Users\echelsvi\git\yuan_urban_pesticides\weather\Camino-Cimis13_NEW_08-13.dvf
+C:\Users\echelsvi\git\yuan_urban_pesticides\weather\Camino-Cimis13_NEW_08-13.wea
 ***Record A2: PRZM5 Time Series Output File
-C:\Users\echelsvi\OneDrive - Environmental Protection Agency (EPA)\Profile\Documents\pwc_test\December-2016-FOL002_parent_only.zts
+C:\Users\echelsvi\git\yuan_urban_pesticides\output\December-2016-FOL002_parent_only.zts
 ***Record A3: PRZM5 Advanced Options
 False,True,False,False,False,1
 ***Record 1: pfac, sfac, anetd 
@@ -30,12 +30,12 @@ False,True,False,False,False,1
 ***Record 6: Number of crop periods that follow
 6
 ***Record 7: Emergence (d/m/y), Maturity (d/m/y), Harvest (d/m/y), depth (cm), cover, height(cm), holdup (cm), post-harvest disposition
- 1, 1,1908,  10, 1,1908,  15, 1,1908,       0,        0,        0,        0,        1
- 1, 1,1909,  10, 1,1909,  15, 1,1909,       0,        0,        0,        0,        1
- 1, 1,1910,  10, 1,1910,  15, 1,1910,       0,        0,        0,        0,        1
- 1, 1,1911,  10, 1,1911,  15, 1,1911,       0,        0,        0,        0,        1
- 1, 1,1912,  10, 1,1912,  15, 1,1912,       0,        0,        0,        0,        1
- 1, 1,1913,  10, 1,1913,  15, 1,1913,       0,        0,        0,        0,        1
+ 1, 1,2008,  10, 1,2008,  15, 1,2008,       0,        0,        0,        0,        1
+ 1, 1,2009,  10, 1,2009,  15, 1,2009,       0,        0,        0,        0,        1
+ 1, 1,2010,  10, 1,2010,  15, 1,2010,       0,        0,        0,        0,        1
+ 1, 1,2011,  10, 1,2011,  15, 1,2011,       0,        0,        0,        0,        1
+ 1, 1,2012,  10, 1,2012,  15, 1,2012,       0,        0,        0,        0,        1
+ 1, 1,2013,  10, 1,2013,  15, 1,2013,       0,        0,        0,        0,        1
 ***Record 8: irrflag, tempflag
  2, False
 ***Record 9

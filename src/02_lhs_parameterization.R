@@ -7,7 +7,7 @@ Nsims <- 8
 
 # weather file
 #can be .dvf or .wea
-pwc_weather_used <- "Camino-Cimis13_NEW_08-13.dvf"
+pwc_weather_used <- "Camino-Cimis13_NEW_08-13.wea"
 pwc_weather <- paste(pwcdir_weather, pwc_weather_used, sep="")
 
 # state the simulation start and end

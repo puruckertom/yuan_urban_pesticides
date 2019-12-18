@@ -26,7 +26,7 @@
 # ---------------------------------------------------------------
 
 # read in PRZM output - simulated pesticide transport through soil, for each time date
-df_przm <- read.table(paste(pwcdir,"output/PRZM_output",".zts", sep=""), header= FALSE, sep= "",
+df_przm <- read.table(paste(pwcdir,"output/output",".zts", sep=""), header= FALSE, sep= "",
                 skip = 3, stringsAsFactors = FALSE, row.names=NULL)
 
 # obtain structural dimensions
@@ -85,9 +85,9 @@ for(Ite in 1:Nsims){
   close(con_przm5)
 
   # -------------- update the files (weather file, PRZM output file) ----------
-  a[4]= paste(pwcdir_output,"Camino-Cimis13_NEW_08-13.dvf")
+  a[4]= paste(pwcdir_output,"Camino-Cimis13_NEW_08-13.wea")
  
-  a[6]= paste(pwcdir_output,"PRZM_output.zts")
+  a[6]= paste(pwcdir_output,"output.zts")
  
   # --------------------------- Pan factor ------------------------------------
   # recall: input_list is a uniformly distr. latin hypercube (5000*50 = nsim*nparam)
