@@ -16,7 +16,7 @@ Note: these files were created with PWC version 1.59
 
 Below is a brief description of each file.
 
-PRZM5.inp					PRZM input file
+PRZM5.inp					PRZM input file (with manual changes, see metadata_przm5)
 vvwmTransfer.txt				VVWM input file
 ...input# folders				specific PWC simulation using LHS input variables
 

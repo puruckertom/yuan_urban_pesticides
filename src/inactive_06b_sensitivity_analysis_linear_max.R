@@ -7,11 +7,12 @@
 # read files, call variables
 # -------------------------------------------------------------------------
 
-# recall : in_out was created in 05_write_output_into_df.R 
+# recall : in_out_max was created in 05_write_output_into_df.R 
 in_out_max <- read.csv(file = paste(pwcdir, "io/inputdata_przm_vvwm_max.csv", sep = ""), header = TRUE)
 
 class(in_out_max)
 dim(in_out_max) 
+names(in_out_max)
 
 # call variables
 przm_max_h2 <- in_out_max$przm_max_h2

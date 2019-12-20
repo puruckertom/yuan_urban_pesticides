@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------
 
 # state the number of simulations 
-Nsims <- 8
+Nsims <- 5000
 
 # weather file
 #can be .dvf or .wea
@@ -12,8 +12,8 @@ pwc_weather <- paste(pwcdir_weather, pwc_weather_used, sep="")
 
 # state the simulation start and end
 #must have mm/dd/yyyy format
-simstart <- "01/01/2009"
-simend <- "12/31/2014"
+simstart <- "01/01/2008"
+simend <- "12/31/2013"
 
 # list input paramters
 input_parameters <- c("PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN","depth",

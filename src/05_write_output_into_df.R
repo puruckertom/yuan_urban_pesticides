@@ -9,7 +9,7 @@
 # -----------------------------------------------------------------------------
 
 # create a sequence of the time dates from start to end
-timearray <-seq(as.Date("2009-01-01"), as.Date("2014-12-31"), by="days")#format 1961-01-01
+timearray <-seq(as.Date("2008-01-01"), as.Date("2013-12-31"), by="days")#format 1961-01-01
 
 # change the date format
 timearray <- as.Date(timearray,"%m/%d/%Y")
@@ -44,7 +44,7 @@ write.csv(outputdf, file = paste(pwcdir, "io/przmout.csv", sep = ""))
 # -----------------------------------------------------------------------------
 # read pwc output and save as .Rdata
 # -----------------------------------------------------------------------------
-
+                  
 # recall: pwcoutdf created in 03write_update_run_pwc.R
 dim(pwcoutdf)
 
@@ -121,7 +121,7 @@ colnames(inputs_lhs)
 # ---------------------------------------------
 
 # subset przm H2O 
-przm_h2_output <- (outputdf[,4,1:Nsims])
+przm_h2_output <- (outputdf[,4,1:Nsims]) # YYYY MM DD RUNF0 ESLS0 RFLX1 EFLX1 DCON1 INFL0
 head(przm_h2_output)
 dim(przm_h2_output) #days*simulations
 # subset max przm H2O

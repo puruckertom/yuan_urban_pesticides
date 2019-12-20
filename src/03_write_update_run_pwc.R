@@ -11,11 +11,11 @@
 #       Version 1.59 produces a fort.78 file with PRZM, and this
 #       file is used in VVWM.  (Previous versions (1.52/1.53), 
 #       typically produce fort.13. This is not compatible with 
-#       these scripts because they are built off of Version 1.59 
-#       files.)
+#       these scripts because these scripts are built off of 
+#       Version 1.59 files.)
 #
 #       The executables located in the /exe/ folder and the
-#       executables downloaded on your PC must both be Version
+#       GUI downloaded on your PC must both be Version
 #       1.59 (2018). 
 
 
@@ -73,7 +73,7 @@ dim(con_fac)
 
 
 set.seed(42)
-Ite <- 1
+
 
 # we will run the PWC PRZM 5000 times (5000 = our # of simulations)
 # to run each of the 5000 PWC simulations, we will update the PWC PRZM input file with the corresponding Latin Hypercube parameter quanitities
@@ -448,7 +448,7 @@ for(Ite in 1:Nsims){
  
  # for each dwrate, update input file's (Record C8 ?)
  DWRATE=input_list[Ite,"DWRATE"]
- row_hz=125
+ row_hz=123
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DWRATE_list <- unlist(strsplit(a[row_t],","))
@@ -462,7 +462,7 @@ for(Ite in 1:Nsims){
  
  # for each dsrate, update input file's (Record C8)
  DSRATE=input_list[Ite,"DSRATE"]
- row_hz=125
+ row_hz=123
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))
