@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# Run sensitivity analysis with daily concentrations
+# Computation of PCC for daily concentrations
 # ------------------------------------------------------------------------------
 
 
@@ -33,30 +33,7 @@ names(con_fac_output)
 load(paste(pwcdir,"io/timearray.RData", sep = ""))
 
 
-
-# -------------------------------------------------------------------------------
-# Percentiles (RUNF0)
-# -------------------------------------------------------------------------------
-
-
-# subset przm H2O 
-przm_h2_output <- (outputdf[,4,1:Nsims]) # YYYY MM DD RUNF0 ESLS0 RFLX1 EFLX1 DCON1 INFL0
-head(przm_h2_output)
-dim(przm_h2_output) #days*simulations
-
-
-# still more to write......
-
-
-
-# -------------------------------------------------------------------------------
-# PCC (max RUNF0)
-# -------------------------------------------------------------------------------
-
-# subset max przm H2O
-przm_max_h2 <-apply(przm_h2_output, 2, function(x) max(x, na.rm = TRUE))
-
-# still more to write......
+ndays <- length(timearray)
 
 
 
@@ -65,21 +42,19 @@ przm_max_h2 <-apply(przm_h2_output, 2, function(x) max(x, na.rm = TRUE))
 # PCC (Ave.Conc.H2O)
 # -------------------------------------------------------------------------------
 
-ndays <- length(timearray)
-
 # check pwc output
 dim(pwcoutdf)
 pwcoutdf[1:10,,1]
 pwcoutdf[1890:1900,,1]
 pwcoutdf[2034:2044,,1]
 
-# subset Ave.Conc.H2O (model output) for PCC
+# subset Ave.Conc.H2O (model output) 
 pwc_h2_output <- pwcoutdf[,2,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 dim(pwc_h2_output) #days*simulations
 
-plot(pwc_h2_output) 
-plot(pwc_h2_output[,1], type = "l") #time series for simulation #1
-plot(pwc_h2_output[,5], type = "l") #time series for simulation #5
+#plot(pwc_h2_output) 
+#plot(pwc_h2_output[,1], type = "l") #time series for simulation #1
+#plot(pwc_h2_output[,5], type = "l") #time series for simulation #5
 
 
 # check LHS 
@@ -112,16 +87,11 @@ write.csv(tarray_pcc_ave_conc_daily, file = paste(pwcdir, "io/tarray_pcc_ave_con
 # plot
 plot(temp_pcc)
 
-ggplot(temp_pcc) +
-  geom_bar(stat = "identity",color = "orange", fill = "orange") 
-
 
 
 # -------------------------------------------------------------------------------
 # PCC (Peak.Conc.H20)
 # -------------------------------------------------------------------------------
-
-ndays <- length(timearray)
 
 # check pwc output
 dim(pwcoutdf)
@@ -129,13 +99,13 @@ pwcoutdf[1:10,,1]
 pwcoutdf[1890:1900,,1]
 pwcoutdf[2034:2044,,1]
 
-# subset Peak.Conc.H2O (model output) for PCC
+# subset Peak.Conc.H2O (model output) 
 pwc_peak_output <- pwcoutdf[,4,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 dim(pwc_peak_output) #days*simulations
 
-plot(pwc_peak_output) 
-plot(pwc_peak_output[,1], type = "l") #time series for simulation #1
-plot(pwc_peak_output[,5], type = "l") #time series for simulation #5
+#plot(pwc_peak_output) 
+#plot(pwc_peak_output[,1, type = "l") #time series for simulation #1
+#plot(pwc_peak_output[,5], type = "l") #time series for simulation #5
 
 
 # check LHS 
@@ -168,17 +138,10 @@ write.csv(tarray_pcc_peak_daily, file = paste(pwcdir, "io/tarray_pcc_peak_daily.
 # plot
 plot(temp_pcc_peak)
 
-ggplot(temp_pcc_peak) +
-  geom_bar(stat = "identity",color = "orange", fill = "orange") 
-
-
-
 
 # -------------------------------------------------------------------------------
 # PCC (Ave.Conc.benth)
 # -------------------------------------------------------------------------------
-
-ndays <- length(timearray)
 
 # check pwc output
 dim(pwcoutdf)
@@ -186,13 +149,13 @@ pwcoutdf[1:10,,1]
 pwcoutdf[1890:1900,,1]
 pwcoutdf[2034:2044,,1]
 
-# subset Peak.Conc.H2O (model output) for PCC
+# subset Peak.Conc.H2O (model output)
 pwc_ben_output <- pwcoutdf[,3,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 dim(pwc_ben_output) #days*simulations
 
-plot(pwc_ben_output) 
-plot(pwc_ben_output[,1], type = "l") #time series for simulation #1
-plot(pwc_ben_output[,5], type = "l") #time series for simulation #5
+#plot(pwc_ben_output) 
+#plot(pwc_ben_output[,1], type = "l") #time series for simulation #1
+#plot(pwc_ben_output[,5], type = "l") #time series for simulation #5
 
 
 # check LHS 
@@ -225,17 +188,7 @@ write.csv(tarray_pcc_benthic_daily, file = paste(pwcdir, "io/tarray_pcc_benthic_
 # plot
 plot(temp_pcc_benthic)
 
-ggplot(temp_pcc_benthic) +
-  geom_bar(stat = "identity",color = "orange", fill = "orange") 
 
-
-
-# -------------------------------------------------------------------------------
-# PCC (max Ave.Conc.benth)
-# -------------------------------------------------------------------------------
-
-# calculate MAX
-pwc_max_benthic <-apply(pwc_ben_output, 2, function(x) max(x, na.rm = TRUE))
 
 # -------------------------------------------------------------------------------
 # the end

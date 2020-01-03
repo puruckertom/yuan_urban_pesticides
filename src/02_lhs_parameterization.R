@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------
 
 # state the number of simulations 
-Nsims <- 50
+Nsims <- 5000
 
 # weather file
 #can be .dvf or .wea
