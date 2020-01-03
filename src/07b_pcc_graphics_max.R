@@ -18,7 +18,7 @@ sens_pwc_h2 <- read.csv(file = paste(pwcdir,"io/pcc_pwc_max_h2.csv", sep=""), he
 sens_pwc_h2$var <- factor(sens_pwc_h2$var, levels=unique(as.character(sens_pwc_h2$var)))
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_pwc_max_h2.png", sep-""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_pwc_max_h2.png", sep=""),width=10, height=10, units="in",res=250) 
 
 
 # plot
@@ -45,8 +45,8 @@ p1 +
   theme(legend.title =element_text(size=14))+ 
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
-  theme(legend.position='bottom')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum Ave.Conc.H20")
+  theme(legend.position='none')+#add "none" to remove legend
+  ggtitle("Parameters vs Maximum Daily Aqueous Average Bifenthrin Conc. in Pool Water Column") #Ave.Conc.H20
 
 dev.off()
 
@@ -68,7 +68,7 @@ sens_pwc_peak <- read.csv(file = paste(pwcdir,"io/pcc_pwc_max_peak.csv", sep="")
 sens_pwc_peak$var <- factor(sens_pwc_peak$var, levels=unique(as.character(sens_pwc_peak$var)))
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_pwc_max_peak.png", sep-""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_pwc_max_peak.png", sep=""),width=10, height=10, units="in",res=250) 
 
 
 # plot
@@ -95,8 +95,8 @@ p2 +
   theme(legend.title =element_text(size=14))+ 
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
-  theme(legend.position='bottom')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum Peak.Conc.H20")
+  theme(legend.position='none')+#add "none" to remove legend
+  ggtitle("Parameters vs Maximum Daily Aqueous Peak Bifenthrin Conc. in Pool Water Column") #Peak.Conc.H20
 
 dev.off()
 
@@ -117,7 +117,7 @@ sens_przm_h2 <- read.csv(file = paste(pwcdir,"io/pcc_przm_max_h2.csv", sep=""), 
 sens_przm_h2$var <- factor(sens_przm_h2$var, levels=unique(as.character(sens_przm_h2$var)))
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_przm_max_h2.png", sep-""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_przm_max_h2.png", sep=""),width=10, height=10, units="in",res=250) 
 
 
 # plot
@@ -144,8 +144,8 @@ p3 +
   theme(legend.title =element_text(size=14))+ 
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
-  theme(legend.position='bottom')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum RUNF0")
+  theme(legend.position='none')+#add "none" to remove legend
+  ggtitle("Parameters vs Maximum Daily Bifenthrin Concentration in Runoff") #RUNF0
 
 dev.off()
 
@@ -166,7 +166,7 @@ sens_pwc_ben <- read.csv(file = paste(pwcdir,"io/pcc_pwc_max_benthic.csv", sep="
 sens_pwc_ben$var <- factor(sens_pwc_ben$var, levels=unique(as.character(sens_pwc_ben$var)))
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_pwc_max_benthic.png", sep-""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_pwc_max_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
 
 
 # plot
@@ -193,8 +193,8 @@ p4 +
   theme(legend.title =element_text(size=14))+ 
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
-  theme(legend.position='bottom')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum Ave.Conc.benthic")
+  theme(legend.position='none')+#add "none" to remove legend
+  ggtitle("Parameters vs Maximum Daily Aqueous Average Bifenthrin Conc. in Pool Benthic Column") #Ave.Conc.benthic
 
 dev.off()
 

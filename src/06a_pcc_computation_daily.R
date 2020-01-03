@@ -149,7 +149,7 @@ pwcoutdf[1:10,,1]
 pwcoutdf[1890:1900,,1]
 pwcoutdf[2034:2044,,1]
 
-# subset Peak.Conc.H2O (model output)
+# subset Ave.Conc.benth (model output)
 pwc_ben_output <- pwcoutdf[,3,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 dim(pwc_ben_output) #days*simulations
 

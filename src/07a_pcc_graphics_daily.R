@@ -72,7 +72,7 @@ daily_pcc_ave_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
   guides(fill=FALSE) +  
   xlab("Simulation Day") + 
   ylab("Partial Correlation Coefficient") +
-  annotate("text", x = 1000, y = 0.92, label = "AveCon H20", size=6) +
+  #annotate("text", x = 1000, y = 0.92, label = "Ave.Conc.H20", size=6) +
   theme_bw() +
   scale_x_discrete(breaks = c(61,426,610,791,1035)) +
   theme(legend.position = "none",  axis.title.x=element_blank(), axis.text.x=element_blank())
@@ -84,7 +84,7 @@ daily_pcc_ave_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
 # plot daily PCC for highly sensitive parameters only (model output = Ave.Conc.H20)
 # ------------------------------------
 
-cont1<- pcc_day_ave_conc%>%select(one_of(c("date","CN_c","bd1","fc","WP","app_rate","app_eff","hydro","bulk_density","FROC2")))
+cont1<- pcc_day_ave_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_rate","app_eff","benthic_depth")))
 
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
@@ -100,7 +100,7 @@ daily_pcc_ave_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variab
   theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
   theme(legend.text=element_text(size=12))+
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
-  theme(legend.position = "none")
+  theme(legend.position = "bottom")
 
 
 
@@ -133,7 +133,7 @@ daily_pcc_peak_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) 
   guides(fill=FALSE) +  
   xlab("Simulation Day") + 
   ylab("Partial Correlation Coefficient") +
-  annotate("text", x = 1000, y = 0.92, label = "Peak Conc H20", size=6) +
+  #annotate("text", x = 1000, y = 0.92, label = "Peak.Conc.H20", size=6) +
   theme_bw() +
   scale_x_discrete(breaks = c(61,426,610,791,1035)) +
   theme(legend.position = "none",  axis.title.x=element_blank(), axis.text.x=element_blank())
@@ -145,7 +145,7 @@ daily_pcc_peak_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) 
 # plot daily PCC for highly sensitive paramters only (model output = Peak.Conc.H20)
 # ------------------------------------
 
-cont1<- pcc_day_peak_conc%>%select(one_of(c("date","CN_c","bd1","fc","WP","app_rate","app_eff","hydro","bulk_density","FROC2")))
+cont1<- pcc_day_peak_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_rate","app_eff","anae_aq", "temp_ref_anae","bulk_density")))
 
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
@@ -161,7 +161,7 @@ daily_pcc_peak_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=varia
   theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
   theme(legend.text=element_text(size=12))+
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
-  theme(legend.position = "none")
+  theme(legend.position = "bottom")
 
 
 
@@ -198,7 +198,7 @@ daily_pcc_ben_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
   guides(fill=FALSE) +  
   xlab("Simulation Day") + 
   ylab("Partial Correlation Coefficient") +
-  annotate("text", x = 1000, y = 0.92, label = "Ave Conc Benthic", size=6) +
+  #annotate("text", x = 1000, y = 0.92, label = "Ave.Conc.Benthic", size=6) +
   theme_bw() +
   scale_x_discrete(breaks = c(61,426,610,791,1035)) +
   theme(legend.position = "none",  axis.title.x=element_blank(), axis.text.x=element_blank())
@@ -207,10 +207,10 @@ daily_pcc_ben_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
 
 
 # ------------------------------------
-# plot daily PCC for highly sensitive paramters only (model output = Peak.Conc.H20)
+# plot daily PCC for highly sensitive paramters only (model output = Ave.Conc.benth)
 # ------------------------------------
 
-cont1<- pcc_day_ben_conc%>%select(one_of(c("date","CN_c","bd1","fc","WP","app_rate","app_eff","hydro","bulk_density","FROC2")))
+cont1<- pcc_day_ben_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_rate","app_eff","anae_aq","temp_ref_ae")))
 
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
@@ -226,7 +226,7 @@ daily_pcc_ben_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variab
   theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
   theme(legend.text=element_text(size=12))+
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
-  theme(legend.position = "none")
+  theme(legend.position = "bottom")
 
 
 
