@@ -29,9 +29,9 @@ p1 <-ggplot(data=sens_pwc_h2, aes(sens_pwc_h2$pcc,sens_pwc_h2$var))+
 p1 +  
   #facet_grid (~Media,scales="free")+
   geom_point(aes(colour = cut(abs(pcc), c(-Inf, 0.3, 0.5, Inf))),size = 6) +
-  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "deepskyblue",
-                                                "(0.3,0.5]" = "dodgerblue4",
-                                                "(0.5, Inf]" = "Red"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
+  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "#6baed6",
+                                                "(0.3,0.5]" = "#08519c",
+                                                "(0.5, Inf]" = "#f03b20"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
   geom_point(shape=21,size=6)+  
   #scale_y_discrete(limits = rev(unique(sort(trends$LUf))))+#scale_x_reverse()+
   theme_bw()+ 
@@ -79,9 +79,9 @@ p2 <-ggplot(data=sens_pwc_peak, aes(sens_pwc_peak$pcc,sens_pwc_peak$var))+
 p2 +  
   #facet_grid (~Media,scales="free")+
   geom_point(aes(colour = cut(abs(pcc), c(-Inf, 0.3, 0.5, Inf))),size = 6) +
-  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "deepskyblue",
-                                                "(0.3,0.5]" = "dodgerblue4",
-                                                "(0.5, Inf]" = "Red"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
+  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "#6baed6",
+                                                "(0.3,0.5]" = "#08519c",
+                                                "(0.5, Inf]" = "#f03b20"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
   geom_point(shape=21,size=6)+  
   #scale_y_discrete(limits = rev(unique(sort(trends$LUf))))+#scale_x_reverse()+
   theme_bw()+ 
@@ -128,9 +128,9 @@ p3 <-ggplot(data=sens_przm_h2, aes(sens_przm_h2$pcc,sens_przm_h2$var))+
 p3 +  
   #facet_grid (~Media,scales="free")+
   geom_point(aes(colour = cut(abs(pcc), c(-Inf, 0.3, 0.5, Inf))),size = 6) +
-  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "deepskyblue",
-                                                "(0.3,0.5]" = "dodgerblue4",
-                                                "(0.5, Inf]" = "Red"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
+  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "#6baed6",
+                                                "(0.3,0.5]" = "#08519c",
+                                                "(0.5, Inf]" = "#f03b20"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
   geom_point(shape=21,size=6)+  
   #scale_y_discrete(limits = rev(unique(sort(trends$LUf))))+#scale_x_reverse()+
   theme_bw()+ 
@@ -177,9 +177,9 @@ p4 <-ggplot(data=sens_pwc_ben, aes(sens_pwc_ben$pcc,sens_pwc_ben$var))+
 p4 +  
   #facet_grid (~Media,scales="free")+
   geom_point(aes(colour = cut(abs(pcc), c(-Inf, 0.3, 0.5, Inf))),size = 6) +
-  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "deepskyblue",
-                                                "(0.3,0.5]" = "dodgerblue4",
-                                                "(0.5, Inf]" = "Red"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
+  scale_color_manual(name = "|PCC|", values = c("(-Inf,0.3]" = "#6baed6",
+                                                "(0.3,0.5]" = "#08519c",
+                                                "(0.5, Inf]" = "#f03b20"), labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
   geom_point(shape=21,size=6)+  
   #scale_y_discrete(limits = rev(unique(sort(trends$LUf))))+#scale_x_reverse()+
   theme_bw()+ 
