@@ -78,8 +78,8 @@ for (i in 1:ncol(inputs_lhs)){
 # write out pcc results
 dim(pcc_max_peak)
 
-save(pcc_max_peak,file = paste(pwcdir,"io/pcc_max_peak.RData", sep = ""))
-write.csv(pcc_max_peak, file = paste(pwcdir, "io/pcc_max_peak.csv", sep = ""))
+save(pcc_max_peak,file = paste(pwcdir,"io/pcc_pwc_max_peak.RData", sep = ""))
+write.csv(pcc_max_peak, file = paste(pwcdir, "io/pcc_pwc_max_peak.csv", sep = ""))
 
 
 
