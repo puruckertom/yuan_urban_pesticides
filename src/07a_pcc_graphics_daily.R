@@ -79,7 +79,6 @@ daily_pcc_ave_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
 
 
 
-
 # ------------------------------------
 # plot daily PCC for highly sensitive parameters only (model output = Ave.Conc.H20)
 # ------------------------------------
@@ -89,21 +88,25 @@ cont1<- pcc_day_ave_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_ra
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
 
+
+# save figure as png
+png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
+
 # selected days 1097-1897 based on available observed data -- change according to Yuan data 
 daily_pcc_ave_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variable)) +
   geom_line(aes(colour=melted_pwc1$variable),size=1)+
   scale_x_continuous(limits = c(1097, 1827))+ 
   scale_y_continuous(breaks=seq(-1,1,by=0.5), limits=c(-1,1))+ 
   theme_bw()+
-  labs(title = "", x = "", y = "PCC", color = "")+ 
+  labs(title = "", x = "Day", y = "PCC", color = "")+ 
   theme(axis.title.x = element_text(colour="black", size=14),axis.text.x  = element_text(colour="black", vjust=0.5, size=14))+ 
   theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
   theme(legend.text=element_text(size=12))+
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
   theme(legend.position = "bottom")
 
-
-
+print(pwc_percentile_plot)
+dev.off()
 
 
 
@@ -150,6 +153,10 @@ cont1<- pcc_day_peak_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_r
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
 
+# save figure as png
+png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_peak_h2.png", sep=""),width=10, height=10, units="in",res=250) 
+
+
 # selected days 1097-1897 based on available observed data -- change according to Yuan data 
 daily_pcc_peak_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variable)) +
   geom_line(aes(colour=melted_pwc1$variable),size=1)+
@@ -163,8 +170,8 @@ daily_pcc_peak_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=varia
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
   theme(legend.position = "bottom")
 
-
-
+print(pwc_percentile_plot)
+dev.off()
 
 
 
@@ -215,6 +222,11 @@ cont1<- pcc_day_ben_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_ra
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
 
+
+# save figure as png
+png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
+
+
 # selected days 1097-1897 based on available observed data -- change according to Yuan data 
 daily_pcc_ben_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variable)) +
   geom_line(aes(colour=melted_pwc1$variable),size=1)+
@@ -228,7 +240,8 @@ daily_pcc_ben_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variab
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
   theme(legend.position = "bottom")
 
-
+print(pwc_percentile_plot)
+dev.off()
 
 
 
