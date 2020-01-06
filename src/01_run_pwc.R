@@ -16,32 +16,28 @@ source(paste(pwcdir,"src/03_write_update_run_pwc.R",sep = ""))
 #source(paste(pwcdir, "src/04_write_update_vvwm.R",sep =""))
 
 
-# QAQC check ---------------------------------------------------------------   ????????
-#source(paste(pwcdir, "src/03b_przm_qaqc.R",sep=""))
-
-
 # read, write all outputs to .Rdata ----------------------------------------
 source(paste(pwcdir,"src/05_write_ouput_into_df.R",sep = ""))
 
 
-# run sensitivity analysis w/ daily conc. ----------------------------------
-source(paste(pwcdir,"src/06a_sensitivity_analysis_linear_daily.R",sep = ""))
+# compute pcc w/ daily conc. ----------------------------------
+source(paste(pwcdir,"src/06a_pcc_computation_daily.R",sep = ""))
 
 
-# run sensitivity analysis w/ daily max conc. ------------------------------
-source(paste(pwcdir,"src/06b_sensitivity_analysis_linear_max.R",sep = ""))
+# compute pcc w/ daily max conc. ------------------------------
+source(paste(pwcdir,"src/06b_pcc_computation_max.R",sep = ""))
 
 
 # sensitivity graphics for daily--------------------------------------------
-source(paste(pwcdir,"src/07a_sensitivity_analyses_graphics_daily.R",sep = ""))
+source(paste(pwcdir,"src/07a_pcc_graphics_daily.R",sep = ""))
 
 
-# sensitivity graphics for max ---------------------------------------------   ????????
-#source(paste(pwcdir, "src/07b_sensitivity_analysis_graphics_max.R", sep="") 
+# sensitivity graphics for max ---------------------------------------------   
+source(paste(pwcdir, "src/07b_pcc_graphics_max.R", sep="")) 
 
 
 # sensitivity parameter distribution graphs --------------------------------
-source(paste(pwcdir,"src/08pardistribution.R",sep = ""))
+#source(paste(pwcdir,"src/08pardistribution.R",sep = ""))
 
 
 # plot some outputs --------------------------------------------------------  ?????????
