@@ -2,14 +2,14 @@ C:\Users\echelsvi\git\yuan_urban_pesticides\deterministic\input\FOL003\December-
 Bifenthrin
 1
 False
-48,30,89,
+3570,30,89,
 323.6,56,12,
 20,25,21,
 647.2,420,200,
 20,22,50,
-0.0,134,13,
+365,134,13,
 40,40,40,
-0.0,45,100,
+365,45,100,
 161.8,97,21,
 20,
 0,0,,

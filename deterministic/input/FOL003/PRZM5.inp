@@ -1,4 +1,4 @@
-***  1/28/2020 3:42:29 PM
+***  1/30/2020 11:35:07 AM
 ***  PRZM5 Input File Generator
 ***Record A1: Weather File
 C:\Users\echelsvi\git\yuan_urban_pesticides\deterministic\input\FOL003\17484_grid_folsom.wea
@@ -109,7 +109,7 @@ False,True,False,False,False,1
 ***Record C6: volatilization
 0,0.0072,0,
 *** Record C7: Kf1, Kf2, Kf3 for each horizon
-48,
+3570,
 *** Record C7A: N1, N2, N3 Freundlich Exponents for each horizon
 1.0,
 *** Record C7B: Region 2 Freundlich Coefficient for each horizon
