@@ -9,7 +9,7 @@
 
 ndays <- length(timearray)
 
-date <- 34:ndays # might need to change
+date <- 367:ndays # might need to change.  first 366 days have NA pcc (because model output = 0)
 
 
 # pcc daily results - Ave.Conc.H20
@@ -50,32 +50,40 @@ source(paste(pwcdir, "src/function_multiplot.R", sep=""))
 # plot daily PCC (for model output = Ave.Conc.H20)  
 # ------------------------------------
 
-pcc_day_ave_conc <- as.data.frame(cbind(date, tarray_pcc_ave_conc_daily[34:ndays,1:dim(tarray_pcc_ave_conc_daily)[2]]))
+pcc_day_ave_conc <- as.data.frame(cbind(date, tarray_pcc_ave_conc_daily[367:ndays,1:dim(tarray_pcc_ave_conc_daily)[2]]))
 colnames(pcc_day_ave_conc) <- c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                       "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                       "bd1","fc","WP","OC","dep","app_rate","app_eff",
                        "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                        "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
 cont <- pcc_day_ave_conc%>% dplyr::select(one_of(c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                                         "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                                         "bd1","fc","WP","OC","dep","app_rate","app_eff",
                                          "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                                          "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")))
 
 melted_pwc = melt(cont, id.vars="date")
-#melted_pwc <- na.omit(melted_pwc)
+melted_pwc <- na.omit(melted_pwc)
 
 
 # PCC Time Series plots (all variables)
+
+# save figure as png
+png(filename= paste(pwcdir, "figures/pcc_all_ts_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
+
 daily_pcc_ave_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
-  geom_line(aes(colour=melted_pwc$variable)) +
+  geom_line() +
   facet_wrap(~variable, scale="free")+
   guides(fill=FALSE) +  
   xlab("Simulation Day") + 
   ylab("Partial Correlation Coefficient") +
   #annotate("text", x = 1000, y = 0.92, label = "Ave.Conc.H20", size=6) +
   theme_bw() +
-  scale_x_discrete(breaks = c(61,426,610,791,1035)) +
+  #scale_x_discrete(breaks = c(426,610,791,1035)) +
+  scale_y_continuous(limits=c(min(melted_pwc$value), max(melted_pwc$value))) +
   theme(legend.position = "none",  axis.title.x=element_blank(), axis.text.x=element_blank())
+
+print(daily_pcc_ave_conc)
+dev.off()
 
 
 
@@ -83,11 +91,15 @@ daily_pcc_ave_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
 # plot daily PCC for highly sensitive parameters only (model output = Ave.Conc.H20)
 # ------------------------------------
 
-cont1<- pcc_day_ave_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_rate","app_eff","benthic_depth")))
+cont1<- pcc_day_ave_conc%>%select(one_of(c("date","CN_c","bulk_density", "kd")))
 
 melted_pwc1 = melt(cont1, id.vars="date")
-#melted_pwc<- na.omit(melted_pwc)
+melted_pwc1<- na.omit(melted_pwc1)
 
+
+# -------------------
+# 2009 - 2014
+# -------------------
 
 # save figure as png
 png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
@@ -95,7 +107,7 @@ png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_ave_h2.png", sep
 # selected days 1097-1897 based on available observed data -- change according to Yuan data 
 daily_pcc_ave_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variable)) +
   geom_line(aes(colour=melted_pwc1$variable),size=1)+
-  scale_x_continuous(limits = c(1097, 1827))+ 
+  scale_x_continuous(limits = c(367, 2557))+ 
   scale_y_continuous(breaks=seq(-1,1,by=0.5), limits=c(-1,1))+ 
   theme_bw()+
   labs(title = "", x = "Day", y = "PCC", color = "")+ 
@@ -105,8 +117,10 @@ daily_pcc_ave_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variab
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
   theme(legend.position = "bottom")
 
-print(pwc_percentile_plot)
+print(daily_pcc_ave_conc_high)
 dev.off()
+
+
 
 
 
@@ -114,14 +128,14 @@ dev.off()
 # plot daily PCC (for model output = Peak.Conc.H20)  
 # ------------------------------------
 
-pcc_day_peak_conc <- as.data.frame(cbind(date, tarray_pcc_peak_daily[34:ndays,1:dim(tarray_pcc_peak_daily)[2]]))
+pcc_day_peak_conc <- as.data.frame(cbind(date, tarray_pcc_peak_daily[367:ndays,1:dim(tarray_pcc_peak_daily)[2]]))
 colnames(pcc_day_peak_conc) <- c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                                "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                                "bd1","fc","WP","OC","dep","app_rate","app_eff",
                                 "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                                 "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
 cont <- pcc_day_peak_conc%>% dplyr::select(one_of(c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                                                   "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                                                   "bd1","fc","WP","OC","dep","app_rate","app_eff",
                                                    "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                                                    "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")))
 
@@ -131,7 +145,7 @@ melted_pwc = melt(cont, id.vars="date")
 
 # PCC Time Series plots (all variables)
 daily_pcc_peak_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
-  geom_line(aes(colour=melted_pwc$variable)) +
+  geom_line() +
   facet_wrap(~variable, scale="free")+
   guides(fill=FALSE) +  
   xlab("Simulation Day") + 
@@ -139,6 +153,7 @@ daily_pcc_peak_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) 
   #annotate("text", x = 1000, y = 0.92, label = "Peak.Conc.H20", size=6) +
   theme_bw() +
   scale_x_discrete(breaks = c(61,426,610,791,1035)) +
+  scale_y_continuous(limits=c(min(melted_pwc$value), max(melted_pwc$value))) +
   theme(legend.position = "none",  axis.title.x=element_blank(), axis.text.x=element_blank())
 
 
@@ -148,7 +163,7 @@ daily_pcc_peak_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) 
 # plot daily PCC for highly sensitive paramters only (model output = Peak.Conc.H20)
 # ------------------------------------
 
-cont1<- pcc_day_peak_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_rate","app_eff","anae_aq", "temp_ref_anae","bulk_density")))
+cont1<- pcc_day_peak_conc%>%select(one_of(c("date","CN_c","kd","FROC2","SUSED","FROC1")))
 
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
@@ -170,7 +185,7 @@ daily_pcc_peak_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=varia
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
   theme(legend.position = "bottom")
 
-print(pwc_percentile_plot)
+print(daily_pcc_peak_conc_high)
 dev.off()
 
 
@@ -183,14 +198,14 @@ dev.off()
 # plot daily PCC (for model output = Ave.Conc.benth)  
 # ------------------------------------
 
-pcc_day_ben_conc <- as.data.frame(cbind(date, tarray_pcc_benthic_daily[34:ndays,1:dim(tarray_pcc_benthic_daily)[2]]))
+pcc_day_ben_conc <- as.data.frame(cbind(date, tarray_pcc_benthic_daily[367:ndays,1:dim(tarray_pcc_benthic_daily)[2]]))
 colnames(pcc_day_ben_conc) <- c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                                 "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                                "bd1","fc","WP","OC","dep","app_rate","app_eff",
                                  "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                                  "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
 cont <- pcc_day_ben_conc%>% dplyr::select(one_of(c("date","PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                                                    "depth","COVMAX","HTMAX","holdup","bd1","fc","WP","OC","dep","app_rate","app_eff",
+                                                    "bd1","fc","WP","OC","dep","app_rate","app_eff",
                                                     "DWRATE","DSRATE","kd","aer_aq","temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro",
                                                     "SOL","benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")))
 
@@ -199,8 +214,12 @@ melted_pwc = melt(cont, id.vars="date")
 
 
 # PCC Time Series plots (all variables)
+
+# save figure as png
+png(filename= paste(pwcdir, "figures/pcc_all_ts_pwc_daily_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
+
 daily_pcc_ben_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
-  geom_line(aes(colour=melted_pwc$variable)) +
+  geom_line() +
   facet_wrap(~variable, scale="free")+
   guides(fill=FALSE) +  
   xlab("Simulation Day") + 
@@ -208,16 +227,17 @@ daily_pcc_ben_conc <- ggplot(melted_pwc, aes(x=date, y=value, group=variable)) +
   #annotate("text", x = 1000, y = 0.92, label = "Ave.Conc.Benthic", size=6) +
   theme_bw() +
   scale_x_discrete(breaks = c(61,426,610,791,1035)) +
+  scale_y_continuous(limits=c(min(melted_pwc$value), max(melted_pwc$value))) +
   theme(legend.position = "none",  axis.title.x=element_blank(), axis.text.x=element_blank())
-
-
+print(daily_pcc_ben_conc)
+dev.off()
 
 
 # ------------------------------------
 # plot daily PCC for highly sensitive paramters only (model output = Ave.Conc.benth)
 # ------------------------------------
 
-cont1<- pcc_day_ben_conc%>%select(one_of(c("date","CN_c","uslec_c","dep","app_rate","app_eff","anae_aq","temp_ref_ae")))
+cont1<- pcc_day_ben_conc%>%select(one_of(c("date","kd","benthic_depth","anae_aq")))
 
 melted_pwc1 = melt(cont1, id.vars="date")
 #melted_pwc<- na.omit(melted_pwc)
@@ -230,7 +250,7 @@ png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_benthic.png", se
 # selected days 1097-1897 based on available observed data -- change according to Yuan data 
 daily_pcc_ben_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variable)) +
   geom_line(aes(colour=melted_pwc1$variable),size=1)+
-  scale_x_continuous(limits = c(1097, 1827))+ 
+  #scale_x_continuous(limits = c(1097, 1827))+ 
   scale_y_continuous(breaks=seq(-1,1,by=0.5), limits=c(-1,1))+ 
   theme_bw()+
   labs(title = "", x = "", y = "PCC", color = "")+ 
@@ -239,32 +259,52 @@ daily_pcc_ben_conc_high <- ggplot(melted_pwc1, aes(x=date, y=value, group=variab
   theme(legend.text=element_text(size=12))+
   #theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))+
   theme(legend.position = "bottom")
-
-print(pwc_percentile_plot)
+print(daily_pcc_ben_conc_high)
 dev.off()
 
 
 
 
-# # If you want to compare with your precipitation data and observed data (figure S15)
-# # ------------------------------------
-# # precipitation plot
-# # ------------------------------------
-# prec<- read.csv("C:/Users/SSinnath/Research/CAVernalPools/vvwm/diazinon/watershed1/precip.csv", header=TRUE, 
-#                 sep=",")
-# prec$Date <- as.Date(prec$Date, "%m/%d/%Y")
-# 
-# #prec23<-subset(prec, prec$Date> 1/1/2002 & prec$Date < 1/1/2003)
-# prec23<-prec %>%filter(Date >"2002-01-01", Date <"2004-01-01") #comma same as &
-# 
-# P <-ggplot(prec23, aes(x=Date,y=PRCP0))+geom_line()+
-#   theme_bw()+labs(title = "", x = "", y = "Precipitation (cm)", color = "")+ 
-#   theme(axis.title.x = element_text(colour="black", size=14),axis.text.x  = element_text(colour="black", vjust=0.5, size=14))+ theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
-#   theme(legend.text=element_text(size=12))+
-#   theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))
-# 
+# If you want to compare with your precipitation data and observed data (figure S15)
+# ------------------------------------
+# precipitation plots
+# ------------------------------------
+# read in weather file
+precip <- read.table(file=paste(pwcdir_weather, "17484_grid_folsom.wea", sep=""), header=FALSE, sep=",")
+
+colnames(precip) <- c("month", "day", "year", "precip_cm", "et_cm", "temp_c", "windspeed_cms", "solar_la")
+precip$date <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
+
+# 2008 - 2014
+# save figure as png
+png(filename= paste(pwcdir, "figures/precip_08-14.png", sep=""),width=10, height=10, units="in",res=250) 
+
+p_0814 <- ggplot(precip, aes(x=date,y=precip_cm))+
+  geom_line()+
+  theme_bw()+labs(title = "", x = "", y = "Precipitation (cm)", color = "")+
+  theme(axis.title.x = element_text(colour="black", size=14),axis.text.x  = element_text(colour="black", vjust=0.5, size=14))+ 
+  theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
+  theme(legend.text=element_text(size=12))+
+  theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))
+print(p_0814)
+dev.off()
 
 
+# 2009 - 2014
+precip_0914 <- precip[c(367:2557),]
+
+# save figure as png
+png(filename= paste(pwcdir, "figures/precip_09-14.png", sep=""),width=10, height=10, units="in",res=250) 
+
+p_0914 <- ggplot(precip_0914, aes(x=date,y=precip_cm))+
+  geom_line()+
+  theme_bw()+labs(title = "", x = "", y = "Precipitation (cm)", color = "")+
+  theme(axis.title.x = element_text(colour="black", size=14),axis.text.x  = element_text(colour="black", vjust=0.5, size=14))+ 
+  theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
+  theme(legend.text=element_text(size=12))+
+  theme(panel.grid.major = element_line(colour="gray", size = (0.25)),panel.grid.minor = element_line(size = (0.25), colour="gray"))
+print(p_0914)
+dev.off()
 
 
 

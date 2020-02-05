@@ -16,13 +16,13 @@ dim(outputdf)
 
 # pwc output array
 # recall: this was created in 03write_update_run_pwc and saved in 05_write_output_into_df
-# recall: this is an array of all of the output_11_parent_only_Custom_Parent_daily.csv files 
+# recall: this is an array of all of the output_FOL002_parent_only_Custom_Parent_daily.csv files 
 load(paste(pwcdir, "io/pwcout.RData", sep = ""))
 dim(pwcoutdf)
 
 # conversion factor dataframe  
 # recall: this was created in 03write_update_run_pwc
-# recall: this is an array of all of the output_11_parent_only_Custom_Parent.txt files
+# recall: this is an array of all of the output_FOL002_parent_only_Custom_Parent.txt files
 load(paste(pwcdir, "io/con_fac_output.RData", sep = ""))
 dim(con_fac_output)
 names(con_fac_output)
@@ -53,8 +53,8 @@ pwc_h2_output <- pwcoutdf[,2,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4
 dim(pwc_h2_output) #days*simulations
 
 #plot(pwc_h2_output) 
-#plot(pwc_h2_output[,1], type = "l") #time series for simulation #1
-#plot(pwc_h2_output[,5], type = "l") #time series for simulation #5
+plot(pwc_h2_output[,1], type = "l") #time series for simulation #1
+plot(pwc_h2_output[,5], type = "l") #time series for simulation #5
 
 
 # check LHS 
@@ -187,6 +187,8 @@ write.csv(tarray_pcc_benthic_daily, file = paste(pwcdir, "io/tarray_pcc_benthic_
 
 # plot
 plot(temp_pcc_benthic)
+
+
 
 
 

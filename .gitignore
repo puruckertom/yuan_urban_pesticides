@@ -1,10 +1,10 @@
-/input/przm/input/*
-/input/przm/input*/*
-io/inputlist_przm_vvwm.csv
-io/przmout.RData
-io/przmout.csv
-io/pwcout.RData
-io/pwcout.csv
+**/input/przm/input/*
+**/input/przm/input*/*
+**/io/inputlist_przm_vvwm.csv
+**/io/przmout.RData
+**/io/przmout.csv
+**/io/pwcout.RData
+**/io/pwcout.csv
 
 # History files
 .Rhistory

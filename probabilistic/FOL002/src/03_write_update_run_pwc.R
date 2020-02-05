@@ -74,7 +74,7 @@ dim(con_fac)
 
 set.seed(42)
 
-Ite <- 1
+
 # we will run the PWC PRZM 5000 times (5000 = our # of simulations)
 # to run each of the 5000 PWC simulations, we will update the PWC PRZM input file with the corresponding Latin Hypercube parameter quanitities
 for(Ite in 1:Nsims){
@@ -143,7 +143,7 @@ for(Ite in 1:Nsims){
   # --------------------------- Slope ------------------------------------------ 
   
   # round each slp to 2 decimals
-  slp=round(input_list[Ite,"slp"],2)
+  slp=round(input_list[Ite,"slp"],3)
   
   # update the input file's Record 3 for slope
   slp_list <- unlist(strsplit(a[14],","))
@@ -220,28 +220,28 @@ for(Ite in 1:Nsims){
    #a[row_t]=paste(substr(a[row_t],1,71), sprintf("%.02f",uslec), substr(a[row_t],76,92),sep="")
  }
  
- # ------------------------ root depth ------------------------------------------
- 
-  # number of crop periods that follow (Record 6, total = 6)
-  Numd=6
-  
-  # round each depth to 0 decimals
-  depth=round(input_list[Ite,"dep"],1)
-  
-  # for each depth in the input file, update the input file's Record 7 for depth
-  row_0=33
-  for (i in 1:Numd){
-    row_t=row_0+(i-1)
-    depth_list <- unlist(strsplit(a[row_t],","))
-    depth_list[10]<-depth
-    a[row_t]=paste(depth_list,collapse=",")
-  }
- 
+ # # ------------------------ root depth ------------------------------------------
+ # 
+ #  # number of crop periods that follow (Record 6, total = 7)
+ #  Numd=7
+ #  
+ #  # round each depth to 0 decimals
+ #  depth=round(input_list[Ite,"depth"],1)
+ #  
+ #  # for each depth in the input file, update the input file's Record 7 for depth
+ #  row_0=33
+ #  for (i in 1:Numd){
+ #    row_t=row_0+(i-1)
+ #    depth_list <- unlist(strsplit(a[row_t],","))
+ #    depth_list[10]<-depth
+ #    a[row_t]=paste(depth_list,collapse=",")
+ #  }
+ # 
 
  # ------------------------ covmax ---------------------------------------------
  
-  # # number of crop periods that follow (Record 6, total = 6)
-  # Numd=6
+  # # number of crop periods that follow (Record 6, total = 7)
+  # Numd=7
   # 
   # # round each COVMAX to 3 decimals
   # COVMAX=round(input_list[Ite,"COVMAX"],3)
@@ -259,8 +259,8 @@ for(Ite in 1:Nsims){
  
  # ------------------------ htmax ---------------------------------------------
  
-  # # number of crop periods that follow (Record 6, total = 6)
-  # Numd=6
+  # # number of crop periods that follow (Record 6, total = 7)
+  # Numd=7
   # 
   # # round each HTMAX to 0 decimals
   # HTMAX=round(input_list[Ite,"HTMAX"],0)
@@ -276,8 +276,8 @@ for(Ite in 1:Nsims){
   # 
  # ------------------------  holdup ---------------------------------------------
  
-  # # number of crop periods that follow (Record 6, total = 6)
-  # Numd=6
+  # # number of crop periods that follow (Record 6, total = 7)
+  # Numd=7
   # 
   # # round each holdup to 2 decimals
   # holdup=round(input_list[Ite,"holdup"],2)
@@ -298,21 +298,21 @@ for(Ite in 1:Nsims){
   bd1=round(input_list[Ite,"bd1"],2)  #only bd1 because 1 horizon (Record 14, horizons = 1)
 
   # update input file's Record 15 for bd
-  bd1_list <- c(unlist(strsplit(a[47],",")),"")#adding extra empty value at end
+  bd1_list <- c(unlist(strsplit(a[48],",")),"")#adding extra empty value at end
   bd1_list[5]<-bd1
-  a[47]=paste(bd1_list,"",collapse=",")
-  #a[47]=paste(substr(a[47],1,15), sprintf("%.02f",bd1), substr(a[47],20,55),sep=",")
+  a[48]=paste(bd1_list,"",collapse=",")
+  #a[48]=paste(substr(a[48],1,15), sprintf("%.02f",bd1), substr(a[48],20,55),sep=",")
  
  
  # -------------------------------- fc ----------------------------------------
  
   # round each fc to 2 decimals
-  fc=round(input_list[Ite,"fc"],2)
+  fc=round(input_list[Ite,"fc"],3)
  
   # for each FC in input file, update input file's Record 15 for FC
-  fc_list <- unlist(strsplit(a[47],","))
+  fc_list <- unlist(strsplit(a[48],","))
   fc_list[7]<-fc
-  a[47]=paste(fc_list,collapse=",")
+  a[48]=paste(fc_list,collapse=",")
 
  
  # -------------------------------- wp ----------------------------------------
@@ -321,9 +321,9 @@ for(Ite in 1:Nsims){
   WP=round(input_list[Ite,"WP"],2)
  
   # for each WP in input file, update input file's Record 15 for WP
-  WP_list <- unlist(strsplit(a[47],","))
+  WP_list <- unlist(strsplit(a[48],","))
   WP_list[8]<-WP
-  a[47]=paste(WP_list,collapse=",")
+  a[48]=paste(WP_list,collapse=",")
    
 
  # -------------------------------- oc ----------------------------------------
@@ -334,7 +334,7 @@ for(Ite in 1:Nsims){
   OC=round(input_list[Ite,"OC"],2)
  
   # for each oc in input file, update input file's Record 15 for oc
-  row_s=47
+  row_s=48
   for (i in 1:Num_s){
    row_t=row_s+(i-1)
    OC_list <- unlist(strsplit(a[row_t],","))
@@ -378,7 +378,7 @@ for(Ite in 1:Nsims){
  dep=round(input_list[Ite,"dep"],2)
  
  # for each dep in input file, update input file's Record C2 for dep
- row_0=56
+ row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    dep_list <- unlist(strsplit(a[row_t],","))
@@ -393,10 +393,10 @@ for(Ite in 1:Nsims){
  Num=50 
  
  # round each app_rate to 2 decimals
- app_rate=round(input_list[Ite,"app_rate"],2)
+ app_rate=round(input_list[Ite,"app_rate"],4)
  
  # for each rate in input file, update input file's Record C2 for rate
- row_0=56
+ row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_rate_list <- unlist(strsplit(a[row_t],","))
@@ -415,7 +415,7 @@ for(Ite in 1:Nsims){
  app_eff=round(input_list[Ite,"app_eff"],2)
  
  # for each eff in input file, update input file's Record C2 for eff
- row_0=56
+ row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_eff_list <- unlist(strsplit(a[row_t],","))
@@ -448,7 +448,7 @@ for(Ite in 1:Nsims){
  
  # for each dwrate, update input file's (Record C8 ?)
  DWRATE=input_list[Ite,"DWRATE"]
- row_hz=123
+ row_hz=124
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DWRATE_list <- unlist(strsplit(a[row_t],","))
@@ -462,7 +462,7 @@ for(Ite in 1:Nsims){
  
  # for each dsrate, update input file's (Record C8)
  DSRATE=input_list[Ite,"DSRATE"]
- row_hz=123
+ row_hz=124
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))

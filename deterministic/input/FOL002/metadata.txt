@@ -1,0 +1,26 @@
+# ----------------------------------------------------------
+# metadata for /input/FOL002 folder
+# ----------------------------------------------------------
+
+This folder contains all files from the initial PWC simulation 
+(the deterministic simulation). This site's initial variable values
+are used.  These files were created by running the PWC GUI.
+
+
+Note: these files were created with PWC version 1.59.  It requires a .wea file,
+not a .dvf.
+
+
+Below is a brief description of each file.
+
+PRZM5.inp					PRZM input file
+vvwmTransfer.txt				VVWM input file
+Decermber-2016-FOL002_parent_only.zts		PWC (PRZM) output file
+KECHO.PRN					PRZM output file
+fort.78						PRZM output file
+December-2016-FOL002_parent_only.PWC		PWC input file (inputs to run PWC)
+TRIAL_December-2016-FOL002.SWI			Initial PWC input file from Ayivi zipped folder (inputs not finalized)
+17484_grid_folsom.wea				Weather file
+... .txt/.csv files				PRZM/VVWM output files
+
+
