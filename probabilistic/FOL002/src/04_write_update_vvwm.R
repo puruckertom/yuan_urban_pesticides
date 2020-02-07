@@ -162,7 +162,7 @@ l[43]=paste(bulk_density)
 # ---------------------- froc2 (benthic foc) --------------------------
 
 # round to 2
-FROC2=round(input_list[Ite,"FROC2"],2)
+FROC2=round(input_list[Ite,"FROC2"],3)
 
 # update the dummy file
 FROC2_a<-FROC2
@@ -212,7 +212,7 @@ l[49]=paste(CHL_a)
 # -------------------- froc1 (water column foc) ------------------------
 
 # round to 2
-FROC1=round(input_list[Ite,"FROC1"],2)
+FROC1=round(input_list[Ite,"FROC1"],3)
 
 # update the dummy file
 FROC1_a<-FROC1
@@ -222,7 +222,7 @@ l[50]=paste(FROC1_a)
 # --------------- doc1 (water column doc mg/l) --------------------------
 
 # round to 1
-DOC1=round(input_list[Ite,"DOC1"],1)
+DOC1=round(input_list[Ite,"DOC1"],2)
 
 # update the dummy file
 DOC1_a<-DOC1
