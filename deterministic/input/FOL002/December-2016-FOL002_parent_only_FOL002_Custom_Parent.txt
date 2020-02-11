@@ -1,7 +1,7 @@
  Variable Volume Water Model, Version    1.03100000000000     
  
  *******************************************
-Performed on:  1/30/2020  at 13:48
+Performed on:  2/11/2020  at 15:35
 * Insufficient years to calculate 1-in-10.0 . Only maximums are reported here.
 Initial 1-in-10.0  =  0.865E-02 ppb
 Chronic 1-in-10.0  =  0.636E-03 ppb

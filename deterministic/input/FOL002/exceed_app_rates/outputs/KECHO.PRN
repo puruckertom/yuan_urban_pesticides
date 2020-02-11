@@ -1,0 +1,36 @@
+   Pesticide Root Zone Model Five (PRZM5)
+       PRZM5 Version: 5.06
+ 
+     For technical support contact:
+            Dirk F. Young 
+       Office of Pesticide Programs 
+ United States Environmental Protection Agency
+       Washington, DC 20460-0001
+       E-mail: young.dirk@epa.gov
+ 
+ Record A1
+ weather file: 
+ C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/exceed_a
+ pp_rates/outputs/17484_grid_folsom.wea
+ Record A2:  PRZM Output Time Series File
+ Time Series:C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL
+ 002/exceed_app_rates/outputs/output.zts
+ Record A3:  PRZM Options
+ Record 1
+ Record 2
+ Record 3
+ Record 4
+ Record 5
+ Record 6
+ number of crop cycles =                      7
+ Record 7
+ Record 8 Flags
+ Record 9 Irrigation
+ PCDEPL was not in the range 0 to 1.0; PCDEPL was reset to 0.5                  
+  
+ Record 14
+ Record 15  Soil Parameters with temperature
+ Record 16  PRZM5 runoff extraction parameters
+ Record 17  PRZM5 erosion extraction parameters
+ Record C1
+ Record C2
