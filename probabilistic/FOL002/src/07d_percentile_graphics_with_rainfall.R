@@ -88,7 +88,7 @@ percentiles$percent.999 <- percentiles$percent.999*1000000
 
 
 # read in deterministic output
-determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/December-2016-FOL002_parent_only_FOL002_Custom_Parent_daily.csv",
+determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent_daily.csv",
                    header= FALSE, sep= ",", skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 colnames(determ) <- c("Depth(m)","Ave.Conc.H20","Ave.Conc.benth","Peak.Conc.H20")
 determ <- as.data.frame(determ)
@@ -182,7 +182,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2009-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.015)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Water Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -230,7 +230,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2010-01-01', '2010-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.015)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Water Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -274,7 +274,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2011-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.015)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Water Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -320,7 +320,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2012-01-01', '2012-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.015)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Water Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -366,7 +366,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2013-01-01', '2013-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.015)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Water Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -411,7 +411,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2014-01-01', '2014-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.015)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Water Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -503,7 +503,7 @@ percentiles$percent.999 <- percentiles$percent.999*1000000
 
 
 # read in deterministic output
-determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/December-2016-FOL002_parent_only_FOL002_Custom_Parent_daily.csv",
+determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent_daily.csv",
                    header= FALSE, sep= ",", skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 colnames(determ) <- c("Depth(m)","Ave.Conc.H20","Ave.Conc.benth","Peak.Conc.H20")
 determ <- as.data.frame(determ)
@@ -584,7 +584,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2009-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.006)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Benthic Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -632,7 +632,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2010-01-01', '2010-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.006)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Benthic Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -676,7 +676,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2011-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.006)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Benthic Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -721,7 +721,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2012-01-01', '2012-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.006)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Benthic Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -766,7 +766,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2013-01-01', '2013-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.006)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Benthic Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -811,7 +811,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2014-01-01', '2014-12-31'))) +
-  scale_y_continuous(limits=c(0, 0.005)) +
+  scale_y_continuous(limits=c(0, 0.006)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration in Pool Benthic Column (ug/ml)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +

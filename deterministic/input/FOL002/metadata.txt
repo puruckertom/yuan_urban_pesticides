@@ -1,11 +1,19 @@
 # ----------------------------------------------------------
-# metadata for /input/FOL002 folder
+# metadata for /input/FOL002/ folder
 # ----------------------------------------------------------
 
-This folder contains all files from the initial PWC simulation 
-(the deterministic simulation). This site's initial variable values
-are used.  These files were created by running the PWC GUI.
+This folder contains all files from PWC deterministic simulation.
+This simulation was NOT done in the PWC GUI but was ran with the
+src/02_run_pwc.R script.
 
+Note: this deterministic simulation is comprised of daily application
+rates from 2009 - 2014 (for a total of 2191 application rates). These
+application rates were computed from observed CALPIP data.  This data 
+can be found in the sacramento_output.txt located at
+C:\Users\echelsvi\git\yuan_urban_pesticides\bifenthrin_application_rates.
+The data in this text file was copy-paste into the PRZM5.inp that is in the 
+/input/FOL002/ folder.  The outputs from the PWC run were output
+to the /input/FOL002/outputs folder.
 
 Note: these files were created with PWC version 1.59.  It requires a .wea file,
 not a .dvf.
@@ -13,14 +21,9 @@ not a .dvf.
 
 Below is a brief description of each file.
 
-PRZM5.inp					PRZM input file
+PRZM5.inp					PRZM input file (has the 2191 application rates)
 vvwmTransfer.txt				VVWM input file
-Decermber-2016-FOL002_parent_only.zts		PWC (PRZM) output file
-KECHO.PRN					PRZM output file
-fort.78						PRZM output file
-December-2016-FOL002_parent_only.PWC		PWC input file (inputs to run PWC)
-TRIAL_December-2016-FOL002.SWI			Initial PWC input file from Ayivi zipped folder (inputs not finalized)
 17484_grid_folsom.wea				Weather file
-... .txt/.csv files				PRZM/VVWM output files
+
 
 

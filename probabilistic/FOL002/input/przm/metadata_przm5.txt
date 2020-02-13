@@ -24,8 +24,8 @@ bd		48		Bulk density of first soil horizon (g/cm3)
 fc		48		Field capacity in the horizon
 WP		48		Wilting point in the horizon
 OC		48		Organic carbon in the horizon
-dep		57-106		
-app_rate	57-106		Application rate
-app_eff		57-106		Application efficiency
-dwrate		124		Dissolved phase pesticide decay rate for each NCHEM (day-1)
-dsrate		124		Absorbed phase pesticide decay rate for each NCHEM (day-1)
+dep		57-2247		
+app_rate	57-2247		Application rate
+app_eff		57-2247		Application efficiency
+dwrate		2265		Dissolved phase pesticide decay rate for each NCHEM (day-1)
+dsrate		2265		Absorbed phase pesticide decay rate for each NCHEM (day-1)

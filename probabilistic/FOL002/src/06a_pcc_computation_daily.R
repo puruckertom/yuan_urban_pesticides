@@ -104,7 +104,7 @@ pwc_peak_output <- pwcoutdf[,4,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth,
 dim(pwc_peak_output) #days*simulations
 
 #plot(pwc_peak_output) 
-#plot(pwc_peak_output[,1, type = "l") #time series for simulation #1
+#plot(pwc_peak_output[,1], type = "l") #time series for simulation #1
 #plot(pwc_peak_output[,5], type = "l") #time series for simulation #5
 
 

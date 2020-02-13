@@ -1,0 +1,29 @@
+# ----------------------------------------------------------
+# metadata for /input/FOL003/ folder
+# ----------------------------------------------------------
+
+This folder contains all files from PWC deterministic simulation.
+This simulation was NOT done in the PWC GUI but was ran with the
+src/02b_run_pwc.R script.
+
+Note: this deterministic simulation is comprised of daily application
+rates from 2009 - 2014 (for a total of 2191 application rates). These
+application rates were computed from observed CALPIP data.  This data 
+can be found in the sacramento_output.txt located at
+C:\Users\echelsvi\git\yuan_urban_pesticides\bifenthrin_application_rates.
+The data in this text file was copy-paste into the PRZM5.inp that is in the 
+/input/FOL003/ folder.  The outputs from the PWC run were output
+to the /input/FOL003/outputs folder.
+
+Note: these files were created with PWC version 1.59.  It requires a .wea file,
+not a .dvf.
+
+
+Below is a brief description of each file.
+
+PRZM5.inp					PRZM input file (has the 2191 application rates)
+vvwmTransfer.txt				VVWM input file
+17484_grid_folsom.wea				Weather file
+
+
+

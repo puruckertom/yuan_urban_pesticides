@@ -45,7 +45,7 @@ dim(outputdf)
 # ---------------------------------------------------------------
 
 # read in VVWM output - simulated water body processes, for each time date
-pwcdf_o <- read.csv(paste(pwcdir,"output/December-2016-FOL002_parent_only_FOL002_Custom_Parent_daily.csv", sep=""), header= FALSE, sep= ",",
+pwcdf_o <- read.csv(paste(pwcdir,"output/output_FOL002_parent_only_Custom_Parent_daily.csv", sep=""), header= FALSE, sep= ",",
                   skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 
 # obtain structural dimensions
@@ -73,7 +73,6 @@ dim(con_fac)
 
 
 set.seed(42)
-
 
 # we will run the PWC PRZM 5000 times (5000 = our # of simulations)
 # to run each of the 5000 PWC simulations, we will update the PWC PRZM input file with the corresponding Latin Hypercube parameter quanitities
@@ -371,8 +370,8 @@ for(Ite in 1:Nsims){
  
  # -------------- depth of pesticide application ------------------------------
 
- # number of applications (Record C1, total = 50)
- Num=50 
+ # number of applications (Record C1, total = 2191)
+ Num=2191 
  
  # round each dep to 2 decimals
  dep=round(input_list[Ite,"dep"],2)
@@ -389,18 +388,19 @@ for(Ite in 1:Nsims){
  
  # -------------------- application rate  -------------------------------------
  
- # number of applications (Record C1, total = 50)
- Num=50 
+ # number of applications (Record C1, total = 2191)
+ Num=2191 
  
- # round each app_rate to 2 decimals
- app_rate=round(input_list[Ite,"app_rate"],4)
+ # round each app_rate to 5 decimals
+ app_rate=round(input_list[Ite,"app_rate"],5)
  
  # for each rate in input file, update input file's Record C2 for rate
  row_0=57
  for (i in 1:Num){
    row_t=row_0+(i-1)
    app_rate_list <- unlist(strsplit(a[row_t],","))
-   app_rate_list[6]<-app_rate
+   current_app_rate <- as.numeric(app_rate_list[6])
+   app_rate_list[6] <-round((app_rate*current_app_rate), 10)
    a[row_t]=paste(app_rate_list,collapse=",")
 
  }
@@ -408,8 +408,8 @@ for(Ite in 1:Nsims){
  
  # -------------------- application eff  -------------------------------------
  
- # number of applications (Record C1, total = 50)
- Num=50 
+ # number of applications (Record C1, total = 2191)
+ Num=2191 
  
  # round each app_eff to 2 decimals
  app_eff=round(input_list[Ite,"app_eff"],2)
@@ -448,7 +448,7 @@ for(Ite in 1:Nsims){
  
  # for each dwrate, update input file's (Record C8 ?)
  DWRATE=input_list[Ite,"DWRATE"]
- row_hz=124
+ row_hz=2265
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DWRATE_list <- unlist(strsplit(a[row_t],","))
@@ -462,7 +462,7 @@ for(Ite in 1:Nsims){
  
  # for each dsrate, update input file's (Record C8)
  DSRATE=input_list[Ite,"DSRATE"]
- row_hz=124
+ row_hz=2265
  for (i in 1:Numhz){
    row_t=row_hz+(i-1)
    DSRATE_list <- unlist(strsplit(a[row_t],","))
