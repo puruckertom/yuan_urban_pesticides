@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------
 
 # state the number of simulations 
-Nsims <- 500
+Nsims <- 5000
 
 # weather file - must be .wea
 pwc_weather_used <- "17484_grid_folsom.wea"
