@@ -1,0 +1,22 @@
+# ----------------------------------------------------------
+# metadata for /input/vvwm/ folder
+# ----------------------------------------------------------
+
+This folder contains all files -- that are specific to VVWM -- from 
+the initial PWC simulation (using this study's initial variables of 
+interest and their respective values). As a result, these files are 
+used as the base for the R scripts concerning the VVWM.  The R 
+scripts concerning VVWM read these files and edit them by replacing 
+the input variables with the randomly sampled LHS amounts for each 
+input variable.
+
+Note: these files are copies from those in /output/
+Note: these files were created with PWC version 1.59
+
+
+Below is a brief description of each file.
+
+vvwmTransfer.txt				VVWM input file
+...all "December.." files			PWC output files for each waterbody scenario and chemical (parent/degradate)
+
+

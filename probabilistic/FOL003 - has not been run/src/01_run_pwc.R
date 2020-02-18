@@ -13,7 +13,7 @@ source(paste(pwcdir,"src/03_write_update_run_pwc.R",sep = ""))
 
 # run VVWM and produce VVWMtransfer.txt ------------------------------------   
 # this file gets run in 03_write_update_run_pwc.R
-#source(paste(pwcdir, "src/04_write_update_vvwm.R",sep =""))
+   #source(paste(pwcdir, "src/04_write_update_vvwm.R",sep =""))
 
 
 # read, write all outputs to .Rdata ----------------------------------------
