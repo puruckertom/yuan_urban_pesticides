@@ -30,6 +30,7 @@ source(paste(pwcdir,"src/06b_pcc_computation_max.R",sep = ""))
 
 # sensitivity graphics for daily--------------------------------------------
 source(paste(pwcdir,"src/07a_pcc_graphics_daily.R",sep = ""))
+source(paste(pwcdir,"src/07a2_pcc_graphics_daily.R",sep = ""))
 
 
 # sensitivity graphics for max ---------------------------------------------   
@@ -42,6 +43,7 @@ source(paste(pwcdir,"src/07c_percentile_graphics.R",sep = ""))
 
 # sensitivity parameter distribution graphs --------------------------------
 source(paste(pwcdir, "src/07d_percentile_graphics_with_rainfall.R", sep=""))
+source(paste(pwcdir, "src/07d2_percentile_graphics_with_applications.R", sep=""))
 
 
 

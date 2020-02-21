@@ -47,6 +47,8 @@ calpip_s$date <- seq(as.Date("2009-01-01"), as.Date("2014-12-01"), by="months")#
 # ------------------------------------------------------------------
 # plot
 # ------------------------------------------------------------------
+png(filename= "C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/figures/calpip_app_rates_placer.png", width=20, height=10, units="in",res=300) 
+
 p <- ggplot(data=calpip_p, aes(x=date, y=bif_kgha_with_home)) +
   geom_bar(stat="identity", fill="#525252") +
   scale_x_date(date_breaks="2 months",date_labels="%m-%y", limits=as.Date(c('2009-01-01', '2014-12-01'))) +
@@ -55,9 +57,11 @@ p <- ggplot(data=calpip_p, aes(x=date, y=bif_kgha_with_home)) +
   theme(legend.position = "none") 
 
 print(p)
+dev.off()
 
 
 
+png(filename= "C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/figures/calpip_app_rates_sacramento.png", width=20, height=10, units="in",res=300) 
 
 s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_with_home)) +
   geom_bar(stat="identity", fill="#525252") +
@@ -67,21 +71,7 @@ s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_with_home)) +
   theme(legend.position = "none") 
 
 print(s)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+dev.off()
 
 
 # ------------------------------------------------------------------

@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # abs(pcc) cutoff value
-cutoff <- 0.05 #re-assess after re-running pwc
+cutoff <- 0.03 #re-assess after re-running pwc
 
 # ------------------------------------------------------------------------------
 # Output Variable == Max(Ave.Conc.H20 * 1000000)
@@ -48,7 +48,7 @@ p1 <- ggplot(data=sens_pwc_h2, aes(x= sens_pwc_h2$pcc, y=sens_pwc_h2$var))+
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
   theme(legend.position='none')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum Daily Aqueous Average Bifenthrin Conc. in Pool Water Column") #Ave.Conc.H20
+  ggtitle("Parameters vs Maximum Daily Aqueous Average Bifenthrin Concentration in Water Column") #Ave.Conc.H20
 print(p1)
 dev.off()
 
@@ -96,7 +96,7 @@ p2 <-ggplot(data=sens_pwc_peak, aes(sens_pwc_peak$pcc,sens_pwc_peak$var))+
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
   theme(legend.position='none')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum Daily Aqueous Peak Bifenthrin Conc. in Pool Water Column") #Peak.Conc.H20
+  ggtitle("Parameters vs Maximum Daily Aqueous Peak Bifenthrin Concentration in Water Column") #Peak.Conc.H20
 
 print(p2)
 dev.off()
@@ -196,7 +196,7 @@ p4 <-ggplot(data=sens_pwc_ben, aes(sens_pwc_ben$pcc,sens_pwc_ben$var))+
   # geom_text(data=subset(sens, PCC > 0.4),
   #           aes(PCC,Parameter,label=Parameter))+
   theme(legend.position='none')+#add "none" to remove legend
-  ggtitle("Parameters vs Maximum Daily Aqueous Average Bifenthrin Conc. in Pool Benthic Column") #Ave.Conc.benthic
+  ggtitle("Parameters vs Maximum Daily Aqueous Average Bifenthrin Concentration in Benthic Zone") #Ave.Conc.benthic
 print(p4)
 dev.off()
 

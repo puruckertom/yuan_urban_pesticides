@@ -120,7 +120,7 @@ colnames(inputs_lhs)
 # subset desired outputs
 # ---------------------------------------------
 
-# subset przm H2O 
+# subset przm runoff 
 przm_h2_output <- (outputdf[,4,1:Nsims]) # YYYY MM DD RUNF0 ESLS0 RFLX1 EFLX1 DCON1 INFL0
 head(przm_h2_output)
 dim(przm_h2_output) #days*simulations
@@ -128,9 +128,17 @@ dim(przm_h2_output) #days*simulations
 przm_max_h2 <-apply(przm_h2_output, 2, function(x) max(x, na.rm = TRUE))
 
 
+# subset przm pesticide in runoff
+przm_pest_output <- (outputdf[,6,1:Nsims]) # YYYY MM DD RUNF0 ESLS0 RFLX1 EFLX1 DCON1 INFL0
+head(przm_pest_output)
+dim(przm_pest_output) #days*simulations
+# subset max przm pest
+przm_max_pest <-apply(przm_pest_output, 2, function(x) max(x, na.rm = TRUE))
+
+
 
 # subset pwc Ave.Conc.H2O*1000000
-pwc_h2_ugml <- (pwcoutdf[,2,1:Nsims]*1000000)#in ug/ml
+pwc_h2_ugml <- (pwcoutdf[,2,1:Nsims]*1000000)#in ug/L
 # calculate MAX 
 pwc_max_h2 <-apply(pwc_h2_ugml, 2, function(x) max(x, na.rm = TRUE))
 plot(pwc_max_h2)
@@ -138,7 +146,7 @@ plot(pwc_max_h2)
 
 
 # subset pwc Peak.Conc.H2O*1000000
-pwc_peak_ugml <- (pwcoutdf[,4,1:Nsims]*1000000)#in ug/ml
+pwc_peak_ugml <- (pwcoutdf[,4,1:Nsims]*1000000)#in ug/L
 # calculate MAX 
 pwc_max_peak <-apply(pwc_peak_ugml, 2, function(x) max(x, na.rm = TRUE))
 plot(pwc_max_peak)
@@ -146,7 +154,7 @@ plot(pwc_max_peak)
 
 
 # subset benthic concentration
-pwc_benthic <- (pwcoutdf[,3,1:Nsims]*1000000) #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
+pwc_benthic <- (pwcoutdf[,3,1:Nsims]*1000000)#in ug/L   #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 # calculate MAX
 pwc_max_benthic <-apply(pwc_benthic, 2, function(x) max(x, na.rm = TRUE))
 
@@ -168,6 +176,7 @@ in_out_max <- cbind(in_out_max, pwc_max_h2)
 in_out_max <- cbind(in_out_max, pwc_max_benthic)
 in_out_max <- cbind(in_out_max, con_fac_output)
 in_out_max <- cbind(in_out_max, max_sed)
+in_out_max <- cbind(in_out_max, przm_max_pest)
 
 dim(in_out_max)
 

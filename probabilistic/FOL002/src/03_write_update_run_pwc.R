@@ -368,23 +368,23 @@ for(Ite in 1:Nsims){
  # }
  
  
- # -------------- depth of pesticide application ------------------------------
-
- # number of applications (Record C1, total = 2191)
- Num=2191 
- 
- # round each dep to 2 decimals
- dep=round(input_list[Ite,"dep"],2)
- 
- # for each dep in input file, update input file's Record C2 for dep
- row_0=57
- for (i in 1:Num){
-   row_t=row_0+(i-1)
-   dep_list <- unlist(strsplit(a[row_t],","))
-   dep_list[5]<-dep
-   a[row_t]=paste(dep_list,collapse=",")
-
- }
+ # # -------------- depth of pesticide application ------------------------------
+ # 
+ # # number of applications (Record C1, total = 2191)
+ # Num=2191 
+ # 
+ # # round each dep to 2 decimals
+ # dep=round(input_list[Ite,"dep"],2)
+ # 
+ # # for each dep in input file, update input file's Record C2 for dep
+ # row_0=57
+ # for (i in 1:Num){
+ #   row_t=row_0+(i-1)
+ #   dep_list <- unlist(strsplit(a[row_t],","))
+ #   dep_list[5]<-dep
+ #   a[row_t]=paste(dep_list,collapse=",")
+ # 
+ # }
  
  # -------------------- application rate  -------------------------------------
  
@@ -406,23 +406,23 @@ for(Ite in 1:Nsims){
  }
  
  
- # -------------------- application eff  -------------------------------------
- 
- # number of applications (Record C1, total = 2191)
- Num=2191 
- 
- # round each app_eff to 2 decimals
- app_eff=round(input_list[Ite,"app_eff"],2)
- 
- # for each eff in input file, update input file's Record C2 for eff
- row_0=57
- for (i in 1:Num){
-   row_t=row_0+(i-1)
-   app_eff_list <- unlist(strsplit(a[row_t],","))
-   app_eff_list[7]<-app_eff
-   a[row_t]=paste(app_eff_list,collapse=",")
-   
- }
+ # # -------------------- application eff  -------------------------------------
+ # 
+ # # number of applications (Record C1, total = 2191)
+ # Num=2191 
+ # 
+ # # round each app_eff to 2 decimals
+ # app_eff=round(input_list[Ite,"app_eff"],2)
+ # 
+ # # for each eff in input file, update input file's Record C2 for eff
+ # row_0=57
+ # for (i in 1:Num){
+ #   row_t=row_0+(i-1)
+ #   app_eff_list <- unlist(strsplit(a[row_t],","))
+ #   app_eff_list[7]<-app_eff
+ #   a[row_t]=paste(app_eff_list,collapse=",")
+ #   
+ # }
  ## -------------------- PLVKRT ----------------------------------------------
  # PLVKRT=input_list[Ite,"PLVKRT"]
  # PLVKRT_list <- unlist(strsplit(a[101],","))

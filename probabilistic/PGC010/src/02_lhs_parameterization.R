@@ -16,7 +16,7 @@ simend <- "12/31/2014"
 
 # list input paramters
 input_parameters <- c("PFAC","ANETD","uslek","uslels","uslep","slp","hl","CN_c","uslec_c","MNGN",
-                      "bd1","fc","WP","OC","dep","app_rate","app_eff","DWRATE","DSRATE","kd","aer_aq",
+                      "bd1","fc","WP","OC","app_rate","DWRATE","DSRATE","kd","aer_aq",
                       "temp_ref_aer","anae_aq","temp_ref_anae","photo","RFLAT","hydro","SOL",
                       "benthic_depth","porosity","bulk_density","FROC2","DOC2","BNMAS","SUSED","CHL","FROC1","DOC1","PLMAS","bf")
 
