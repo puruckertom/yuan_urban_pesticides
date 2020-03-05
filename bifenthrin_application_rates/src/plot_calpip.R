@@ -52,7 +52,7 @@ png(filename= "C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_applicatio
 p <- ggplot(data=calpip_p, aes(x=date, y=bif_kgha_with_home)) +
   geom_bar(stat="identity", fill="#525252") +
   scale_x_date(date_breaks="2 months",date_labels="%m-%y", limits=as.Date(c('2009-01-01', '2014-12-01'))) +
-  labs(title = "", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
+  labs(title = "Monthly Bifenthrin Urban-Use Application Rates, Placer County", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
   theme_bw() +
   theme(legend.position = "none") 
 
@@ -66,7 +66,7 @@ png(filename= "C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_applicatio
 s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_with_home)) +
   geom_bar(stat="identity", fill="#525252") +
   scale_x_date(date_breaks="2 months",date_labels="%m-%y", limits=as.Date(c('2009-01-01', '2014-12-01'))) +
-  labs(title = "", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
+  labs(title = "Monthly Bifenthrin Urban-Use Application Rates, Sacramento County", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
   theme_bw() +
   theme(legend.position = "none") 
 

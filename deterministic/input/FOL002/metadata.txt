@@ -9,10 +9,10 @@ src/02_run_pwc.R script.
 Note: this deterministic simulation is comprised of daily application
 rates from 2009 - 2014 (for a total of 2191 application rates). These
 application rates were computed from observed CALPIP data.  This data 
-can be found in the sacramento_output.txt located at
-C:\Users\echelsvi\git\yuan_urban_pesticides\bifenthrin_application_rates.
+can be found in the output_for_pwc_folsom.txt located at
+C:\Users\echelsvi\git\yuan_urban_pesticides\bifenthrin_application_rates\CALPIP.
 The data in this text file was copy-paste into the PRZM5.inp that is in the 
-/input/FOL002/ folder.  The outputs from the PWC run were output
+/input/FOL002/ folder.  The outputs from the PWC simulation were output
 to the /input/FOL002/outputs folder.
 
 Note: these files were created with PWC version 1.59.  It requires a .wea file,

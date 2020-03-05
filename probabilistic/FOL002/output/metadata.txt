@@ -4,7 +4,7 @@
 
 This folder contains all files from the initial PWC simulation 
 (the deterministic simulation).  These files were copied from the
-deterministic/FOL002/input/outputs/ folder.
+deterministic/input/FOL002/outputs/ folder.
 
 This deterministic simulation uses this site's initial variable values.
 As a result, these files are used as the base for the probabilistic R 

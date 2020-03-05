@@ -135,14 +135,14 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
 # ---------------------------------
 
 # read in data
-calpip_s <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/sacramento_09-14_with_homeowner_for_loop.csv",
+calpip_s <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/app_rates_09-14_pwc_inputs_pgc.csv",
                      header= TRUE, sep= ",")
 
 
 # add in full date column
 calpip_s$date <- seq(as.Date("2009-01-01"), as.Date("2014-12-01"), by="months")#format 1961-01-01
 
-s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_with_home)) +
+s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_pgc)) +
   geom_bar(stat="identity", fill="#525252") +
   labs(title = "", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
   theme_bw() +
@@ -276,7 +276,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
 # plot application data
 # ---------------------------------
 
-s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_with_home)) +
+s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_pgc)) +
   geom_bar(stat="identity", fill="#525252") +
   labs(title = "", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
   theme_bw() +

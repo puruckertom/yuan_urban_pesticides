@@ -125,7 +125,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Columm", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -192,7 +192,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2009-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -241,7 +241,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2010-01-01', '2010-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -286,7 +286,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2011-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -333,7 +333,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2012-01-01', '2012-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -380,7 +380,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2013-01-01', '2013-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -426,7 +426,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2014-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -553,7 +553,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -607,7 +607,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2009-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -656,7 +656,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2010-01-01', '2010-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -701,7 +701,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2011-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -747,7 +747,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2012-01-01', '2012-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -793,7 +793,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2013-01-01', '2013-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -839,7 +839,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 months", date_labels="%m-%d-%y", limits=as.Date(c('2014-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,5)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +

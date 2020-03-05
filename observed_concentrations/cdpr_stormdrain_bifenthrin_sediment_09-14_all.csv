@@ -1,0 +1,42 @@
+Sample Date,Sample Matrix,Collection Method,Sampler,Event Type,Site ID,Analyte Name,Result,rl,mdl,Unit,Chem Lab,TOC_perc,moisture_perc
+13-Apr-2009,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,679.7566,1.00,0.108,ug/kg dry wt,CDFA,6.06,59.69
+13-Apr-2009,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC022,Bifenthrin,267.9377,1.00,0.108,ug/kg dry wt,CDFA,7.09,63.09
+12-Oct-2009,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,138.1408,1.00,0.108,ug/kg dry wt,CDFA,5.21,55.05
+12-Oct-2009,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,123.315,1.00,0.108,ug/kg dry wt,CDFA,3.15,42.50
+20-Jul-2010,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,99.777,1.00,0.108,ug/kg dry wt,CDFA,3.96,10.90
+20-Sep-2011,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,465.0575,1.00,0.108,ug/kg dry wt,CDFA,11.17,75.49
+20-Sep-2011,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,427.0414,1.00,0.108,ug/kg dry wt,CDFA,6.29,49.19
+25-Oct-2011,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,248.7581,1.00,0.108,ug/kg dry wt,CDFA,8.05,68.24
+25-Oct-2011,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,263.3008,1.00,0.108,ug/kg dry wt,CDFA,10.51,65.10
+27-Jun-2012,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,220.4579,17.61,0.063,ug/kg dry wt,CDFW,4.76,48.30
+27-Jun-2012,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,96.5491,3.73,0.063,ug/kg dry wt,CDFW,3.58,32.90
+05-Sep-2012,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,310.8923,6.91,0.063,ug/kg dry wt,CDFW,6.16,63.80
+05-Sep-2012,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,345.1066,6.79,0.063,ug/kg dry wt,CDFW,8.17,63.20
+26-Oct-2012,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,202.4171,5.23,0.063,ug/kg dry wt,CDFW,5.55,52.20
+26-Oct-2012,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,162.3918,5.18,0.063,ug/kg dry wt,CDFW,5.12,51.70
+21-Feb-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,44.65,2.70,0.063,ug/kg dry wt,CDFW,5.82,54.50
+21-Feb-2013,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,276.2411,11.43,0.063,ug/kg dry wt,CDFW,5.72,57.30
+25-Feb-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,550.4209,10.01,0.063,ug/kg dry wt,CDFW,3.82,50.90
+04-Jun-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,268.639,0.95,0.063,ug/kg dry wt,CDFW,13.36,74.11
+04-Jun-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,168.4181,0.52,0.063,ug/kg dry wt,CDFW,5.08,52.01
+05-Jun-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,934.6887,52.97,0.063,ug/kg dry wt,CDFW,12.39,77.65
+05-Jun-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC022,Bifenthrin,80.4431,0.46,0.063,ug/kg dry wt,CDFW,2.78,50.74
+17-Sep-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,928.8767,1.00,0.108,ug/kg dry wt,CDFA,7.35,66.41
+17-Sep-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC022,Bifenthrin,41.1354,1.00,0.108,ug/kg dry wt,CDFA,2.02,29.26
+18-Sep-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,180.9989,1.00,0.108,ug/kg dry wt,CDFA,9.12,69.01
+18-Sep-2013,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,29.4516,1.00,0.108,ug/kg dry wt,CDFA,2.11,37.86
+18-Sep-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL003,Bifenthrin,146.8234,1.00,0.108,ug/kg dry wt,CDFA,7.37,63.83
+21-Nov-2013,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,183.094,1.00,0.108,ug/kg dry wt,CDFA,6.89,62.92
+21-Nov-2013,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,105.2839,1.00,0.108,ug/kg dry wt,CDFA,5.71,54.03
+11-Mar-2014,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,152.4511,1.00,0.108,ug/kg dry wt,CDFA,8.26,54.81
+11-Mar-2014,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,25.3444,1.00,0.108,ug/kg dry wt,CDFA,2.33,24.24
+02-Jun-2014,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,708.4398,15.74,0.063,ug/kg dry wt,CDFW,9.10,69.50
+02-Jun-2014,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC022,Bifenthrin,209.886,5.01,0.063,ug/kg dry wt,CDFW,8.02,51.20
+03-Jun-2014,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL002,Bifenthrin,189.4153,6.08,0.063,ug/kg dry wt,CDFW,5.46,59.70
+03-Jun-2014,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,49.8891,3.08,0.063,ug/kg dry wt,CDFW,2.81,20.70
+15-Sep-2014,Sediment,Sediment grab sample,Scoop,Nonstorm,FOL002,Bifenthrin,106.7131,2.13,0.063,ug/kg dry wt,CDFW,4.26,42.73
+15-Sep-2014,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,169.528,2.83,0.063,ug/kg dry wt,CDFW,7.11,56.61
+16-Sep-2014,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC010,Bifenthrin,785.223,15.90,0.063,ug/kg dry wt,CDFW,10.82,69.35
+16-Sep-2014,Sediment,Sediment grab sample,Scoop,Nonstorm,PGC022,Bifenthrin,202.3662,2.57,0.063,ug/kg dry wt,CDFW,5.26,53.40
+22-Dec-2014,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL002,Bifenthrin,236.1471,8.30,0.063,ug/kg dry wt,CDFW,6.02,40.63
+22-Dec-2014,Sediment,Sediment grab sample,Sediment trap,Nonstorm,FOL003,Bifenthrin,179.87,10.17,0.063,ug/kg dry wt,CDFW,4.17,50.90

@@ -17,7 +17,7 @@ source(paste(pwcdir,"src/03_write_update_run_pwc.R",sep = ""))
 
 
 # read, write all outputs to .Rdata ----------------------------------------
-source(paste(pwcdir,"src/05_write_ouput_into_df.R",sep = ""))
+source(paste(pwcdir,"src/05_write_output_into_df.R",sep = ""))
 
 
 # compute pcc w/ daily conc. ----------------------------------
