@@ -122,8 +122,8 @@ colnames(inputs_lhs)
 
 # subset przm H2O 
 przm_h2_output <- (outputdf[,4,1:Nsims]) # YYYY MM DD RUNF0 ESLS0 RFLX1 EFLX1 DCON1 INFL0
-head(przm_h2_output)
 dim(przm_h2_output) #days*simulations
+przm_h2_output <- przm_h2_output[732:2557,] # 2010 - 2014
 # subset max przm H2O
 przm_max_h2 <-apply(przm_h2_output, 2, function(x) max(x, na.rm = TRUE))
 
@@ -131,6 +131,7 @@ przm_max_h2 <-apply(przm_h2_output, 2, function(x) max(x, na.rm = TRUE))
 
 # subset pwc Ave.Conc.H2O*1000000
 pwc_h2_ugml <- (pwcoutdf[,2,1:Nsims]*1000000)#in ug/ml
+pwc_h2_ugml <- pwc_h2_ugml[732:2557,] #2010 - 2014
 # calculate MAX 
 pwc_max_h2 <-apply(pwc_h2_ugml, 2, function(x) max(x, na.rm = TRUE))
 plot(pwc_max_h2)
@@ -139,6 +140,7 @@ plot(pwc_max_h2)
 
 # subset pwc Peak.Conc.H2O*1000000
 pwc_peak_ugml <- (pwcoutdf[,4,1:Nsims]*1000000)#in ug/ml
+pwc_peak_ugml <- pwc_peak_ugml[732:2557,] #2010 - 2014
 # calculate MAX 
 pwc_max_peak <-apply(pwc_peak_ugml, 2, function(x) max(x, na.rm = TRUE))
 plot(pwc_max_peak)
@@ -147,6 +149,7 @@ plot(pwc_max_peak)
 
 # subset benthic concentration
 pwc_benthic <- (pwcoutdf[,3,1:Nsims]*1000000) #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
+pwc_benthic <- pwc_benthic[732:2557,] #2010 - 2014
 # calculate MAX
 pwc_max_benthic <-apply(pwc_benthic, 2, function(x) max(x, na.rm = TRUE))
 

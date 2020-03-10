@@ -108,11 +108,11 @@ for (i in 1:dim(percentiles)[1]){
 # --------------------------------
 
 # set colors
-sd1 <- "#08519c"
+sd3 <- "#08519c"
 sd2 <- "#4292c6"
-sd3 <- "#9ecae1"
-med <- "#78c679"
-det <- "#ef3b2c"
+sd1 <- "#9ecae1"
+med <- "#08519c"
+det <- "#74c476"
 
 # plot
 pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
@@ -123,7 +123,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,20)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Columm", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
@@ -250,11 +250,11 @@ for (i in 1:dim(percentiles)[1]){
 # --------------------------------
 
 # set colors
-sd1 <- "#6a51a3"
+sd3 <- "#6a51a3"
 sd2 <- "#807dba"
-sd3 <- "#bcbddc"
-med <- "#78c679"
-det <- "#ef3b2c"
+sd1 <- "#bcbddc"
+med <- "#6a51a3"
+det <- "#74c476"
 
 # plot
 pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
@@ -265,7 +265,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,1)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,20)) +
   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +

@@ -108,11 +108,11 @@ for (i in 1:dim(percentiles)[1]){
 # --------------------------------
 
 # set colors
-sd1 <- "#08519c"
+sd3 <- "#08519c"
 sd2 <- "#4292c6"
-sd3 <- "#9ecae1"
-med <- "#78c679"
-det <- "#ef3b2c"
+sd1 <- "#9ecae1"
+med <- "#08519c"
+det <- "#74c476"
 
 # plot
 pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
@@ -249,11 +249,12 @@ for (i in 1:dim(percentiles)[1]){
 # --------------------------------
 
 # set colors
-sd1 <- "#6a51a3"
+sd3 <- "#6a51a3"
 sd2 <- "#807dba"
-sd3 <- "#bcbddc"
-med <- "#78c679"
-det <- "#ef3b2c"
+sd1 <- "#bcbddc"
+med <- "#6a51a3"
+det <- "#74c476"
+
 
 # plot
 pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +

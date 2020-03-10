@@ -68,7 +68,7 @@ melted_pwc <- na.omit(melted_pwc)
 # PCC Time Series plots (all variables)
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_all_ts_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_all_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
 
 daily_pcc_ave_conc <- ggplot(melted_pwc, aes(x=date2, y=value, group=variable)) +
   geom_line() +
@@ -103,14 +103,14 @@ melted_pwc1<- na.omit(melted_pwc1)
 # -------------------
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_sensitive_pwc_daily_ave_h2.png", sep=""),width=10, height=10, units="in",res=250) 
 
 # selected days 367 - 2557 
 daily_pcc_ave_conc_high <- ggplot(melted_pwc1, aes(x=date2, y=value, group=variable)) +
   geom_line(aes(colour=melted_pwc1$variable),size=1)+
   scale_y_continuous(breaks=seq(-1,1,by=0.5), limits=c(-1,1))+ 
   theme_bw()+
-  labs(title = "Daily PCC for Sensitive Parameters with Bifenthrin Concentration in Water Column (2009 - 2014)", x = "Day", y = "PCC", color = "")+ 
+  labs(title = "Daily PCC for Sensitive Parameters with Bifenthrin Concentration in Water Column (2009 - 2014)", x = "", y = "PCC", color = "")+ 
   theme(axis.title.x = element_text(colour="black", size=14),axis.text.x  = element_text(colour="black", vjust=0.5, size=14))+ 
   theme(axis.title.y = element_text(colour="black", size=14),axis.text.y  = element_text(vjust=0.5, size=14,colour="black" ))+
   theme(legend.text=element_text(size=12))+
@@ -143,7 +143,7 @@ melted_pwc = melt(cont, id.vars="date2")
 # PCC Time Series plots (all variables)
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_all_ts_pwc_daily_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_all_pwc_daily_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
 
 daily_pcc_ben_conc <- ggplot(melted_pwc, aes(x=date2, y=value, group=variable)) +
   geom_line() +
@@ -172,7 +172,7 @@ melted_pwc1 = melt(cont1, id.vars="date2")
 
 
 # save figure as png
-png(filename= paste(pwcdir, "figures/pcc_sensitive_ts_pwc_daily_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
+png(filename= paste(pwcdir, "figures/pcc_sensitive_pwc_daily_benthic.png", sep=""),width=10, height=10, units="in",res=250) 
 
 
 # selected days 1097-1897 based on available observed data -- change according to Yuan data 
@@ -204,9 +204,6 @@ colnames(precip) <- c("month", "day", "year", "precip_cm", "et_cm", "temp_c", "w
 precip$date <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
 
 # 2008 - 2014
-# save figure as png
-png(filename= paste(pwcdir, "figures/precip_08-14.png", sep=""),width=10, height=10, units="in",res=250) 
-
 p_0814 <- ggplot(precip, aes(x=date,y=precip_cm))+
   geom_line()+
   theme_bw()+labs(title = "", x = "", y = "Precipitation (cm)", color = "")+
@@ -220,9 +217,6 @@ dev.off()
 
 # 2009 - 2014
 precip_0914 <- precip[c(367:2557),]
-
-# save figure as png
-png(filename= paste(pwcdir, "figures/precip_09-14.png", sep=""),width=10, height=10, units="in",res=250) 
 
 p_0914 <- ggplot(precip_0914, aes(x=date,y=precip_cm))+
   geom_line()+

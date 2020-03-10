@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # abs(pcc) cutoff value
-cutoff <- 0.01 #re-assess after re-running pwc
+cutoff <- 0.05 #re-assess after re-running pwc
 
 # ------------------------------------------------------------------------------
 # Output Variable == Max(Ave.Conc.H20 * 1000000)
