@@ -1,0 +1,87 @@
+***  3/12/2020 2:13:17 PM
+***  PRZM5 Input File Generator
+***Record A1: Weather File
+C:\Users\echelsvi\git\yuan_urban_pesticides\dummy\17484_grid_folsom.wea
+***Record A2: PRZM5 Time Series Output File
+C:\Users\echelsvi\git\yuan_urban_pesticides\dummy\dummy_water\dummy_inputs.zts
+***Record A3: PRZM5 Advanced Options
+False,True,False,False,False,1
+***Record 1: pfac, sfac, anetd 
+0.77, 0, 17.5
+***Record 2: Erosion Flag 4 = MUSS, 3= MUST, 1= MUSLE 
+4
+***Record 3: uslek, uslels, uslep, FieldSize, ireg, slope, hydraul length
+0.35, 0.37, 1, 14310, 2, 2.5, 2400
+***Record 4 Number of hydro-event changes
+12, 1
+***Record 5 Day, Month, Year, C, n, CN
+ 1, 1,2009,.060, .070, 84
+ 1, 2,2009,.060, .070, 84
+ 1, 3,2009,.060, .070, 84
+ 1, 4,2009,.060, .070, 84
+ 1, 5,2009,.060, .070, 84
+ 1, 6,2009,.060, .070, 84
+ 1, 7,2009,.060, .070, 84
+ 1, 8,2009,.060, .070, 84
+ 1, 9,2009,.060, .070, 84
+ 1,10,2009,.060, .070, 84
+ 1,11,2009,.060, .070, 84
+ 1,12,2009,.060, .070, 84
+***Record 6: Number of crop periods that follow
+7
+***Record 7: Emergence (d/m/y), Maturity (d/m/y), Harvest (d/m/y), depth (cm), cover, height(cm), holdup (cm), post-harvest disposition
+ 1, 1,2008,  10, 1,2008,  15, 1,2008,       0,        0,        0,        0,        1
+ 1, 1,2009,  10, 1,2009,  15, 1,2009,       0,        0,        0,        0,        1
+ 1, 1,2010,  10, 1,2010,  15, 1,2010,       0,        0,        0,        0,        1
+ 1, 1,2011,  10, 1,2011,  15, 1,2011,       0,        0,        0,        0,        1
+ 1, 1,2012,  10, 1,2012,  15, 1,2012,       0,        0,        0,        0,        1
+ 1, 1,2013,  10, 1,2013,  15, 1,2013,       0,        0,        0,        0,        1
+ 1, 1,2014,  10, 1,2014,  15, 1,2014,       0,        0,        0,        0,        1
+***Record 8: irrflag, tempflag
+ 2, False
+***Record 9
+3, 0.5, 50, 17556.48, False, 0
+***Record 14: Number of horizons
+1
+*** Record 15
+*** #,thk, Del, Dsp,   bd,  W0,    FC,    WP,    oc, snd, cly,  tmp 
+1, 20, 100, 0.0, 1.3, 0.284, 0.284, 0.144, 0.29, 0, 35, 15,
+*** Record 16, New Runoff Extraction Parameters: rDepth, rDecline, Bypass
+2.0,1.5,0.2,
+*** Record 17: New Erosion Extraction Parameters: eDepth, eDecline, eEfficiency
+0.5,0,0.7
+************ START OF CHEMICAL INPUTS ***************************
+***Record C1  Number of Applications, Number of Chemicals
+       1       1
+***Record C2  dd,mm,yy, cam, dep, rate, eff, tband, 1cam, 1dep, 1rate, 1eff, 0, 2cam, 2dep, 2rate, 2eff, 0  
+1,1,09,6,2,0.001117063,0.99,0, 1, 4.0, 0, 0, 0, 1, 4.0, 0, 0, 0
+***Record C3: FILTRA,IPSCND,UPTKF,1IPSCND,1UPTKF,2IPSCND,2UPTKF 
+0,1,0,1,0,1,0
+***Record C6: volatilization
+0,0.0072,0,
+*** Record C7: Kf1, Kf2, Kf3 for each horizon
+3570,
+*** Record C7A: N1, N2, N3 Freundlich Exponents for each horizon
+1.0,
+*** Record C7B: Region 2 Freundlich Coefficient for each horizon
+1,
+*** Record C7C: Region 2 Freundlich Exponents for each horizon
+1,
+*** Record C7D: Lowest Concentration (mg/L) for Freundlich Exponent
+1.0e-12,
+*** Record C7E: Sorbed-Phase-Referenced Mass-Transfer Coefficient
+1,
+*** Record C8: Degradation Rates Aqueous, Sorbed, Gas
+0.004283931,0.004283931,0,
+*** Record C9: Molar Conversions 1 to 2, 1 to 3, 2 to 3
+0,0,0,0,0,0
+********** OUTPUT SPECIFICATIONS ***********************
+*** Record U1
+6
+*** Record U2
+RUNF,0,TSER,   0,   0,    1.0
+ESLS,0,TSER,   0,   0,    1.0
+RFLX,1,TSER,   0,   0,    1
+EFLX,1,TSER,   0,   0,    1
+DCON,1,TAVE,   2,  100,    1000
+INFL,0,TCUM,   100,   100,    1.0
