@@ -112,14 +112,14 @@ sd3 <- "#08519c"
 sd2 <- "#4292c6"
 sd1 <- "#9ecae1"
 med <- "#08519c"
-det <- "#74c476"
+det <- "#d9f0a3"
 
 # plot
 pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_ribbon(aes(ymin=percent.001, ymax=percent.999, fill="3 SD")) +
   geom_ribbon(aes(ymin=percent.023, ymax=percent.977, fill="2 SD")) +
   geom_ribbon(aes(ymin=percent.159, ymax=percent.841, fill="1 SD")) +
-  geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
+  geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
@@ -128,7 +128,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   theme_bw() +
   theme(legend.position = "bottom") +
   scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
-  scale_color_manual(name="", values=c("Median" =med, "Deterministic"=det))
+  scale_color_manual(name="", values=c("Probabilistic Median" =med, "Deterministic"=det))
 
 # ---------------------------------
 # plot application data
@@ -254,14 +254,14 @@ sd3 <- "#6a51a3"
 sd2 <- "#807dba"
 sd1 <- "#bcbddc"
 med <- "#6a51a3"
-det <- "#74c476"
+det <- "#d9f0a3"
 
 # plot
 pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_ribbon(aes(ymin=percent.001, ymax=percent.999, fill="3 SD")) +
   geom_ribbon(aes(ymin=percent.023, ymax=percent.977, fill="2 SD")) +
   geom_ribbon(aes(ymin=percent.159, ymax=percent.841, fill="1 SD")) +
-  geom_line(aes(y=percent.5, color="Median"), linetype="solid", size=1) +
+  geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
@@ -270,7 +270,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   theme_bw() +
   theme(legend.position = "bottom") +
   scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
-  scale_color_manual(name="", values=c("Median" =med, "Deterministic"=det))
+  scale_color_manual(name="", values=c("Probabilistic Median" =med, "Deterministic"=det))
 
 # ---------------------------------
 # plot application data
