@@ -1,29 +1,29 @@
  Variable Volume Water Model, Version    1.03100000000000     
  
  *******************************************
-Performed on:  3/ 2/2020  at  8:36
+Performed on:  3/17/2020  at 11:28
 * Insufficient years to calculate 1-in-10.0 . Only maximums are reported here.
-Initial 1-in-10.0  =  10.00     ppb
-Chronic 1-in-10.0  =  0.268     ppb
+Initial 1-in-10.0  =   10.5     ppb
+Chronic 1-in-10.0  =  0.274     ppb
 Simulation Avg     =  0.124     ppb
-4-d avg 1-in-10.0  =  0.335     ppb
-21-d avg 1-in-10.0 =  0.332     ppb
-60-d avg 1-in-10.0 =  0.315     ppb
-90-d avg 1-in-10.0 =  0.312     ppb
-1-d avg 1-in-10.0  =  0.338     ppb
-Benthic Pore Water Peak 1-in-10.0     =  0.355     ppb
-Benthic Pore Water 21-d avg 1-in-10.0 =  0.344     ppb
+4-d avg 1-in-10.0  =  0.342     ppb
+21-d avg 1-in-10.0 =  0.339     ppb
+60-d avg 1-in-10.0 =  0.322     ppb
+90-d avg 1-in-10.0 =  0.319     ppb
+1-d avg 1-in-10.0  =  0.345     ppb
+Benthic Pore Water Peak 1-in-10.0     =  0.362     ppb
+Benthic Pore Water 21-d avg 1-in-10.0 =  0.351     ppb
 Benthic Conversion Factor             =  0.357E+04 -Pore water (ug/L) to (total mass, ug)/(dry sed mass,kg)
 Benthic Mass Fraction in Pore Water   =  0.104E-03
  
 YEAR    1-day     4-day      21-day     60-day     90-day   Yearly Avg Benthic Pk  Benthic 21-day
   1    0.00E+00   0.00E+00   0.00E+00   0.00E+00   0.00E+00   0.00E+00   0.00E+00   0.00E+00
-  2    4.85E-02   2.65E-02   1.85E-02   1.43E-02   1.28E-02   4.92E-03   1.76E-02   1.71E-02
-  3    7.10E-02   6.60E-02   5.85E-02   5.41E-02   4.75E-02   3.46E-02   7.28E-02   6.42E-02
-  4    1.59E-01   1.40E-01   1.39E-01   1.37E-01   1.35E-01   1.14E-01   1.45E-01   1.43E-01
-  5    3.17E-01   3.10E-01   2.82E-01   2.20E-01   2.08E-01   1.86E-01   3.29E-01   3.12E-01
-  6    3.18E-01   3.18E-01   3.15E-01   3.12E-01   3.09E-01   2.63E-01   3.23E-01   3.22E-01
-  7    3.38E-01   3.35E-01   3.32E-01   3.15E-01   3.12E-01   2.68E-01   3.55E-01   3.44E-01
+  2    4.80E-02   2.66E-02   1.84E-02   1.42E-02   1.26E-02   4.85E-03   1.75E-02   1.70E-02
+  3    6.75E-02   6.41E-02   5.69E-02   5.32E-02   4.69E-02   3.46E-02   7.10E-02   6.29E-02
+  4    1.56E-01   1.35E-01   1.34E-01   1.32E-01   1.30E-01   1.10E-01   1.39E-01   1.37E-01
+  5    3.17E-01   3.10E-01   2.80E-01   2.20E-01   2.08E-01   1.85E-01   3.29E-01   3.10E-01
+  6    3.18E-01   3.18E-01   3.15E-01   3.12E-01   3.09E-01   2.63E-01   3.22E-01   3.22E-01
+  7    3.45E-01   3.42E-01   3.39E-01   3.22E-01   3.19E-01   2.74E-01   3.62E-01   3.51E-01
 ****************************************************************************************************
  Effective compartment halflives averaged over simulation duration:
  
@@ -41,9 +41,9 @@ YEAR    1-day     4-day      21-day     60-day     90-day   Yearly Avg Benthic P
  ***********************************************************************
  Fractional Contribution of Transport Processes to Waterbody & Total Mass (kg):
  
- Due to Runoff  =     0.0550         0.7591     
- Due to Erosion =     0.9442          13.03     
- Due to Drift   =     0.0008         0.1036E-001
+ Due to Runoff  =     0.0549         0.7665     
+ Due to Erosion =     0.9444          13.19     
+ Due to Drift   =     0.0007         0.1036E-001
  ***********************************************************************
  Flow in/out Characteristics of Waterbody:
  Average Daily Runoff Into Waterbody (m3/s) =   0.306387937633335     

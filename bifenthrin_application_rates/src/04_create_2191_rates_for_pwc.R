@@ -59,6 +59,69 @@ sink()
 
 
 
+# read file back in to apply a 30-day moving average
+ma_placer <- read.table(file="C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_pgc.txt")
+con_ma_placer <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_pgc.txt")
+
+a_old=readLines(con_ma_placer)
+a=readLines(con_ma_placer)
+close(con_ma_placer)
+
+
+# create vector of all app rates
+app_vec <- vector() 
+
+for(i in 1:nrow(ma_placer)){
+  day_list <- unlist(strsplit(a[i], ",")) #split up that day's list of var
+  app_vec[i] <- day_list[6] #insert that day's app into vec
+} 
+
+
+ma_vec <- vector()
+app_vec <- as.numeric(app_vec)
+
+# jan 2009 moving average
+for(j in 1:31){
+  ma_vec[j] <- app_vec[j]
+}
+
+# feb 2009 - end 30-day moving average
+for(k in 32:length(app_vec)){
+  ma_vec[k] <- (app_vec[k-30]+app_vec[k-29]+app_vec[k-28]+app_vec[k-27]+app_vec[k-26]+app_vec[k-25]+app_vec[k-24]+app_vec[k-23]+app_vec[k-22]+
+                  app_vec[k-21]+app_vec[k-20]+app_vec[k-19]+app_vec[k-18]+app_vec[k-17]+app_vec[k-16]+app_vec[k-15]+app_vec[k-14]+app_vec[k-13]+
+    app_vec[k-12]+app_vec[k-11]+app_vec[k-10]+app_vec[k-9]+app_vec[k-8]+app_vec[k-7]+app_vec[k-6]+app_vec[k-5]+app_vec[k-4]+app_vec[k-3]+
+    app_vec[k-2]+app_vec[k-1])/30
+}
+
+ma_vec <- as.character(ma_vec)
+
+
+# insert the app rates back into the file
+con2_ma_placer <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_pgc.txt")
+
+b_old=readLines(con2_ma_placer)
+b=readLines(con2_ma_placer)
+close(con2_ma_placer)
+
+for(l in 1:length(ma_vec)){
+  day_list2 <- unlist(strsplit(b[l], ",")) #split up that day's list of var
+  day_list2[6] <- ma_vec[l]
+  b[l]=paste(day_list2,collapse=",")
+} 
+
+
+# write out file
+out_file <- paste("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_with_ma_pgc",".txt", sep="")
+file.exists(out_file)
+file.create(out_file)
+file.exists(out_file)
+con_apps <- file(out_file)
+writeLines(b, con_apps)
+close(con_apps)
+
+
+
+
 
 
 # ---------------------------------------------------------------
@@ -114,6 +177,68 @@ for (i in 1:nrow(sac)){
 }
 sink()
 
+
+
+
+# read file back in to apply a 30-day moving average
+ma_sac <- read.table(file="C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_folsom.txt")
+con_ma_sac <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_folsom.txt")
+
+a_old=readLines(con_ma_sac)
+a=readLines(con_ma_sac)
+close(con_ma_sac)
+
+
+# create vector of all app rates
+app_vec <- vector() 
+
+for(i in 1:nrow(ma_sac)){
+  day_list <- unlist(strsplit(a[i], ",")) #split up that day's list of var
+  app_vec[i] <- day_list[6] #insert that day's app into vec
+} 
+
+
+ma_vec <- vector()
+app_vec <- as.numeric(app_vec)
+
+# jan 2009 moving average
+for(j in 1:31){
+  ma_vec[j] <- app_vec[j]
+}
+
+# feb 2009 - end 30-day moving average
+for(k in 32:length(app_vec)){
+  ma_vec[k] <- (app_vec[k-30]+app_vec[k-29]+app_vec[k-28]+app_vec[k-27]+app_vec[k-26]+app_vec[k-25]+app_vec[k-24]+app_vec[k-23]+app_vec[k-22]+
+                  app_vec[k-21]+app_vec[k-20]+app_vec[k-19]+app_vec[k-18]+app_vec[k-17]+app_vec[k-16]+app_vec[k-15]+app_vec[k-14]+app_vec[k-13]+
+                  app_vec[k-12]+app_vec[k-11]+app_vec[k-10]+app_vec[k-9]+app_vec[k-8]+app_vec[k-7]+app_vec[k-6]+app_vec[k-5]+app_vec[k-4]+app_vec[k-3]+
+                  app_vec[k-2]+app_vec[k-1])/30
+}
+
+ma_vec <- as.character(ma_vec)
+
+
+# insert the app rates back into the file
+con2_ma_sac <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_folsom.txt")
+
+b_old=readLines(con2_ma_sac)
+b=readLines(con2_ma_sac)
+close(con2_ma_sac)
+
+for(l in 1:length(ma_vec)){
+  day_list2 <- unlist(strsplit(b[l], ",")) #split up that day's list of var
+  day_list2[6] <- ma_vec[l]
+  b[l]=paste(day_list2,collapse=",")
+} 
+
+
+# write out file
+out_file <- paste("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_with_ma_folsom",".txt", sep="")
+file.exists(out_file)
+file.create(out_file)
+file.exists(out_file)
+con_apps <- file(out_file)
+writeLines(b, con_apps)
+close(con_apps)
 
 
 
