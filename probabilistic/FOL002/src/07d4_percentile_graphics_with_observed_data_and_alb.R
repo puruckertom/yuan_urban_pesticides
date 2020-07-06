@@ -154,15 +154,20 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   
   geom_point(data=obs_water_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
   
-  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
                      labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10)) +
-  labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Columm", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
+  labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
   scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
   scale_color_manual(name="", values=c("CDPR Observed"=obs, "Deterministic"=det,"Probabilistic Median" =med,
-                                       "Acute/Chronic Invertebrate"=invert, "Acute/Chronic Fish" = fish))
+                                       "Acute/Chronic Invertebrate"=invert, "Acute/Chronic Fish" = fish))+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))+ #y axis label
+  theme(plot.title = element_text(size = 14))+
+  theme(legend.text = element_text(size = 12)) 
 
 print(pwc_pplot)
 dev.off()
@@ -179,10 +184,23 @@ dev.off()
 # data set-up
 # --------------------------------
 
+load(paste(pwcdir, "io/con_fac_output.RData", sep = ""))
+dim(con_fac_output) #sims*1
+
 dim(pwc_ben_output) #days*sims
 
+# convert to sediment concentrations 
+sed_output <- pwc_ben_output
+for (c in 1:dim(sed_output)[2]){
+  this_con_fac <- con_fac_output[c,]
+  for (r in 1:dim(sed_output)[1]){
+    sed_output[r,c] <- sed_output[r,c]*this_con_fac
+  }
+}
+
+
 # create blank matrix to fill with percentiles
-percentiles <- matrix(data=NA, nrow=dim(pwc_ben_output)[1], ncol=8)
+percentiles <- matrix(data=NA, nrow=dim(sed_output)[1], ncol=8)
 colnames(percentiles) <- c("day", "percent.001", "percent.023", "percent.159", "percent.5",
                            "percent.841", "percent.977", "percent.999")
 percentiles <- as.data.frame(percentiles)
@@ -193,25 +211,25 @@ percentiles$day <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
 
 # compute percentiles
 for (i in 1:dim(percentiles)[1]){
-  p001 <- quantile(pwc_ben_output[i,], probs=.001, na.rm=T)
+  p001 <- quantile(sed_output[i,], probs=.001, na.rm=T)
   percentiles[i,2] <- p001
   
-  p023 <- quantile(pwc_ben_output[i,], probs=.023, na.rm=T)
+  p023 <- quantile(sed_output[i,], probs=.023, na.rm=T)
   percentiles[i,3] <- p023
   
-  p159 <- quantile(pwc_ben_output[i,], probs=.159, na.rm=T)
+  p159 <- quantile(sed_output[i,], probs=.159, na.rm=T)
   percentiles[i,4] <- p159
   
-  p5 <- quantile(pwc_ben_output[i,], probs=.5, na.rm=T)
+  p5 <- quantile(sed_output[i,], probs=.5, na.rm=T)
   percentiles[i,5] <- p5
   
-  p841 <- quantile(pwc_ben_output[i,], probs=.841, na.rm=T)
+  p841 <- quantile(sed_output[i,], probs=.841, na.rm=T)
   percentiles[i,6] <- p841
   
-  p977 <- quantile(pwc_ben_output[i,], probs=.977, na.rm=T)
+  p977 <- quantile(sed_output[i,], probs=.977, na.rm=T)
   percentiles[i,7] <- p977
   
-  p999 <- quantile(pwc_ben_output[i,], probs=.999, na.rm=T)
+  p999 <- quantile(sed_output[i,], probs=.999, na.rm=T)
   percentiles[i,8] <- p999
 }
 percentiles$percent.001 <- percentiles$percent.001*1000000 #convert units to ug/L 
@@ -231,8 +249,17 @@ determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/in
 colnames(determ) <- c("Depth(m)","Ave.Conc.H20","Ave.Conc.benth","Peak.Conc.H20")
 determ <- as.data.frame(determ)
 
-# subset Ave.conc.H20, add to percentiles df
-percentiles$deterministic <- determ$Ave.Conc.benth*1000000 #convert units to ug/L
+# read conversion factor from output 
+con <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent.txt")
+open(con)
+con_fac_line <- read.table(con,skip=15,nrow=1) #16-th line
+con_fac <- as.numeric(con_fac_line%>%select_if(is.numeric))
+print(con_fac)
+close(con)
+
+# subset Ave.conc.benth, conversions, add to percentiles df
+percentiles$deterministic <- determ$Ave.Conc.benth*1000000*con_fac #convert units to ug/L
+
 
 # impose a false zero
 for (i in 1:dim(percentiles)[1]){
@@ -242,20 +269,18 @@ for (i in 1:dim(percentiles)[1]){
 } 
 
 
-# # --------------------------------
-# # read in observed data
-# # --------------------------------
-# 
-# obs_sed <- read.csv(file="C:/Users/echelsvi/git/yuan_urban_pesticides/observed_concentrations/cdpr_stormdrain_bifenthrin_sediment_09-14_all.csv",
-#                     header=T, sep=",")
-# 
-# # change column formats
-# obs_sed$date <- as.Date(obs_sed$Sample.Date, format="%d-%b-%Y")
-# obs_sed$Result <- as.numeric(levels(obs_sed$Result))[obs_sed$Result]
-# 
-# # subset folsom sites
-# obs_sed_folsom <- obs_sed[which(obs_sed$Site.ID == "FOL002"), ]
-# 
+# --------------------------------
+# read in observed data
+# --------------------------------
+
+obs_sed <- read.csv(file="C:/Users/echelsvi/git/yuan_urban_pesticides/observed_concentrations/cdpr_stormdrain_bifenthrin_sediment_09-14_all.csv",
+                    header=T, sep=",")
+
+# subset folsom sites
+obs_sed_folsom <- obs_sed[which(obs_sed$Site.ID == "FOL002"), ]
+
+# change column formats
+obs_sed_folsom$date <- as.Date(obs_sed_folsom$Sample.Date, format="%d-%b-%y")
 
 
 
@@ -280,8 +305,6 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_ribbon(aes(ymin=percent.023, ymax=percent.977, fill="2 SD")) +
   geom_ribbon(aes(ymin=percent.159, ymax=percent.841, fill="1 SD")) +
 
-  #geom_point(data=obs_sed_folsom, aes(x=date, y=Result, color="CDPR Observed"))+
-  
   geom_hline(aes(yintercept=0.075, color="Acute/Chronic Fish"), linetype="dashed", size=1) + #aquatic life benchmarks for fish and invertebrates
   geom_hline(yintercept=0.04 , linetype="dashed", color=fish, size=1) +
   geom_hline(yintercept=0.8, linetype="dashed", color=invert, size=1) +
@@ -290,16 +313,22 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   
-  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
+  geom_point(data=obs_sed_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
+  
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10)) +
-  labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10000)) +
+  labs(title = "Daily Average Bifenthrin Sediment Concentration", x = "", y = "Bifenthrin Sediment Concentration (total mass, ug)/(dry sed mass,kg) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
   scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
-  scale_color_manual(name="", values=c("Deterministic"=det,"Probabilistic Median" =med, 
-                                       "Acute/Chronic Invertebrate"=invert, "Acute/Chronic Fish" = fish))
-
+  scale_color_manual(name="", values=c("CDPR Observed"=obs, "Deterministic"=det,"Probabilistic Median" =med,
+                                       "Acute/Chronic Invertebrate"=invert, "Acute/Chronic Fish" = fish))+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))+ #y axis label
+  theme(plot.title = element_text(size = 14))+
+  theme(legend.text = element_text(size = 12)) 
 print(pwc_pplot)
 dev.off()
 

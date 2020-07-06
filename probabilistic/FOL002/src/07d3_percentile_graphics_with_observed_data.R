@@ -146,14 +146,19 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
  
   geom_point(data=obs_water_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=3)+
   
-  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
                      labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10)) +
-  labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Columm", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
+  labs(title = "Daily Average Aqueous Bifenthrin Concentration in Water Column", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
   theme_bw() +
   theme(legend.position = "bottom") +
   scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
-  scale_color_manual(name="", values=c("CDPR Observed"=obs, "Deterministic"=det,"Probabilistic Median" =med))
+  scale_color_manual(name="", values=c("CDPR Observed"=obs, "Deterministic"=det,"Probabilistic Median" =med))+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))+ #y axis label
+  theme(plot.title = element_text(size = 14))+
+  theme(legend.text = element_text(size = 12)) 
 
 print(pwc_pplot)
 dev.off()
@@ -177,7 +182,11 @@ s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_folsom)) +
   theme_bw() +
   theme(legend.position = "none") +
   scale_y_reverse() +
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))
 print(s)
 # --------------------------------
 # plot together
@@ -207,22 +216,25 @@ precip <- read.table(file=paste(pwcdir_weather, "17484_grid_folsom.wea", sep="")
 colnames(precip) <- c("month", "day", "year", "precip_cm", "et_cm", "temp_c", "windspeed_cms", "solar_la")
 precip$date <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
 
-precip_0914 <- precip[c(367:2557),]
 
-p_0914 <- ggplot(precip_0914, aes(x=date,y=precip_cm))+
+p_plot <- ggplot(precip, aes(x=date,y=precip_cm))+
   geom_bar(stat="identity", fill="black")+
   theme_bw()+
   labs(title = "", x = "", y = "Precipitation (cm)", color = "") +
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
   scale_y_reverse() +
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
-print(p_0914)
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))
+print(p_plot)
 # --------------------------------
 # plot together
 # --------------------------------
 # save figure as png
 png(filename= paste(pwcdir, "figures/percentile_rainfall_with_observed_09-14_pwc_ave_h2.png", sep=""),width=20, height=10, units="in",res=300) 
 
-g2 <- ggplotGrob(p_0914)
+g2 <- ggplotGrob(p_plot)
 g3 <- ggplotGrob(pwc_pplot)
 g <- rbind(g2, g3, size = "first")
 g$widths <- unit.pmax(g2$widths, g3$widths)
@@ -245,10 +257,22 @@ dev.off()
 # data set-up
 # --------------------------------
 
+load(paste(pwcdir, "io/con_fac_output.RData", sep = ""))
+dim(con_fac_output) #sims*1
+
 dim(pwc_ben_output) #days*sims
 
+# convert to sediment concentrations 
+sed_output <- pwc_ben_output
+for (c in 1:dim(sed_output)[2]){
+  this_con_fac <- con_fac_output[c,]
+  for (r in 1:dim(sed_output)[1]){
+    sed_output[r,c] <- sed_output[r,c]*this_con_fac
+  }
+}
+
 # create blank matrix to fill with percentiles
-percentiles <- matrix(data=NA, nrow=dim(pwc_ben_output)[1], ncol=8)
+percentiles <- matrix(data=NA, nrow=dim(sed_output)[1], ncol=8)
 colnames(percentiles) <- c("day", "percent.001", "percent.023", "percent.159", "percent.5",
                            "percent.841", "percent.977", "percent.999")
 percentiles <- as.data.frame(percentiles)
@@ -259,25 +283,25 @@ percentiles$day <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
 
 # compute percentiles
 for (i in 1:dim(percentiles)[1]){
-  p001 <- quantile(pwc_ben_output[i,], probs=.001, na.rm=T)
+  p001 <- quantile(sed_output[i,], probs=.001, na.rm=T)
   percentiles[i,2] <- p001
   
-  p023 <- quantile(pwc_ben_output[i,], probs=.023, na.rm=T)
+  p023 <- quantile(sed_output[i,], probs=.023, na.rm=T)
   percentiles[i,3] <- p023
   
-  p159 <- quantile(pwc_ben_output[i,], probs=.159, na.rm=T)
+  p159 <- quantile(sed_output[i,], probs=.159, na.rm=T)
   percentiles[i,4] <- p159
   
-  p5 <- quantile(pwc_ben_output[i,], probs=.5, na.rm=T)
+  p5 <- quantile(sed_output[i,], probs=.5, na.rm=T)
   percentiles[i,5] <- p5
   
-  p841 <- quantile(pwc_ben_output[i,], probs=.841, na.rm=T)
+  p841 <- quantile(sed_output[i,], probs=.841, na.rm=T)
   percentiles[i,6] <- p841
   
-  p977 <- quantile(pwc_ben_output[i,], probs=.977, na.rm=T)
+  p977 <- quantile(sed_output[i,], probs=.977, na.rm=T)
   percentiles[i,7] <- p977
   
-  p999 <- quantile(pwc_ben_output[i,], probs=.999, na.rm=T)
+  p999 <- quantile(sed_output[i,], probs=.999, na.rm=T)
   percentiles[i,8] <- p999
 }
 percentiles$percent.001 <- percentiles$percent.001*1000000 #convert units to ug/L 
@@ -297,8 +321,17 @@ determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/in
 colnames(determ) <- c("Depth(m)","Ave.Conc.H20","Ave.Conc.benth","Peak.Conc.H20")
 determ <- as.data.frame(determ)
 
-# subset Ave.conc.H20, add to percentiles df
-percentiles$deterministic <- determ$Ave.Conc.benth*1000000 #convert units to ug/L
+# read conversion factor from output 
+con <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent.txt")
+open(con)
+con_fac_line <- read.table(con,skip=15,nrow=1) #16-th line
+con_fac <- as.numeric(con_fac_line%>%select_if(is.numeric))
+print(con_fac)
+close(con)
+
+# subset Ave.conc.benth, conversions, add to percentiles df
+percentiles$deterministic <- determ$Ave.Conc.benth*1000000*con_fac #convert units to ug/L
+
 
 # impose a false zero
 for (i in 1:dim(percentiles)[1]){
@@ -308,111 +341,144 @@ for (i in 1:dim(percentiles)[1]){
 } 
 
 
-# # --------------------------------
-# # read in observed data
-# # --------------------------------
-# 
-# obs_sed <- read.csv(file="C:/Users/echelsvi/git/yuan_urban_pesticides/observed_concentrations/cdpr_stormdrain_bifenthrin_sediment_09-14_all.csv",
-#                       header=T, sep=",")
-# 
-# # change column formats
-# obs_sed$date <- as.Date(obs_sed$Sample.Date, format="%d-%b-%Y")
-# obs_sed$Result <- as.numeric(levels(obs_sed$Result))[obs_sed$Result]
-# 
-# # subset folsom sites
-# obs_sed_folsom <- obs_sed[which(obs_sed$Site.ID == "FOL002"), ]
-# 
-# 
-# 
-# 
-# # --------------------------------
-# # plot percentiles
-# # --------------------------------
-# 
-# # set colors
-# sd1 <- "#6a51a3"
-# sd2 <- "#807dba"
-# sd3 <- "#bcbddc"
-# det <- "#78c679"
-# med <- "#91003f"
-# obs <- "#e31a1c"
-# 
-# 
-# # plot
-# png(filename= paste(pwcdir, "figures/percentile_with_observed_09-14_pwc_ave_benthic.png", sep=""),width=20, height=10, units="in",res=300) 
-# 
-# pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
-#   geom_ribbon(aes(ymin=percent.001, ymax=percent.999, fill="3 SD")) +
-#   geom_ribbon(aes(ymin=percent.023, ymax=percent.977, fill="2 SD")) +
-#   geom_ribbon(aes(ymin=percent.159, ymax=percent.841, fill="1 SD")) +
-#   geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) +
-#   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
-#   
-#   geom_point(data=obs_sed_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=1.4)+
-#   
-#   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2009-01-01', '2014-12-31'))) +
-#   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-#                      labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10)) +
-#   labs(title = "Daily Average Aqueous Bifenthrin Concentration in Benthic Zone", x = "", y = "Bifenthrin Concentration (ug/L) (log10)", color = "") +
-#   theme_bw() +
-#   theme(legend.position = "bottom") +
-#   scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
-#   scale_color_manual(name="", values=c("CDPR Observed"=obs, "Deterministic"=det,"Probabilistic Median" =med))
-# 
-# print(pwc_pplot)
-# dev.off()
-# 
-# 
-# 
-# # ---------------------------------
-# # plot application data
-# # ---------------------------------
-# s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_folsom)) +
-#   geom_bar(stat="identity", fill="#525252") +
-#   labs(title = "", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
-#   theme_bw() +
-#   theme(legend.position = "none") +
-#   scale_y_reverse() +
-#   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
-# print(s)
-# # --------------------------------
-# # plot together
-# # --------------------------------
-# # save figure as png
-# png(filename= paste(pwcdir, "figures/percentile_applications_with_observed_09-14_pwc_ave_benthic.png", sep=""),width=20, height=10, units="in",res=300) 
-# 
-# g2 <- ggplotGrob(s)
-# g3 <- ggplotGrob(pwc_pplot)
-# g <- rbind(g2, g3, size = "first")
-# g$widths <- unit.pmax(g2$widths, g3$widths)
-# grid.newpage()
-# 
-# plot_output <- grid.draw(g)
-# 
-# print(plot_output)
-# dev.off()
-# 
-# 
-# 
-# # ---------------------------------
-# # plot rainfall data
-# # ---------------------------------
-# # --------------------------------
-# # plot together
-# # --------------------------------
-# # save figure as png
-# png(filename= paste(pwcdir, "figures/percentile_rainfall_with_observed_09-14_pwc_ave_benthic.png", sep=""),width=20, height=10, units="in",res=300) 
-# 
-# g2 <- ggplotGrob(p_0914)
-# g3 <- ggplotGrob(pwc_pplot)
-# g <- rbind(g2, g3, size = "first")
-# g$widths <- unit.pmax(g2$widths, g3$widths)
-# grid.newpage()
-# 
-# plot_output <- grid.draw(g)
-# 
-# print(plot_output)
-# dev.off()
+
+# --------------------------------
+# read in observed data
+# --------------------------------
+
+obs_sed <- read.csv(file="C:/Users/echelsvi/git/yuan_urban_pesticides/observed_concentrations/cdpr_stormdrain_bifenthrin_sediment_09-14_all.csv",
+                       header=T, sep=",")
+
+# subset folsom sites
+obs_sed_folsom <- obs_sed[which(obs_sed$Site.ID == "FOL002"), ]
+
+# change column formats
+obs_sed_folsom$date <- as.Date(obs_sed_folsom$Sample.Date, format="%d-%b-%y")
+
+
+# --------------------------------
+# plot percentiles
+# --------------------------------
+
+# set colors
+sd3 <- "#6a51a3"
+sd2 <- "#807dba"
+sd1 <- "#bcbddc"
+med <- "#6a51a3"
+det <- "#d9f0a3"
+
+# plot
+png(filename= paste(pwcdir, "figures/percentile_with_observed_09-14_pwc_ave_benthic.png", sep=""),width=20, height=10, units="in",res=300)
+
+pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
+  geom_ribbon(aes(ymin=percent.001, ymax=percent.999, fill="3 SD")) +
+  geom_ribbon(aes(ymin=percent.023, ymax=percent.977, fill="2 SD")) +
+  geom_ribbon(aes(ymin=percent.159, ymax=percent.841, fill="1 SD")) +
+  geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) +
+  geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
+  
+  geom_point(data=obs_sed_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=3)+
+
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
+  scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10000)) +
+  labs(title = "Daily Average Bifenthrin Sediment Concentration", x = "", y = "Bifenthrin Sediment Concentration (total mass, ug)/(dry sed mass,kg) (log10)", color = "") + 
+  theme_bw() +
+  theme(legend.position = "bottom") +
+  scale_fill_manual(name="", values=c("3 SD"=sd3, "2 SD"=sd2, "1 SD" =sd1))+
+  scale_color_manual(name="", values=c("CDPR Observed"=obs, "Deterministic"=det,"Probabilistic Median" =med))+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))+ #y axis label
+  theme(plot.title = element_text(size = 14))+
+  theme(legend.text = element_text(size = 12))
+
+print(pwc_pplot)
+dev.off()
+
+
+
+# ---------------------------------
+# plot application data
+# ---------------------------------
+# read in data
+calpip_s <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/app_rates_09-14_pwc_inputs_folsom.csv",
+                     header= TRUE, sep= ",")
+
+
+# add in full date column
+calpip_s$date <- seq(as.Date("2009-01-01"), as.Date("2014-12-01"), by="months")#format 1961-01-01
+
+s <- ggplot(data=calpip_s, aes(x=date, y=bif_kgha_folsom)) +
+  geom_bar(stat="identity", fill="#525252") +
+  labs(title = "", x = "", y = "Bifenthrin Application (kg/ha)", color = "") +
+  theme_bw() +
+  theme(legend.position = "none") +
+  scale_y_reverse() +
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))
+print(s)
+# --------------------------------
+# plot together
+# --------------------------------
+
+# save figure as png
+png(filename= paste(pwcdir, "figures/percentile_applications_with_observed_09-14_pwc_ave_benthic.png", sep=""),width=20, height=10, units="in",res=300) 
+
+g2 <- ggplotGrob(s)
+g3 <- ggplotGrob(pwc_pplot)
+g <- rbind(g2, g3, size = "first")
+g$widths <- unit.pmax(g2$widths, g3$widths)
+grid.newpage()
+
+plot_output <- grid.draw(g)
+
+print(plot_output)
+dev.off()
+
+
+# ---------------------------------
+# plot precipitation data
+# ---------------------------------
+# read in weather file
+precip <- read.table(file=paste(pwcdir_weather, "17484_grid_folsom.wea", sep=""), header=FALSE, sep=",")
+
+colnames(precip) <- c("month", "day", "year", "precip_cm", "et_cm", "temp_c", "windspeed_cms", "solar_la")
+precip$date <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
+
+
+p_plot <- ggplot(precip, aes(x=date,y=precip_cm))+
+  geom_bar(stat="identity", fill="black")+
+  theme_bw()+
+  labs(title = "", x = "", y = "Precipitation (cm)", color = "") +
+  scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
+  scale_y_reverse() +
+  theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())+
+  theme(axis.text.y = element_text(size = 12))+ #axis text size
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))
+print(p_plot)
+
+# --------------------------------
+# plot together
+# --------------------------------
+# save figure as png
+png(filename= paste(pwcdir, "figures/percentile_rainfall_with_observed_09-14_pwc_ave_benthic.png", sep=""),width=20, height=10, units="in",res=300) 
+
+g2 <- ggplotGrob(p_plot)
+g3 <- ggplotGrob(pwc_pplot)
+g <- rbind(g2, g3, size = "first")
+g$widths <- unit.pmax(g2$widths, g3$widths)
+grid.newpage()
+
+plot_output <- grid.draw(g)
+
+print(plot_output)
+dev.off()
+
 
 
 # ------------------------------------------------------------------------------
