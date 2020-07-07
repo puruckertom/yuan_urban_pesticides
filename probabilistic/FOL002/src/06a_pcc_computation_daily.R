@@ -153,6 +153,15 @@ pwcoutdf[2034:2044,,1]
 pwc_ben_output <- pwcoutdf[,3,1:Nsims] #1depth, 2Ave.Conc.H20, 3Ave.Conc.benth, 4Peak.Conc.H20
 dim(pwc_ben_output) #days*simulations
 
+# convert to sediment concentrations 
+sed_output <- pwc_ben_output
+for (c in 1:dim(sed_output)[2]){
+  this_con_fac <- con_fac_output[c,]
+  for (r in 1:dim(sed_output)[1]){
+    sed_output[r,c] <- sed_output[r,c]*this_con_fac
+  }
+}
+
 #plot(pwc_ben_output) 
 #plot(pwc_ben_output[,1], type = "l") #time series for simulation #1
 #plot(pwc_ben_output[,5], type = "l") #time series for simulation #5
@@ -171,7 +180,7 @@ dim(tarray_pcc_benthic_daily) #days*variables
 
 # partial correlation coefficients
 for (i in 1:ndays){  
-  out_sim<- pwc_ben_output[i,1:Nsims]
+  out_sim<- sed_output[i,1:Nsims]
   in_sims <- inputs_lhs[1:Nsims,]
   temp_pcc_benthic<- pcc(in_sims, out_sim, rank = F)
   

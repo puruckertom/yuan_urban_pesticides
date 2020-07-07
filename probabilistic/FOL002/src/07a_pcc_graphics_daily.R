@@ -27,7 +27,7 @@ dim(tarray_pcc_peak_daily)
 colnames(tarray_pcc_peak_daily) <- colnames(inputs_lhs)
 colnames(tarray_pcc_peak_daily) 
 
-# pcc daily results - Ave.Conc.benth
+# pcc daily results - Ave.Conc.benth (sediment conc)
 load(paste(pwcdir, "io/tarray_pcc_benthic_daily.RData", sep = ""))
 dim(tarray_pcc_benthic_daily)
 

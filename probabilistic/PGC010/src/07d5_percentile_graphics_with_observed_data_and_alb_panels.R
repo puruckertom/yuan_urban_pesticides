@@ -9,7 +9,7 @@ library(gtable)
 
 # pwc output array
 # recall: this was created in 03write_update_run_pwc and saved in 05_write_output_into_df
-# recall: this is an array of all of the output_FOL002_parent_only_Custom_Parent_daily.csv files 
+# recall: this is an array of all of the output_PGC010_parent_only_Custom_Parent_daily.csv files 
 load(paste(pwcdir, "io/pwcout.RData", sep = ""))
 dim(pwcoutdf)
 
@@ -88,7 +88,7 @@ percentiles$percent.999 <- percentiles$percent.999*1000000
 
 
 # read in deterministic output
-determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent_daily.csv",
+determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/PGC010/outputs/output_PGC010_parent_only_Custom_Parent_daily.csv",
                    header= FALSE, sep= ",", skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 colnames(determ) <- c("Depth(m)","Ave.Conc.H20","Ave.Conc.benth","Peak.Conc.H20")
 determ <- as.data.frame(determ)
@@ -116,8 +116,8 @@ obs_water <- read.csv(file="C:/Users/echelsvi/git/yuan_urban_pesticides/observed
 obs_water$date <- as.Date(obs_water$Sample.Date, format="%d-%b-%Y")
 obs_water$Result <- as.numeric(levels(obs_water$Result))[obs_water$Result]
 
-# subset folsom sites
-obs_water_folsom <- obs_water[which(obs_water$Site.ID == "FOL002"), ]
+# subset pgc sites
+obs_water_pgc <- obs_water[which(obs_water$Site.ID == "PGC010"), ]
 
 
 
@@ -150,11 +150,11 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) + #probabilistic
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) + #deterministic
   
-  geom_point(data=obs_water_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
+  geom_point(data=obs_water_pgc, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
   
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,20)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration \n in the Water Column (ug/L) (log10)", color = "") +
   theme_bw() +
   #theme(legend.justification=c(0,0), legend.position=c(0.01,0.01), legend.box="horizontal")+
@@ -174,7 +174,7 @@ print(pwc_pplot)
 
 
 # read in app rate data
-calpip_s <- read.table("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_with_ma_folsom.txt",
+calpip_s <- read.table("C:/Users/echelsvi/git/yuan_urban_pesticides/bifenthrin_application_rates/CALPIP/output_for_pwc_with_ma_pgc.txt",
                      header=F, sep= ",")
 calpip_s$date <- seq(as.Date("2009-01-01"), as.Date("2014-12-31"), by="day")#format 1961-01-01
 calpip_s <- calpip_s[,c("V6", "date")]
@@ -193,7 +193,7 @@ a_plot <- ggplot(data=calpip_s, aes(x=date, y=app_rate)) +
 print(a_plot)
 
 # read in weather file
-precip <- read.table(file=paste(pwcdir_weather, "17484_grid_folsom.wea", sep=""), header=FALSE, sep=",")
+precip <- read.table(file=paste(pwcdir_weather, "17719_grid_roseville.wea", sep=""), header=FALSE, sep=",")
 
 colnames(precip) <- c("month", "day", "year", "precip_cm", "et_cm", "temp_c", "windspeed_cms", "solar_la")
 precip$date <- seq(as.Date("2008-01-01"), as.Date("2014-12-31"), by="days")
@@ -288,13 +288,13 @@ percentiles$percent.999 <- percentiles$percent.999*1000000
 
 
 # read in deterministic output
-determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent_daily.csv",
+determ <- read.csv("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/PGC010/outputs/output_PGC010_parent_only_Custom_Parent_daily.csv",
                    header= FALSE, sep= ",", skip = 5, stringsAsFactors = FALSE, row.names=NULL)
 colnames(determ) <- c("Depth(m)","Ave.Conc.H20","Ave.Conc.benth","Peak.Conc.H20")
 determ <- as.data.frame(determ)
 
 # read conversion factor from output 
-con <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL002/outputs/output_FOL002_parent_only_Custom_Parent.txt")
+con <- file("C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/PGC010/outputs/output_PGC010_parent_only_Custom_Parent.txt")
 open(con)
 con_fac_line <- read.table(con,skip=15,nrow=1) #16-th line
 con_fac <- as.numeric(con_fac_line%>%select_if(is.numeric))
@@ -320,11 +320,11 @@ for (i in 1:dim(percentiles)[1]){
 obs_sed <- read.csv(file="C:/Users/echelsvi/git/yuan_urban_pesticides/observed_concentrations/cdpr_stormdrain_bifenthrin_sediment_09-14_all.csv",
                     header=T, sep=",")
 
-# subset folsom sites
-obs_sed_folsom <- obs_sed[which(obs_sed$Site.ID == "FOL002"), ]
+# subset pgc sites
+obs_sed_pgc <- obs_sed[which(obs_sed$Site.ID == "PGC010"), ]
 
 # change column formats
-obs_sed_folsom$date <- as.Date(obs_sed_folsom$Sample.Date, format="%d-%b-%y")
+obs_sed_pgc$date <- as.Date(obs_sed_pgc$Sample.Date, format="%d-%b-%y")
 
 
 
@@ -353,11 +353,11 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   geom_line(aes(y=percent.5, color="Probabilistic Median"), linetype="solid", size=1) +
   geom_line(aes(y=deterministic, color="Deterministic"), linetype="solid", size=1) +
   
-  geom_point(data=obs_sed_folsom, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
+  geom_point(data=obs_sed_pgc, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
   
   scale_x_date(date_breaks="1 year", date_labels="%m-%d-%y", limits=as.Date(c('2011-01-01', '2014-12-31'))) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
-                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,10000)) +
+                     labels=trans_format("log10", math_format(10^.x)), limits=c(NA,40000)) +
   labs(title = "", x = "", y = "Bifenthrin Sediment Concentration \n (total mass, ug)/(dry sed mass,kg) (log10)", color = "") +
   theme_bw() +
   #theme(legend.justification=c(0,0), legend.position=c(0.01,0.01), legend.box="horizontal")+
