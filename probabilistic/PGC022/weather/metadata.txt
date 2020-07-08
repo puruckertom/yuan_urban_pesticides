@@ -1,0 +1,16 @@
+# ----------------------------------------------------
+# metadata for 17719_grid_roseville.wea
+# ----------------------------------------------------
+
+# weather data obtained from EPA OPP .wea weather grid system
+# 01/01/2008 - 12/31/2014
+
+
+# column 1	month (01 - 12)	
+# column 2	day of month (01 - 31)
+# column 3	year (2008 - 2014)
+# column 4	precipitation (cm/day)
+# column 5	ETo (cm/day)
+# column 6	temperature (celsius)
+# column 7	wind speed (cm/s)
+# column 8	solar radiation (La/day)

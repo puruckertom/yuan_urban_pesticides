@@ -4,7 +4,7 @@
 
 This folder contains all files from the initial PWC simulation 
 (the deterministic simulation).  These files were copied from the
-deterministic/FOL002/input/outputs/ folder.
+deterministic/input/PGC010/outputs/ folder.
 
 This deterministic simulation uses this site's initial variable values.
 As a result, these files are used as the base for the probabilistic R 
@@ -23,7 +23,7 @@ vvwmTransfer.txt				VVWM input file
 output.zts					PWC (PRZM) output file
 KECHO.PRN					PRZM output file
 fort.78						PRZM output file
-17484_grid_folsom.wea				Weather file
+17719_grid_roseville.wea			Weather file
 ... .txt/.csv files				PRZM/VVWM output files
 
 
