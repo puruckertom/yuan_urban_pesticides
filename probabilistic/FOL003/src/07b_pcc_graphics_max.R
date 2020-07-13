@@ -59,7 +59,7 @@ p1 <- ggplot(data=sens_pwc_h2, aes(x= sens_pwc_h2$pcc, y=sens_pwc_h2$var))+
   scale_y_discrete(labels=c("CN_c" = "curve number", "uslels"="uslels", "uslec_c"="uslec c",
                             "uslep"="uslep", "uslek"="uslek", "app_rate" = "app rate", "kd"="kd",
                             "FROC2"="froc2", "fc" = "field capacity","benthic_depth" = "benthic depth",
-                            "FROC1"="froc1"))
+                            "FROC1"="froc1", "bulk_density"="bulk density"))
 print(p1)
 dev.off()
 
@@ -144,9 +144,9 @@ p3 <-ggplot(data=sens_przm_h2, aes(sens_przm_h2$pcc,sens_przm_h2$var))+
   geom_point(aes(colour = cut(abs(pcc), c(-Inf, 0.3, 0.5, Inf))),size = 6) +
   scale_color_manual(name = "|PCC|  ",
                      values = c("(-Inf,0.3]" = "deepskyblue",
-                                #"(0.3,0.5]" = "dodgerblue4",
+                                "(0.3,0.5]" = "dodgerblue4",
                                 "(0.5, Inf]" = "Red"),
-                     labels = c("\u2264 0.3","> 0.5"))+ # "0.3 \u2264 0.5",
+                     labels = c("\u2264 0.3", "0.3 \u2264 0.5","> 0.5"))+
   geom_point(shape=21,size=6)+  
   #scale_y_discrete(limits = rev(unique(sort(trends$LUf))))+#scale_x_reverse()+
   theme_bw()+ 
@@ -163,7 +163,7 @@ p3 <-ggplot(data=sens_przm_h2, aes(sens_przm_h2$pcc,sens_przm_h2$var))+
   theme(legend.position='bottom')+#add "none" to remove legend
   ggtitle("Bifenthrin Concentration in Runoff")+ #RUNF0
   scale_y_discrete(labels=c("CN_c" = "curve number", "fc" = "field capacity",
-                            "WP" = "wilting point"))
+                            "WP" = "wilting point", "FROC1"= "froc1"))
 
 print(p3)
 dev.off()
@@ -218,44 +218,10 @@ p4 <-ggplot(data=sens_pwc_ben, aes(sens_pwc_ben$pcc,sens_pwc_ben$var))+
   ggtitle("Bifenthrin Concentration in Sediment")+
   scale_y_discrete(labels=c("CN_c" = "curve number", "benthic_depth" = "benthic depth", 
                             "uslels"="uslels", "uslec_c"="uslec c","uslep"="uslep", "uslek"="uslek", 
-                            "anae_aq"="anae_aq","fc" = "field capacity","app_rate" = "app rate"))
+                            "anae_aq"="anae_aq","bulk_density" = "bulk density","app_rate" = "app rate"))
 print(p4)
 dev.off()
 
-
-# -----------------------
-# dummy plot
-# -----------------------
-
-sens_dummy <- sens_przm_h2
-sens_dummy$pcc <- c(0.7, 0.4, 0.2)
-
-# plot
-pdummy <-ggplot(data=sens_dummy, aes(sens_dummy$pcc,sens_dummy$var))+
-  geom_segment(aes(x=0, xend=pcc,y=var,yend=var)) + 
-  #facet_grid (~Media,scales="free")+
-  geom_point(aes(colour = cut(abs(pcc), c(-Inf, 0.3, 0.5, Inf))),size = 6) +
-  scale_color_manual(name = "|PCC|",
-                     values = c("(-Inf,0.3]" = "deepskyblue",
-                                "(0.3,0.5]" = "dodgerblue4",
-                                "(0.5, Inf]" = "Red"),
-                     labels = c("\u2264 0.3", "0.3\u2264 0.5", ">0.5"))+
-  geom_point(shape=21,size=6)+  
-  #scale_y_discrete(limits = rev(unique(sort(trends$LUf))))+#scale_x_reverse()+
-  theme_bw()+ 
-  geom_vline(aes(xintercept=0))+
-  labs(fill = "P value", size="Sensitivity Slope") +
-  theme(strip.text=element_text(color="Black", size=14,face="bold"))+ 
-  theme(axis.title.x = element_text( colour="black", size=14,face="bold"),axis.text.x  = element_text(vjust=0.5, size=12,colour="black"))+ 
-  theme(axis.title.y = element_text(face="bold", colour="black", size=12),axis.text.y  = element_text(vjust=0.5, size=12,colour="black"))+
-  theme(legend.text=element_text(size=12))+
-  labs(x = "PCC", y = "")+
-  theme(legend.title =element_text(size=12))+ 
-  # geom_text(data=subset(sens, PCC > 0.4),
-  #           aes(PCC,Parameter,label=Parameter))+
-  theme(legend.position='bottom')#add "none" to remove legend
-print(pdummy)
-dev.off()
 
 # ------------------------------------------------------------------------------
 # arrange plots in a panel
@@ -273,7 +239,7 @@ panel_plot <- cowplot::plot_grid(
 
 # extract a legend that is laid out horizontally
 legend_b <- cowplot::get_legend(
-  pdummy + 
+  p3 + 
     guides(color = guide_legend(nrow = 1)) +
     theme(legend.position = "bottom")
 )

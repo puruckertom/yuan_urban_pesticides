@@ -1,9 +1,9 @@
 ***  1/30/2020 11:35:07 AM
 ***  PRZM5 Input File Generator
 ***Record A1: Weather File
-C:\Users\echelsvi\git\yuan_urban_pesticides\deterministic\input\FOL003\17484_grid_folsom.wea
+C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL003/outputs/17484_grid_folsom.wea
 ***Record A2: PRZM5 Time Series Output File
-C:\Users\echelsvi\git\yuan_urban_pesticides\deterministic\input\FOL003\December-2016-FOL003_parent_only.zts
+C:/Users/echelsvi/git/yuan_urban_pesticides/deterministic/input/FOL003/outputs/output.zts
 ***Record A3: PRZM5 Advanced Options
 False,True,False,False,False,1
 ***Record 1: pfac, sfac, anetd 

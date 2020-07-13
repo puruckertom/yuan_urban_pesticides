@@ -59,7 +59,8 @@ p1 <- ggplot(data=sens_pwc_h2, aes(x= sens_pwc_h2$pcc, y=sens_pwc_h2$var))+
   scale_y_discrete(labels=c("bulk_density" = "bulk density", "PLMAS"="plmas", "sused"="sused",
                             "FROC1"="froc1", "DOC1"="doc1", "FROC2" = "froc2", "uslek"="uslek",
                             "benthic_depth"="benthic depth", "kd" = "kd","uslep" = "uslep",
-                            "app_rate"="app rate", "uslels"="uslels", "uslec_c"="uslec c", "CN_c"="curve number"))
+                            "app_rate"="app rate", "uslels"="uslels", "uslec_c"="uslec c", 
+                            "CN_c"="curve number", "SUSED"="sused"))
 print(p1)
 dev.off()
 
@@ -166,7 +167,8 @@ p4 <-ggplot(data=sens_pwc_ben, aes(sens_pwc_ben$pcc,sens_pwc_ben$var))+
   scale_y_discrete(labels=c("bulk_density"="bulk density","anae_aq"="anae_aq", 
                             "uslek"="uslek", "uslep"="uslep","app_rate"="app rate",
                             "uslels"="uslels", "uslec_c"="uslec c",
-                            "benthic_depth"="benthic depth", "CN_c"="curve number"))
+                            "benthic_depth"="benthic depth", "CN_c"="curve number",
+                            "anae_aq"="anae aq"))
 print(p4)
 dev.off()
 

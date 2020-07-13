@@ -6,6 +6,7 @@
 # load data
 # ------------------------------------------------------------------------------
 library(gtable)
+Nsims <- 5000
 
 # pwc output array
 # recall: this was created in 03write_update_run_pwc and saved in 05_write_output_into_df
@@ -152,7 +153,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   
   geom_point(data=obs_water_pgc, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
   
-  scale_x_date(date_breaks="1 year", date_labels="%Y", limits=as.Date(c('2011-01-01', '2014-12-31')), expand=c(0.01,0.01)) +
+  scale_x_date(date_breaks="1 year", labels=NULL, limits=as.Date(c('2011-01-01', '2014-12-31')), expand=c(0.01,0.01)) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
                      labels=trans_format("log10", math_format(10^.x)), limits=c(NA,20)) +
   labs(title = "", x = "", y = "Bifenthrin Concentration \n in the Water Column (ug/L) (log10)", color = "") +
@@ -203,7 +204,7 @@ p_plot <- ggplot(precip, aes(x=date,y=precip_cm))+
   theme_bw()+
   labs(title = "", x = "", y = "Precipitation (cm)", color = "") +
   scale_y_reverse() +
-  scale_x_date(date_breaks="1 year", date_labels="%Y", limits=as.Date(c('2011-01-01', '2014-12-31')), expand=c(0.01,0.01)) +
+  scale_x_date(date_breaks="1 year", labels=NULL, limits=as.Date(c('2011-01-01', '2014-12-31')), expand=c(0.01,0.01)) +
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())+
   theme(axis.text.y = element_text(size = 12))+ #axis text size
   theme(axis.text.x = element_text(size = 12))+
@@ -355,7 +356,7 @@ pwc_pplot <- ggplot(percentiles, aes(x=day, group=1)) +
   
   geom_point(data=obs_sed_pgc, aes(x=date, y=Result, color="CDPR Observed"), size=3)+ # CDPR observed data
   
-  scale_x_date(date_breaks="1 year", date_labels="%Y", limits=as.Date(c('2011-01-01', '2014-12-31')), expand=c(0.01,0.01)) +
+  scale_x_date(date_breaks="1 year", labels=NULL, limits=as.Date(c('2011-01-01', '2014-12-31')), expand=c(0.01,0.01)) +
   scale_y_continuous(trans="log10", breaks=trans_breaks("log10", function(x) 10^x), 
                      labels=trans_format("log10", math_format(10^.x)), limits=c(NA,40000)) +
   labs(title = "", x = "", y = "Bifenthrin Sediment Concentration \n (total mass, ug)/(dry sed mass,kg) (log10)", color = "") +
